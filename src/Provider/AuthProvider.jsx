@@ -8,8 +8,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.config";
-import { AuthContext } from "./AuthContext";
 import { useEffect, useState } from "react";
+import { AuthContext } from "./AuthContext";
 // import axios from "axios";
 
 const provider = new GoogleAuthProvider();
