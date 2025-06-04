@@ -21,6 +21,22 @@ export const router = createBrowserRouter([
         path: "/register",
         Component: Register,
       },
+      {
+        path: "/findTutors",
+        element: <h1>findTutors</h1>,
+      },
+      {
+        path: "/addTutorials",
+        element: <h1>addTutorials</h1>,
+      },
+      {
+        path: "/myTutorials",
+        element: <h1>myTutorials</h1>,
+      },
+      {
+        path: "/myBookedTutors",
+        element: <h1>myBookedTutors</h1>,
+      },
     ],
   },
 ]);
