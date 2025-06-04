@@ -16,7 +16,7 @@ const Navbar = () => {
       <nav className="flex justify-between max-w-[1200px] mx-auto items-center px-4">
         {/* Company Logo */}
         <div>
-          <h2 className="text-primary">Langveta</h2>
+          <img className="w-50" src="/assets/logo2.png" alt="" />
         </div>
         {/* NavLinks */}
         <div className="space-x-4 text-white">

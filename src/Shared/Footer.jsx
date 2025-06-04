@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto px-4 flex justify-between">
         {/* Company Logo */}
         <div>
-          <h2>CareerCode</h2>
+          <img className="w-50" src="/assets/logo2.png" alt="" />
         </div>
         {/* Quick Links */}
         <div>
