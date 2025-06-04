@@ -6,8 +6,8 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #0077ff;
-  --color-secondary: #00bbff;
+  --color-primary: #bb0101;
+  --color-secondary: #260000;
 }
 
 .button{
