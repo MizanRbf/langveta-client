@@ -38,7 +38,9 @@ const Register = () => {
         <div className="w-60 mx-auto">
           <img src="/assets/logo2.png" alt="" />
         </div>
-        <h2 className="text-center">Register Your Account</h2>
+        <div className="bg-primary text-white py-4 rounded-sm">
+          <h2 className="text-center">Register Your Account</h2>
+        </div>
         <hr className="my-4 text-[#e5e5e5]" />
         {/* Form */}
         <form onSubmit={handleRegister} className="fieldset">

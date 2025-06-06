@@ -21,7 +21,7 @@ const SocialLogin = ({ from }) => {
     <div>
       <button
         onClick={handleGoogleLogin}
-        className="btn bg-white text-black border-primary"
+        className="btn bg-white text-black border-primary w-full hover:bg-slate-100"
       >
         <svg
           aria-label="Google logo"

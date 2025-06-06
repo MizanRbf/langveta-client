@@ -33,7 +33,9 @@ const Login = () => {
         <div className="w-60 mx-auto">
           <img src="/assets/logo2.png" alt="" />
         </div>
-        <h2 className="text-center">Login Your Account</h2>
+        <div className="bg-primary text-white py-4 rounded-sm">
+          <h2 className="text-center">Login Your Account</h2>
+        </div>
         <hr className="text-[#e5e5e5] my-4" />
         <form onSubmit={handleLogin} className="fieldset">
           {/* Email */}
