@@ -12,7 +12,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-secondary py-3 fixed top-0 right-0 left-0">
+    <div className="bg-secondary py-3 fixed top-0 right-0 left-0 z-9">
       <nav className="flex justify-between max-w-[1800px] mx-auto items-center px-4">
         {/* Company Logo */}
         <div>

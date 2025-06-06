@@ -33,8 +33,11 @@ const Register = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+    <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl mt-[64px]">
       <div className="card-body">
+        <div className="w-60 mx-auto">
+          <img src="/assets/logo2.png" alt="" />
+        </div>
         <h2 className="text-center">Register Your Account</h2>
         <hr className="my-4 text-[#e5e5e5]" />
         {/* Form */}
