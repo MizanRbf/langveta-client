@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { MdDelete, MdEdit } from "react-icons/md";
-// import Swal from "sweetalert2";
 import { IoReturnDownBack } from "react-icons/io5";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const MyTutorials = () => {
   const { user } = useAuth();
@@ -19,40 +19,36 @@ const MyTutorials = () => {
     }
   }, [user]);
 
-  // // Handle Delete
-  // const handleDelete = (id) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       axios(`http://localhost:3000/tutorials/${id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           if (data.deletedCount) {
-  //             const remainingMyTasks = myTasks.filter(
-  //               (myTask) => myTask._id !== id
-  //             );
-  //             setMyTasks(remainingMyTasks);
-  //             console.log("after delete ", data);
-  //           }
-  //         });
+  // Handle Delete
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:3000/tutorials/${id}`).then((res) => {
+          if (res.data.deletedCount) {
+            const remainingMyTutorials = myTutorials.filter(
+              (myTutorial) => myTutorial._id !== id
+            );
+            setMyTutorials(remainingMyTutorials);
+            console.log("after delete ");
+          }
+        });
 
-  //       Swal.fire({
-  //         title: "Deleted!",
-  //         text: "Your file has been deleted.",
-  //         icon: "success",
-  //       });
-  //     }
-  //   });
-  // };
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
 
   // // Handle See Details
   // const handleSeeDetails = (taskId) => {
@@ -126,7 +122,7 @@ const MyTutorials = () => {
                         {/* Delete Button */}
                         <Link>
                           <button
-                            onClick={() => myTutorials._id}
+                            onClick={() => handleDelete(myTutorials._id)}
                             className="bg-red-500 p-2 rounded-sm text-white btn border-0"
                           >
                             <MdDelete className="text-xl" />
