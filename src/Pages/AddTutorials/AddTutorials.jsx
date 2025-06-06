@@ -1,46 +1,39 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const AddTutorials = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
-  const [tasks, setTasks] = useState([]);
+  const [tutorials, setTutorials] = useState([]);
 
-  // Handle Add Tasks
-  const handleAddTask = (e) => {
+  // Handle Add Tutorials
+  const handleAddTutorials = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newTask = Object.fromEntries(formData.entries());
+    const newTutorial = Object.fromEntries(formData.entries());
 
-    // Create Task Collection in DB
-    fetch("https://skilnado-server.vercel.app/tasks", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newTask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("after adding tasks to db", data);
-
-        if (data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Task Added Successfully!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          newTask._id = data.insertedId;
-          const newTasks = [...tasks, newTask];
-          setTasks(newTasks);
-          form.reset();
-          navigate("/myPostedTasks");
-        }
-      });
+    // Create Tutorial Collection in DB
+    axios.post("http://localhost:3000/tutorials", newTutorial).then((res) => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Tutorials Added Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        newTutorial._id = res.data.insertedId;
+        const newTutorials = [...tutorials, newTutorial];
+        setTutorials(newTutorials);
+        form.reset();
+        navigate("/myTutorials");
+      }
+    });
   };
 
   return (
@@ -57,43 +50,18 @@ const AddTutorials = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleAddTask} className="bg-slate-200 p-4 rounded-lg">
+        <form
+          onSubmit={handleAddTutorials}
+          className="bg-slate-200 p-4 rounded-lg"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2">
             <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Task Title</label>
+              <label className="label text-black">User Name</label>
               <input
                 type="text"
-                name="taskTitle"
+                name="name"
                 className="input w-full"
-                placeholder="Enter Task Name"
-              />
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Category</label>
-              <select
-                defaultValue="Category"
-                name="category"
-                className="select w-full"
-              >
-                <option disabled={true}>Category</option>
-                <option>Web Development</option>
-                <option>Design</option>
-                <option>Writing</option>
-                <option>Marketing</option>
-              </select>
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Deadline</label>
-              <input type="date" name="deadline" className="input w-full" />
-            </fieldset>
-            {/* Budget */}
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Budget</label>
-              <input
-                type="text"
-                name="budget"
-                className="input w-full"
-                placeholder="Enter Task Budget"
+                placeholder="Enter Your Name"
               />
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
@@ -102,16 +70,44 @@ const AddTutorials = () => {
                 type="email"
                 name="email"
                 className="input w-full"
-                placeholder="Enter Your Email"
+                value={user?.email}
               />
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">User Name</label>
+              <label className="label text-black">Image</label>
               <input
                 type="text"
-                name="name"
+                name="image"
                 className="input w-full"
-                placeholder="Enter Your Name"
+                // placeholder="Enter Tutorial Image"
+                value="https://i.ibb.co/LdL4MB6Z/download.jpg"
+              />
+            </fieldset>
+            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+              <label className="label text-black">Language</label>
+              <input
+                type="text"
+                name="language"
+                className="input w-full"
+                placeholder="Enter Language"
+              />
+            </fieldset>
+            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+              <label className="label text-black">Price</label>
+              <input
+                type="text"
+                name="price"
+                className="input w-full"
+                placeholder="Enter Price"
+              />
+            </fieldset>
+            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+              <label className="label text-black">Review</label>
+              <input
+                type="text"
+                name="review"
+                className="input w-full"
+                placeholder="Review"
               />
             </fieldset>
           </div>
@@ -131,7 +127,7 @@ const AddTutorials = () => {
             <input
               type="submit"
               className="input w-full font text-white bg-primary text-xl cursor-pointer"
-              value="Add Tutorials"
+              value="Submit"
             />
           </fieldset>
         </form>
