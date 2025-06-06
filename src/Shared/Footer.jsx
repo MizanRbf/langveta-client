@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div className="bg-secondary text-white py-10">
-      <div className="max-w-[1200px] mx-auto px-4 flex justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 flex justify-between">
         {/* Company Logo */}
         <div>
           <img className="w-50" src="/assets/logo2.png" alt="" />

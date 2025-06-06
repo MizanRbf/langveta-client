@@ -13,7 +13,7 @@ const Navbar = () => {
   };
   return (
     <div className="bg-secondary py-3">
-      <nav className="flex justify-between max-w-[1200px] mx-auto items-center px-4">
+      <nav className="flex justify-between max-w-[1800px] mx-auto items-center px-4">
         {/* Company Logo */}
         <div>
           <img className="w-50" src="/assets/logo2.png" alt="" />
