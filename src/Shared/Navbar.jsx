@@ -12,26 +12,30 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-secondary py-3">
+    <div className="bg-secondary py-3 fixed top-0 right-0 left-0">
       <nav className="flex justify-between max-w-[1800px] mx-auto items-center px-4">
         {/* Company Logo */}
         <div>
-          <img className="w-50" src="/assets/logo2.png" alt="" />
+          <img
+            className="w-50 bg-white rounded-sm"
+            src="/assets/logo2.png"
+            alt=""
+          />
         </div>
         {/* NavLinks */}
         <div className="space-x-4 text-white">
           <NavLink to="/">Home</NavLink>
 
-          <NavLink to="/allJobs">Find tutors</NavLink>
+          <NavLink to="/findTutors">Find tutors</NavLink>
 
           {/* For Applicant links. Check roles as well */}
-          {user && <NavLink to="/myApplications">Add Tutorials</NavLink>}
+          {user && <NavLink to="/addTutorials">Add Tutorials</NavLink>}
 
           {/* For Recruiter. Check role as well */}
           {user && (
             <>
-              <NavLink to="/addJob">My Tutorials</NavLink>
-              <NavLink to="/myPostedJobs">My booked tutors</NavLink>
+              <NavLink to="/myTutorials">My Tutorials</NavLink>
+              <NavLink to="/myBookedTutors">My booked tutors</NavLink>
             </>
           )}
         </div>

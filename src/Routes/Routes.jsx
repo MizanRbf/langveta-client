@@ -4,6 +4,10 @@ import Login from "../Layouts/RootLayouts/AuthLayouts/Login";
 import Register from "../Layouts/RootLayouts/AuthLayouts/Register";
 import HomePage from "../Pages/Home/HomePage";
 import ErrorPage from "../Pages/Error/errorPage";
+import FindTutors from "../Pages/FindTutors/FindTutors";
+import AddTutorials from "../Pages/AddTutorials/AddTutorials";
+import MyTutorials from "../Pages/MyTutorials/MyTutorials";
+import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
 
 export const router = createBrowserRouter([
   {
@@ -24,19 +28,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/findTutors",
-        element: <h1>findTutors</h1>,
+        element: <FindTutors></FindTutors>,
       },
       {
         path: "/addTutorials",
-        element: <h1>addTutorials</h1>,
+        element: <AddTutorials></AddTutorials>,
       },
       {
         path: "/myTutorials",
-        element: <h1>myTutorials</h1>,
+        element: <MyTutorials></MyTutorials>,
       },
       {
         path: "/myBookedTutors",
-        element: <h1>myBookedTutors</h1>,
+        element: <MyBookedTutors></MyBookedTutors>,
       },
     ],
   },
