@@ -114,7 +114,7 @@ const MyTutorials = () => {
                     <td>
                       <div className="flex items-center gap-3">
                         {/* Update Button */}
-                        <Link to={`/updateMyTask/${myTutorials._id}`}>
+                        <Link to={`/updateMyTutorials/${myTutorials._id}`}>
                           <button className="bg-blue-700 p-2 rounded-sm text-white btn border-0">
                             <MdEdit className="text-xl" />
                           </button>

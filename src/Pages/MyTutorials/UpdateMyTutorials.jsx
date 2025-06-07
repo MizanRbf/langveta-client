@@ -1,57 +1,65 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router";
+import React from "react";
+import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 
-const AddTutorials = () => {
+const UpdateMyTutorials = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [tutorials, setTutorials] = useState([]);
+  const myTutorial = useLoaderData();
+  const { _id } = myTutorial;
 
-  // Handle Add Tutorials
-  const handleAddTutorials = (e) => {
+  // Handle Update MyTutorial
+  const handleUpdateMyTutorial = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newTutorial = Object.fromEntries(formData.entries());
+    const updatedMyTutorials = Object.fromEntries(formData.entries());
 
-    // Create Tutorial Collection in DB
-    axios.post("http://localhost:3000/tutorials", newTutorial).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Tutorials Added Successfully!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        newTutorial._id = res.data.insertedId;
-        const newTutorials = [...tutorials, newTutorial];
-        setTutorials(newTutorials);
-        form.reset();
-        navigate("/myTutorials");
+    // Update My Tutorials
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .put(`http://localhost:3000/tutorials/${_id}`, updatedMyTutorials)
+
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount) {
+              Swal.fire({
+                title: "Updated Successfully!",
+                icon: "success",
+                draggable: true,
+              });
+
+              navigate("/myTutorials");
+            }
+          });
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
       }
     });
   };
 
   return (
     <div className="pt-30">
-      <div className="mb-10 text-black px-4 max-w-[1400px] mx-auto">
-        {/* <Helmet>
-          <title>Langveta || Add Tutorials</title>
-        </Helmet> */}
+      <div className="px-4 max-w-[1400px] mx-auto mb-20">
         {/* Content */}
-        <div className="text-center mb-10">
-          <h1 className="mb-4 text-center rounded-tr-4xl rounded-tl-4xl rounded-bl-sm rounded-br-sm">
-            Add Tutorials
+        <div className="">
+          <h1 className="mb-4 py-1 rounded-tr-4xl rounded-tl-4xl rounded-bl-sm rounded-br-sm">
+            Update Your Data
           </h1>
         </div>
 
         {/* Form */}
         <form
-          onSubmit={handleAddTutorials}
+          onSubmit={handleUpdateMyTutorial}
           className="bg-slate-200 p-4 rounded-lg"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -59,6 +67,7 @@ const AddTutorials = () => {
               <label className="label text-black">User Name</label>
               <input
                 type="text"
+                defaultValue={myTutorial.name}
                 name="name"
                 className="input w-full"
                 placeholder="Enter Your Name"
@@ -78,16 +87,17 @@ const AddTutorials = () => {
               <label className="label text-black">Image</label>
               <input
                 type="text"
+                defaultValue={myTutorial.image}
                 name="image"
                 className="input w-full"
-                // placeholder="Enter Tutorial Image"
-                value="https://i.ibb.co/LdL4MB6Z/download.jpg"
+                placeholder="Enter Tutorial Image"
               />
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
               <label className="label text-black">Language</label>
               <input
                 type="text"
+                defaultValue={myTutorial.language}
                 name="language"
                 className="input w-full"
                 placeholder="Enter Language"
@@ -97,6 +107,7 @@ const AddTutorials = () => {
               <label className="label text-black">Price</label>
               <input
                 type="text"
+                defaultValue={myTutorial.price}
                 name="price"
                 className="input w-full"
                 placeholder="Enter Price"
@@ -106,6 +117,7 @@ const AddTutorials = () => {
               <label className="label text-black">Review</label>
               <input
                 type="text"
+                defaultValue={myTutorial.review}
                 name="review"
                 className="input w-full"
                 placeholder="Review"
@@ -116,7 +128,7 @@ const AddTutorials = () => {
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="label text-black">Description</label>
             <textarea
-              type="text"
+              defaultValue={myTutorial.description}
               name="description"
               className="input w-full"
               placeholder="Text Details"
@@ -128,7 +140,7 @@ const AddTutorials = () => {
             <input
               type="submit"
               className="input w-full font text-white bg-primary text-xl cursor-pointer"
-              value="Submit"
+              value="Update Now"
             />
           </fieldset>
         </form>
@@ -137,4 +149,4 @@ const AddTutorials = () => {
   );
 };
 
-export default AddTutorials;
+export default UpdateMyTutorials;

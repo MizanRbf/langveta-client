@@ -8,6 +8,8 @@ import FindTutors from "../Pages/FindTutors/FindTutors";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
+import UpdateMyTutorials from "../Pages/MyTutorials/UpdateMyTutorials";
+import Loader from "../Shared/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,13 @@ export const router = createBrowserRouter([
       {
         path: "/myBookedTutors",
         element: <MyBookedTutors></MyBookedTutors>,
+      },
+      {
+        path: "/updateMyTutorials/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/tutorials/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
+        element: <UpdateMyTutorials></UpdateMyTutorials>,
       },
     ],
   },
