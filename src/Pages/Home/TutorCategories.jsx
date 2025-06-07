@@ -11,6 +11,7 @@ import {
   FaPagelines,
   FaPizzaSlice,
 } from "react-icons/fa6";
+import CategoryCard from "./CategoryCard";
 const tutorCategories = [
   {
     title: "English tutors",
@@ -70,8 +71,10 @@ const tutorCategories = [
 
 const TutorCategories = () => {
   return (
-    <div>
-      {tutorCategories.map((tutorCategory) => console.log(tutorCategory))}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      {tutorCategories.map((tutorCategory, index) => (
+        <CategoryCard key={index} tutorCategory={tutorCategory}></CategoryCard>
+      ))}
     </div>
   );
 };

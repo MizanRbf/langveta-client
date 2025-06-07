@@ -14,7 +14,7 @@ const HomePage = () => {
 
       {/* Language Category Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
-        <h1 className="text-primary">Language Category</h1>
+        <h1 className="text-primary mb-10">Language Category</h1>
         <TutorCategories></TutorCategories>
       </div>
       {/* Extra - 1 */}
