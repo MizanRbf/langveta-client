@@ -37,7 +37,7 @@ const AddTutorials = () => {
   };
 
   return (
-    <div className="pt-30">
+    <div className="pt-25">
       <div className="mb-10 text-black px-4 max-w-[1400px] mx-auto">
         {/* <Helmet>
           <title>Langveta || Add Tutorials</title>

@@ -12,6 +12,7 @@ import UpdateMyTutorials from "../Pages/MyTutorials/UpdateMyTutorials";
 import Loader from "../Shared/Loader";
 import FindTutors from "../Pages/Tutors/FindTutors";
 import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
+import TutorDetails from "../Pages/Tutors/TutorDetails";
 
 export const router = createBrowserRouter([
   {
@@ -37,11 +38,17 @@ export const router = createBrowserRouter([
         element: <FindTutors></FindTutors>,
       },
       {
-        path: "/findTutors/:category",
+        path: "/find-tutors/:category",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/findTutors/${params.category}`),
+          fetch(`http://localhost:3000/find-tutors/${params.category}`),
         element: <TutorsByCategory></TutorsByCategory>,
+      },
+      {
+        path: "/tutor/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/tutor/${params.id}`),
+        element: <TutorDetails></TutorDetails>,
       },
       {
         path: "/addTutorials",

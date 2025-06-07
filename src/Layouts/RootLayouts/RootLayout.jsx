@@ -9,7 +9,7 @@ const RootLayout = () => {
       <header>
         <Navbar></Navbar>
       </header>
-      <main className="min-h-[calc(100vh-268px)]">
+      <main className="min-h-[calc(100vh-230px)]">
         <Outlet></Outlet>
       </main>
       <footer>

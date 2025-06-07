@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router";
 
 const TutorCard = ({ singleTutor }) => {
-  const { name, image, language, price, review, description } = singleTutor;
+  const { _id, name, image, language, price, review, description } =
+    singleTutor;
   return (
     <div className="bg-slate-200 rounded-sm shadow-xl">
-      <div className="flex gap-4 p-3">
+      <div className="flex gap-4 p-3 items-center">
         <img className="w-20 rounded-xl" src={image} alt="" />
         <div>
           <h3>{name}</h3>
@@ -22,9 +24,11 @@ const TutorCard = ({ singleTutor }) => {
           </p>
         </div>
       </div>
-      <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold">
-        Book Now
-      </button>
+      <Link to={`/tutor/${_id}`}>
+        <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer">
+          Book Now
+        </button>
+      </Link>
     </div>
   );
 };
