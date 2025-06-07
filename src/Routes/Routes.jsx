@@ -4,12 +4,13 @@ import Login from "../Layouts/RootLayouts/AuthLayouts/Login";
 import Register from "../Layouts/RootLayouts/AuthLayouts/Register";
 import HomePage from "../Pages/Home/HomePage";
 import ErrorPage from "../Pages/Error/errorPage";
-import FindTutors from "../Pages/FindTutors/FindTutors";
+
 import AddTutorials from "../Pages/Tutors/AddTutorials";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import MyBookedTutors from "../Pages/Tutors/MyBookedTutors";
 import UpdateMyTutorials from "../Pages/MyTutorials/UpdateMyTutorials";
 import Loader from "../Shared/Loader";
+import FindTutors from "../Pages/Tutors/FindTutors";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,9 @@ export const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: "/findTutors",
+        path: "/findTutors/:category",
+        loader: () => fetch("http://localhost:3000/tutorials"),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
       },
       {
