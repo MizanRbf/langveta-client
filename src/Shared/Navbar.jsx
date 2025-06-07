@@ -1,22 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
-import { AuthContext } from "../Provider/AuthContext";
+
 import { Tooltip } from "react-tooltip";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
+import useAuth from "../Hooks/useAuth";
 // import DarkMode from "./DarkMode";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOutUser } = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   // sign out
   const handleSignOut = () => {
-    logOut()
+    logOutUser()
       .then(() => {
         console.log("signOut successfully");
-        navigate("/auth/login");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error.message);
@@ -99,7 +100,7 @@ const Navbar = () => {
                 <div className="relative group cursor-pointer ring-primary ring-2 ring-offset-2 rounded-full">
                   <img
                     className=" rounded-full min-w-[30px] md:min-w-[35px] h-[30px] md:h-[35px]"
-                    src={user.photoURL}
+                    src={user?.photoURL || "/default-avatar.png"}
                     alt="User"
                   />
                 </div>
@@ -115,8 +116,7 @@ const Navbar = () => {
             {user ? (
               <button
                 onClick={handleSignOut}
-                to=""
-                className="bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
+                className="cursor-pointer bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
               >
                 Logout
               </button>

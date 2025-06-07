@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../../Shared/Banner";
 import Stats from "./Stats";
-import LanguageCategory from "./LanguageCategory";
+import TutorCategories from "./TutorCategories";
 
 const HomePage = () => {
   return (
@@ -15,7 +15,7 @@ const HomePage = () => {
       {/* Language Category Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
         <h1 className="text-primary">Language Category</h1>
-        <LanguageCategory></LanguageCategory>
+        <TutorCategories></TutorCategories>
       </div>
       {/* Extra - 1 */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
