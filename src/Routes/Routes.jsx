@@ -30,8 +30,13 @@ export const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: "/findTutors/:category",
-        loader: () => fetch("http://localhost:3000/tutorials"),
+        path: "/findTutors/:category?",
+        loader: ({ params }) => {
+          const url = params.category
+            ? `http://localhost:3000/tutorials?category=${params.category}`
+            : `http://localhost:3000/tutorials`;
+          return fetch(url);
+        },
         hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
       },

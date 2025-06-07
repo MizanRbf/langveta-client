@@ -1,8 +1,7 @@
 import React from "react";
 
-const CategorizedTutorCard = ({ categorizedSingleTutor }) => {
-  const { name, image, language, price, review, description } =
-    categorizedSingleTutor;
+const TutorCard = ({ singleTutor }) => {
+  const { name, image, language, price, review, description } = singleTutor;
   return (
     <div className="bg-slate-200 rounded-sm p-3 shadow-xl">
       <div className="flex gap-4">
@@ -27,4 +26,4 @@ const CategorizedTutorCard = ({ categorizedSingleTutor }) => {
   );
 };
 
-export default CategorizedTutorCard;
+export default TutorCard;
