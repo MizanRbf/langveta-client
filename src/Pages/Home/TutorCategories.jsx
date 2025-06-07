@@ -12,6 +12,7 @@ import {
   FaPizzaSlice,
 } from "react-icons/fa6";
 import CategoryCard from "./CategoryCard";
+import { GiPalmTree } from "react-icons/gi";
 const tutorCategories = [
   {
     title: "English tutors",
@@ -62,10 +63,10 @@ const tutorCategories = [
     link: "/japanese-tutors",
   },
   {
-    title: "Portuguese tutors",
+    title: "Bangla tutors",
     teachers: 1635,
-    icon: FaChurch,
-    link: "/portuguese-tutors",
+    icon: GiPalmTree,
+    link: "/bangla-tutors",
   },
 ];
 

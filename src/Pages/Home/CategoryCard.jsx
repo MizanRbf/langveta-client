@@ -5,10 +5,12 @@ import { Link } from "react-router";
 const CategoryCard = ({ tutorCategory }) => {
   console.log(tutorCategory);
   return (
-    <Link to="">
+    <Link to="/findTutors">
       <div className="bg-slate-200 p-3 rounded-sm flex items-center justify-between  shadow-xl hover:bg-slate-300 duration-300">
         <div>
-          <img src={tutorCategory.icon} alt="" />
+          <tutorCategory.icon size={30} />
+        </div>
+        <div>
           <h3>{tutorCategory.title}</h3>
           <p>
             <span className="font-semibold">Teachers:</span>{" "}
