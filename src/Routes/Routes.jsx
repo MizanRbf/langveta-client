@@ -11,6 +11,7 @@ import MyBookedTutors from "../Pages/Tutors/MyBookedTutors";
 import UpdateMyTutorials from "../Pages/MyTutorials/UpdateMyTutorials";
 import Loader from "../Shared/Loader";
 import FindTutors from "../Pages/Tutors/FindTutors";
+import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
 
 export const router = createBrowserRouter([
   {
@@ -30,15 +31,17 @@ export const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: "/findTutors/:category?",
-        loader: ({ params }) => {
-          const url = params.category
-            ? `http://localhost:3000/tutorials?category=${params.category}`
-            : `http://localhost:3000/tutorials`;
-          return fetch(url);
-        },
+        path: "/findTutors",
+        loader: () => fetch("http://localhost:3000/tutorials"),
         hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
+      },
+      {
+        path: "/findTutors/:category",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/findTutors/${params.category}`),
+        element: <TutorsByCategory></TutorsByCategory>,
       },
       {
         path: "/addTutorials",
