@@ -26,6 +26,9 @@ const TutorDetails = () => {
           </div>
         </div>
       </div>
+      <button className="bg-secondary text-white py-6 text-2xl w-full rounded-b-sm font-bold cursor-pointer">
+        Book Now
+      </button>
     </div>
   );
 };

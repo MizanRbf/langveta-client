@@ -28,7 +28,7 @@ const Navbar = () => {
     <div className="bg-secondary text-black border-2 border-b-[#3bb90565] border-x-0 border-t-0 py-4 fixed top-0 right-0 left-0 z-9">
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">
         {/* Logo */}
-        <div className="flex items-center gap-3 relative">
+        <div className="flex items-center gap-3">
           {/* Responsive Menubar */}
           <span onClick={() => setOpen(!open)}>
             {open ? (
@@ -46,24 +46,36 @@ const Navbar = () => {
             />
           </div>
           <ul
-            className={`top-13 left-0 absolute p-1 shadow bg-[#0e2b01] border-2 border-[#3bb90565] *:hover:bg-white *:hover:text-black *:hover:duration-300 rounded-md text-lg font-bold text-white space-y-2 z-9 ${
-              !open ? "hidden" : "block"
+            className={`top-18 right-0 left-0 absolute py-6 *:pl-10 shadow bg-secondary  *:hover:bg-white *:hover:text-black  *:hover:duration-300  text-lg font-bold text-white space-y-2 z-9 transform transition-all ease-in-out duration-500 ${
+              open
+                ? "opacity-100 translate-y-2 visible"
+                : "opacity-0 -translate-y-5 invisible"
             }`}
           >
             <li>
-              <Link to="/">Home</Link>
+              <button onClick={() => setOpen(false)}>
+                <Link to="/">Home</Link>
+              </button>
             </li>
             <li>
-              <Link to="/findTutors">Find Tutors</Link>
+              <button onClick={() => setOpen(false)}>
+                <Link to="/findTutors">Find Tutors</Link>
+              </button>
             </li>
             <li>
-              <Link to="/addTutorials">Add Tutorials</Link>
+              <button onClick={() => setOpen(false)}>
+                <Link to="/addTutorials">Add Tutorials</Link>
+              </button>
             </li>
             <li>
-              <Link to="/myTutorials">My Tutorials</Link>
+              <button onClick={() => setOpen(false)}>
+                <Link to="/myTutorials">My Tutorials</Link>
+              </button>
             </li>
             <li>
-              <Link to="/myBookedTutors">My Booked Tutors</Link>
+              <button className="text-left" onClick={() => setOpen(false)}>
+                <Link to="/myBookedTutors">My Booked Tutors</Link>
+              </button>
             </li>
           </ul>
         </div>

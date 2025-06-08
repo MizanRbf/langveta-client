@@ -26,7 +26,7 @@ const TutorCard = ({ singleTutor }) => {
       </div>
       <Link to={`/tutor/${_id}`}>
         <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer">
-          Book Now
+          Show Details
         </button>
       </Link>
     </div>
