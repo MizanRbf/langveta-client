@@ -83,7 +83,7 @@ const Navbar = () => {
         {/* Menubar for Large Device */}
 
         {/* NavLinks */}
-        <div className="space-x-4 text-white hidden lg:block">
+        <div className="space-x-4 text-white hidden lg:block *:px-3">
           <NavLink to="/">Home</NavLink>
 
           <NavLink to="/findTutors">Find tutors</NavLink>

@@ -31,5 +31,5 @@ h5{
 }
 
 .active{
- @apply underline text-primary;
+ @apply text-secondary bg-white transition-colors duration-600 ease-in-out font-semibold rounded-4xl;
 }
