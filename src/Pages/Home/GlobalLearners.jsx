@@ -27,11 +27,11 @@ const GlobalLearners = () => {
         {countries.map((country, index) => (
           <div
             key={index}
-            className="mr-4 bg-slate-200 rounded-lg p-4 border border-slate-300"
+            className="mr-4 bg-slate-200 rounded-lg py-4 px-20 border border-slate-300 text-center flex flex-col items-center justify-center"
           >
-            <div>{country.flag}</div>
-            <div>{country.name}</div>
-            <div>{country.learners} learners</div>
+            <img className="h-12" src={country.flagImage} alt="" />
+            <div className="font-bold text-xl mt-2">{country.name}</div>
+            <div className="text-xs">{country.learners}+ Learners</div>
           </div>
         ))}
       </Marquee>
@@ -49,7 +49,9 @@ const GlobalLearners = () => {
             key={index}
             className="mr-4 bg-slate-200 rounded-lg p-4 border border-slate-300"
           >
-            <div className="italic mb-6">"{testimonial.review}"</div>
+            <div className="italic mb-6">
+              <p>"{testimonial.review}"</p>
+            </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3">
                 {/* Image */}
@@ -59,7 +61,7 @@ const GlobalLearners = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-bold">{testimonial.name}</div>
+                  <div className="font-bold text-lg">{testimonial.name}</div>
                   <div className="text-xs">{testimonial.country}</div>
                 </div>
               </div>
