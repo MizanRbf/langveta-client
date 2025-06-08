@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { IoReturnDownBack } from "react-icons/io5";
 
 const TutorDetails = () => {
   const { user } = useAuth();
@@ -61,6 +62,13 @@ const TutorDetails = () => {
           className="bg-secondary text-white py-6 text-2xl w-full rounded-b-sm font-bold cursor-pointer"
         >
           Book Now
+        </button>
+      </Link>
+
+      <Link className="font text-xl" to={-1}>
+        <button className="border rounded-sm px-3 bg-secondary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
+          <IoReturnDownBack className="text-4xl font-bold" />
+          <span className="font-bold"> Go Back</span>
         </button>
       </Link>
     </div>

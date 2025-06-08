@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const TopRatedTutors = ({ topRatedTutors }) => {
   return (
@@ -34,9 +35,11 @@ const TopRatedTutors = ({ topRatedTutors }) => {
                 {tutor.email}
               </p>
             </div>
-            <button className="bg-secondary w-full rounded-bl-xl rounded-br-xl text-white font-bold py-2">
-              Book Now
-            </button>
+            <Link to={`/tutor/${tutor._id}`}>
+              <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer rounded-bl-xl rounded-br-xl py-2">
+                Show Details
+              </button>
+            </Link>
           </div>
         </div>
       ))}

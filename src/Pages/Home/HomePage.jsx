@@ -4,6 +4,7 @@ import Stats from "./Stats";
 import TutorCategories from "./TutorCategories";
 import TopRatedTutors from "./TopRatedTutors";
 import { useLoaderData } from "react-router";
+import GlobalLearners from "./GlobalLearners";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
@@ -29,9 +30,17 @@ const HomePage = () => {
         ></TopRatedTutors>
       </div>
 
-      {/* Extra - 2 */}
+      {/* Global Learners Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
-        <h1 className="text-primary">Extra - 2</h1>
+        <div className="text-center mb-6">
+          <h1 className="text-primary">Global Learners Around the World</h1>
+
+          <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+            Join 300+ learners from 20+ countries improving their language
+            skills.
+          </p>
+        </div>
+        <GlobalLearners></GlobalLearners>
       </div>
     </div>
   );
