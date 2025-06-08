@@ -4,11 +4,28 @@ import { Link } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import BookedCard from "./BookedCard";
 import { IoReturnDownBack } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 const MyBookedTutors = () => {
   const { user } = useAuth();
 
   const [bookedTutors, setBookedTutors] = useState([]);
+
+  // Handle Review
+  const handleReview = (id) => {
+    axios
+      .patch(`http://localhost:3000/review/${id}`)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          Swal.fire({
+            title: "Review Updated Successfully!",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .catch((error) => console.log(error));
+  };
 
   // useEffect
   useEffect(() => {
@@ -68,6 +85,7 @@ const MyBookedTutors = () => {
                 {bookedTutors.map((singleTutor, index) => (
                   <BookedCard
                     index={index}
+                    handleReview={handleReview}
                     singleTutor={singleTutor}
                   ></BookedCard>
                 ))}

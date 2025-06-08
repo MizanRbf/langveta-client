@@ -109,6 +109,7 @@ const AddTutorials = () => {
                 name="review"
                 className="input w-full"
                 placeholder="Review"
+                readOnly
               />
             </fieldset>
           </div>
