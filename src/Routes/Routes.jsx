@@ -13,6 +13,7 @@ import Loader from "../Shared/Loader";
 import FindTutors from "../Pages/Tutors/FindTutors";
 import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
 import TutorDetails from "../Pages/Tutors/TutorDetails";
+import TopRatedTutors from "../Pages/Home/TopRatedTutors";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch("http://localhost:3000/topRatedTutors"),
+        hydrateFallbackElement: <Loader></Loader>,
         Component: HomePage,
       },
       {
@@ -39,15 +42,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/find-tutors/:category",
-        hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/find-tutors/${params.category}`),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <TutorsByCategory></TutorsByCategory>,
       },
       {
         path: "/tutor/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/tutor/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <TutorDetails></TutorDetails>,
       },
       {

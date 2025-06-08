@@ -13,6 +13,7 @@ const TutorDetails = () => {
   const handleBookings = () => {
     const bookedTutors = {
       tutorId: tutor._id,
+      name,
       image,
       language,
       price,
