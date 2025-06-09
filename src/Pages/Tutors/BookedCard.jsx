@@ -1,7 +1,7 @@
 import React from "react";
 
 const BookedCard = ({ singleTutor, index, handleReview }) => {
-  const { name, image, language, price, tutorId } = singleTutor;
+  const { name, image, language, price, tutorId, review } = singleTutor;
 
   return (
     <tr key={singleTutor._id} className="border-2 border-white">
@@ -12,6 +12,7 @@ const BookedCard = ({ singleTutor, index, handleReview }) => {
       <td>{name}</td>
       <td>{language}</td>
       <td>$ {price}</td>
+      <td>{review}</td>
       <td>
         <div>
           <button onClick={() => handleReview(tutorId)} className="btn">

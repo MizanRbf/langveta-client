@@ -134,7 +134,7 @@ const Navbar = () => {
               </button>
             ) : (
               <Link
-                to="/auth/login"
+                to="/login"
                 className="bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
               >
                 Login

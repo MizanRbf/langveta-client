@@ -1,7 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import RootLayout from "../Layouts/RootLayouts/RootLayout";
-import Login from "../Layouts/RootLayouts/AuthLayouts/Login";
-import Register from "../Layouts/RootLayouts/AuthLayouts/Register";
+
 import HomePage from "../Pages/Home/HomePage";
 import ErrorPage from "../Pages/Error/errorPage";
 
@@ -14,6 +12,10 @@ import FindTutors from "../Pages/Tutors/FindTutors";
 import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
 import TutorDetails from "../Pages/Tutors/TutorDetails";
 import TopRatedTutors from "../Pages/Home/TopRatedTutors";
+import RootLayout from "../Layouts/RootLayout.jsx/RootLayout";
+import Login from "../Layouts/AuthLayouts/Login";
+import Register from "../Layouts/AuthLayouts/Register";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +38,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/findTutors",
-        loader: () => fetch("http://localhost:3000/tutorials"),
+        loader: () =>
+          fetch("http://localhost:3000/tutorials", {
+            credentials: "include",
+          }),
         hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
       },
@@ -50,21 +55,39 @@ export const router = createBrowserRouter([
       {
         path: "/tutor/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/tutor/${params.id}`),
+          fetch(`http://localhost:3000/tutor/${params.id}`, {
+            credentials: "include",
+          }),
         hydrateFallbackElement: <Loader></Loader>,
-        element: <TutorDetails></TutorDetails>,
+        element: (
+          <PrivateRoute>
+            <TutorDetails></TutorDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addTutorials",
-        element: <AddTutorials></AddTutorials>,
+        element: (
+          <PrivateRoute>
+            <AddTutorials></AddTutorials>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myTutorials",
-        element: <MyTutorials></MyTutorials>,
+        element: (
+          <PrivateRoute>
+            <MyTutorials></MyTutorials>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myBookedTutors",
-        element: <MyBookedTutors></MyBookedTutors>,
+        element: (
+          <PrivateRoute>
+            <MyBookedTutors></MyBookedTutors>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateMyTutorials/:id",

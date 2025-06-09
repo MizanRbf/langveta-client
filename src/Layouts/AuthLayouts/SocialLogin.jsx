@@ -1,7 +1,7 @@
 import React, { use } from "react";
 
 import { useNavigate } from "react-router";
-import { AuthContext } from "../../../Provider/AuthContext";
+import { AuthContext } from "../../Provider/AuthContext";
 
 const SocialLogin = ({ from }) => {
   const { googleLogin } = use(AuthContext);

@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import SocialLogin from "./SocialLogin";
-import { AuthContext } from "../../../Provider/AuthContext";
+import { AuthContext } from "../../Provider/AuthContext";
 
 const Login = () => {
   const location = useLocation();

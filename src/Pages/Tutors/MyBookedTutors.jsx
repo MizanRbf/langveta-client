@@ -33,7 +33,10 @@ const MyBookedTutors = () => {
     const fetchTutors = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/tutorBookings/${user.email}`
+          `http://localhost:3000/tutorBookings/${user.email}`,
+          {
+            withCredentials: true,
+          }
         );
         setBookedTutors(data);
       } catch (error) {
@@ -78,7 +81,8 @@ const MyBookedTutors = () => {
                   <th>Name</th>
                   <th>Language</th>
                   <th>Price</th>
-                  <th>Review</th>
+                  <th>Reviews</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>

@@ -13,7 +13,9 @@ const MyTutorials = () => {
   // const navigate = useNavigate();
   useEffect(() => {
     if (user?.email) {
-      axios(`http://localhost:3000/tutorials?email=${user.email}`)
+      axios(`http://localhost:3000/myTutorials/${user.email}`, {
+        withCredentials: true,
+      })
         .then((res) => setMyTutorials(res.data))
         .catch((error) => console.log(error.message));
     }

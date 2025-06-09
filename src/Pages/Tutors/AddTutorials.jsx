@@ -18,22 +18,26 @@ const AddTutorials = () => {
     const newTutorial = Object.fromEntries(formData.entries());
 
     // Create Tutorial Collection in DB
-    axios.post("http://localhost:3000/tutorials", newTutorial).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Tutorials Added Successfully!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        newTutorial._id = res.data.insertedId;
-        const newTutorials = [...tutorials, newTutorial];
-        setTutorials(newTutorials);
-        form.reset();
-        navigate("/myTutorials");
-      }
-    });
+    axios
+      .post("http://localhost:3000/tutorials", newTutorial, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Tutorials Added Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          newTutorial._id = res.data.insertedId;
+          const newTutorials = [...tutorials, newTutorial];
+          setTutorials(newTutorials);
+          form.reset();
+          navigate("/myTutorials");
+        }
+      });
   };
 
   return (
@@ -84,14 +88,28 @@ const AddTutorials = () => {
                 value="https://i.ibb.co/LdL4MB6Z/download.jpg"
               />
             </fieldset>
+
+            {/* Language */}
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
               <label className="label text-black">Language</label>
               <input
                 type="text"
-                name="language"
                 className="input w-full"
+                name="search"
                 placeholder="Enter Language"
+                list="browsers"
               />
+              <datalist id="browsers">
+                <option value="Arabic"></option>
+                <option value="English"></option>
+                <option value="Bangla"></option>
+                <option value="Japanese"></option>
+                <option value="Chinese"></option>
+                <option value="Italian"></option>
+                <option value="German"></option>
+                <option value="French"></option>
+                <option value="Spanish"></option>
+              </datalist>
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
               <label className="label text-black">Price</label>
@@ -109,6 +127,7 @@ const AddTutorials = () => {
                 name="review"
                 className="input w-full"
                 placeholder="Review"
+                defaultValue={0}
                 readOnly
               />
             </fieldset>

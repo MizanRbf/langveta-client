@@ -10,6 +10,7 @@ import {
 import { auth } from "../Firebase/Firebase.config";
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
+import axios from "axios";
 // import axios from "axios";
 
 const provider = new GoogleAuthProvider();
@@ -52,16 +53,17 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
 
-      // // Token Generate
-      // if (currentUser?.email) {
-      //   const userData = { email: currentUser.email };
-      //   axios
-      //     .post("http://localhost:3000/jwt", userData, {
-      //       withCredentials: true,
-      //     })
-      //     .then((res) => console.log(res.data))
-      //     .catch((error) => console.log(error));
-      // }
+      // Token Generate
+
+      if (currentUser?.email) {
+        const userInfo = { email: currentUser.email };
+        axios
+          .post("http://localhost:3000/jwt", userInfo, {
+            withCredentials: true,
+          })
+          .then((res) => console.log(res.data))
+          .catch((error) => console.log(error));
+      }
 
       console.log("user in the auth state change", currentUser);
     });
