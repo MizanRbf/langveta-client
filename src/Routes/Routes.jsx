@@ -13,9 +13,10 @@ import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
 import TutorDetails from "../Pages/Tutors/TutorDetails";
 import TopRatedTutors from "../Pages/Home/TopRatedTutors";
 import RootLayout from "../Layouts/RootLayout.jsx/RootLayout";
+import PrivateRoute from "../Provider/PrivateRoute";
+import AuthLayout from "../Layouts/AuthLayouts/AuthLayout";
 import Login from "../Layouts/AuthLayouts/Login";
 import Register from "../Layouts/AuthLayouts/Register";
-import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,14 +28,6 @@ export const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/topRatedTutors"),
         hydrateFallbackElement: <Loader></Loader>,
         Component: HomePage,
-      },
-      {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/register",
-        Component: Register,
       },
       {
         path: "/findTutors",
@@ -95,6 +88,20 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:3000/tutorials/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <UpdateMyTutorials></UpdateMyTutorials>,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "/auth/login",
+        Component: Login,
+      },
+      {
+        path: "/auth/register",
+        Component: Register,
       },
     ],
   },

@@ -28,60 +28,62 @@ const Login = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl mt-[64px]">
-      <div className="card-body">
-        <div className="w-60 mx-auto">
-          <img src="/assets/logo2.png" alt="" />
-        </div>
-        <div className="bg-primary text-white py-4 rounded-sm">
-          <h2 className="text-center">Login Your Account</h2>
-        </div>
-        <hr className="text-[#e5e5e5] my-4" />
-        <form onSubmit={handleLogin} className="fieldset">
-          {/* Email */}
-          <label className="label">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="input"
-            placeholder="Email"
-          />
-          {/* Password */}
-          <label className="label">Password</label>
-          <input
-            type="password"
-            className="input"
-            name="password"
-            placeholder="Password"
-          />
-          <div>
-            <a className="link link-hover">Forgot password?</a>
+    <div className="pt-40">
+      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+        <div className="card-body">
+          <div className="w-60 mx-auto">
+            <img src="/assets/logo2.png" alt="" />
           </div>
-          <button type="submit" className="btn  mt-4 button">
-            Login
-          </button>
-        </form>
+          <div className="bg-primary text-white py-4 rounded-sm">
+            <h2 className="text-center">Login Your Account</h2>
+          </div>
+          <hr className="text-[#e5e5e5] my-4" />
+          <form onSubmit={handleLogin} className="fieldset">
+            {/* Email */}
+            <label className="label">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="input"
+              placeholder="Email"
+            />
+            {/* Password */}
+            <label className="label">Password</label>
+            <input
+              type="password"
+              className="input"
+              name="password"
+              placeholder="Password"
+            />
+            <div>
+              <a className="link link-hover">Forgot password?</a>
+            </div>
+            <button type="submit" className="btn  mt-4 button">
+              Login
+            </button>
+          </form>
 
-        {/* Or */}
-        <div className="flex items-center gap-3">
-          <hr className="text-[#e5e5e5] flex-grow" />
-          <span>or</span>
-          <hr className="text-[#e5e5e5] flex-grow" />
+          {/* Or */}
+          <div className="flex items-center gap-3">
+            <hr className="text-[#e5e5e5] flex-grow" />
+            <span>or</span>
+            <hr className="text-[#e5e5e5] flex-grow" />
+          </div>
+
+          {/* Google Button */}
+          {/* Google */}
+          <SocialLogin from={from}></SocialLogin>
+
+          <p className="text-center">
+            Don't have an account{" "}
+            <Link
+              to="/auth/register"
+              className="text-red-500 hover:underline font-bold"
+            >
+              Register
+            </Link>
+          </p>
         </div>
-
-        {/* Google Button */}
-        {/* Google */}
-        <SocialLogin from={from}></SocialLogin>
-
-        <p className="text-center">
-          Don't have an account{" "}
-          <Link
-            to="/register"
-            className="text-red-500 hover:underline font-bold"
-          >
-            Register
-          </Link>
-        </p>
       </div>
     </div>
   );
