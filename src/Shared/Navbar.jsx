@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-secondary text-black py-4 fixed top-0 right-0 left-0 z-9">
+    <div className="bg-[rgba(255,200,33,0.27)] text-black py-4 fixed top-0 right-0 left-0 z-9">
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">
         {/* Logo */}
         <div className="flex items-center gap-3">

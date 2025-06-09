@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-secondary text-white py-10">
+    <div className="bg-slate-800 text-white py-10">
       <div className="max-w-[1800px] mx-auto px-4 flex justify-between">
         {/* Company Logo */}
         <div>

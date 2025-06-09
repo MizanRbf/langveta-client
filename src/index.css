@@ -21,7 +21,7 @@ body {
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #bb0101;
+  --color-primary: rgb(168,122,22);
   --color-secondary: #260000;
 }
 

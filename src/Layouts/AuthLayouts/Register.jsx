@@ -33,8 +33,8 @@ const Register = () => {
   };
 
   return (
-    <div className="pt-40">
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+    <div className="pt-30">
+      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down">
         <div className="card-body">
           <div className="w-60 mx-auto">
             <img src="/assets/logo2.png" alt="" />

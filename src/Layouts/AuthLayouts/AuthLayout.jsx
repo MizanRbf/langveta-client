@@ -6,15 +6,10 @@ import Footer from "../../Shared/Footer";
 const AuthLayout = () => {
   return (
     <div>
-      <header>
-        <Navbar></Navbar>
-      </header>
-      <main className="min-h-screen bg-[url(/assets/Banner.jpg)] bg-no-repeat bg-cover bg-center">
+      <div className="min-h-screen bg-[url(/assets/Banner.jpg)] bg-no-repeat bg-cover bg-center relative">
+        <div className="absolute top-0 right-0 left-0 h-screen bg-black opacity-60"></div>
         <Outlet></Outlet>
-      </main>
-      <footer>
-        <Footer></Footer>
-      </footer>
+      </div>
     </div>
   );
 };

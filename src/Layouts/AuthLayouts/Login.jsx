@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router";
 
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from "../../Provider/AuthContext";
+import { motion } from "motion/react";
+import { RxCross2 } from "react-icons/rx";
 
 const Login = () => {
   const location = useLocation();
@@ -28,9 +30,23 @@ const Login = () => {
   };
 
   return (
-    <div className="pt-40">
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+    <div className="pt-20">
+      <motion.div
+        animate={{
+          y: 100,
+          transition: { duration: 1 },
+        }}
+        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl "
+      >
         <div className="card-body">
+          {/* Go Home */}
+          <div className="flex justify-end">
+            <Link to="/">
+              <button className="hover:bg-gray-100 px-5 py-2 rounded-sm cursor-pointer">
+                <RxCross2 size={22} />
+              </button>
+            </Link>
+          </div>
           <div className="w-60 mx-auto">
             <img src="/assets/logo2.png" alt="" />
           </div>
@@ -84,7 +100,7 @@ const Login = () => {
             </Link>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
