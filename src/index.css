@@ -1,3 +1,18 @@
+:root {
+  --body_background: white;
+  --body_color: black;
+}
+
+.dark {
+  --body_background: black;
+  --body_color: white;
+}
+
+body {
+   background-color: var(--body_background);
+  color: var(--body_color);
+}
+
 @import 'tailwindcss';
 @plugin "daisyui" {
   themes: light --default;

@@ -30,43 +30,45 @@ const FindTutors = () => {
   };
 
   return (
-    <div className="px-4 max-w-[1400px] mx-auto">
-      <h1 className="mt-20">FindTutors</h1>
+    <div className="pt-25">
+      <div className="px-4 max-w-[1400px] mx-auto">
+        <h1 className="">FindTutors</h1>
 
-      {/* Search Button */}
-      <form className="my-10" onSubmit={handleSearchButton}>
-        <input
-          type="text"
-          className="input"
-          name="search"
-          placeholder="Enter Language"
-          list="browsers"
-          defaultValue={language}
-        />
-        <datalist id="browsers">
-          <option value="Arabic"></option>
-          <option value="English"></option>
-          <option value="Bangla"></option>
-          <option value="Japanese"></option>
-          <option value="Chinese"></option>
-          <option value="Italian"></option>
-          <option value="German"></option>
-          <option value="French"></option>
-          <option value="Spanish"></option>
-        </datalist>
-        <button type="submit" className="btn ml-4">
-          Find Tutors
-        </button>
-      </form>
+        {/* Search Button */}
+        <form className="my-10" onSubmit={handleSearchButton}>
+          <input
+            type="text"
+            className="input text-black"
+            name="search"
+            placeholder="Enter Language"
+            list="browsers"
+            defaultValue={language}
+          />
+          <datalist id="browsers">
+            <option value="Arabic"></option>
+            <option value="English"></option>
+            <option value="Bangla"></option>
+            <option value="Japanese"></option>
+            <option value="Chinese"></option>
+            <option value="Italian"></option>
+            <option value="German"></option>
+            <option value="French"></option>
+            <option value="Spanish"></option>
+          </datalist>
+          <button type="submit" className="btn ml-4">
+            Find Tutors
+          </button>
+        </form>
 
-      {/* Tutor Card */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-        {filteredTutors.map((singleTutor) => (
-          <TutorCard
-            key={singleTutor._id}
-            singleTutor={singleTutor}
-          ></TutorCard>
-        ))}
+        {/* Tutor Card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+          {filteredTutors.map((singleTutor) => (
+            <TutorCard
+              key={singleTutor._id}
+              singleTutor={singleTutor}
+            ></TutorCard>
+          ))}
+        </div>
       </div>
     </div>
   );

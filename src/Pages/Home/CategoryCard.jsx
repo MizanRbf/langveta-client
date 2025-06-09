@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const CategoryCard = ({ tutorCategory }) => {
   return (
     <Link to={`/find-tutors/${tutorCategory.title}`}>
-      <div className="bg-slate-200 p-3 rounded-sm flex items-center justify-between  shadow-xl hover:bg-slate-300 duration-300">
+      <div className="bg-slate-200 text-black  p-3 rounded-sm flex items-center justify-between  shadow-xl hover:bg-slate-300 duration-300">
         <div>
           <tutorCategory.icon size={30} />
         </div>

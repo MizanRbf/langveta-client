@@ -23,7 +23,7 @@ const GlobalLearners = () => {
   return (
     <div className="">
       {/* Countries */}
-      <Marquee speed={30} pauseOnHover={true}>
+      <Marquee speed={30} pauseOnHover={true} className="text-black">
         {countries.map((country, index) => (
           <div
             key={index}
@@ -43,7 +43,12 @@ const GlobalLearners = () => {
       </div>
 
       {/* Testimonials */}
-      <Marquee direction="right" speed={30} pauseOnHover={true}>
+      <Marquee
+        direction="right"
+        speed={30}
+        pauseOnHover={true}
+        className="text-black"
+      >
         {testimonials.map((testimonial, index) => (
           <div
             key={index}

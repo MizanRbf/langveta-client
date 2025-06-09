@@ -5,7 +5,7 @@ const TutorCard = ({ singleTutor }) => {
   const { _id, name, image, language, price, review, description } =
     singleTutor;
   return (
-    <div className="bg-slate-200 rounded-sm shadow-xl">
+    <div className="bg-slate-200 rounded-sm shadow-xl text-black border border-slate-300">
       <div className="flex gap-4 p-3 items-center">
         <img className="w-20 rounded-xl" src={image} alt="" />
         <div>

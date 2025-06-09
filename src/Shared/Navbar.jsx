@@ -5,7 +5,7 @@ import { Tooltip } from "react-tooltip";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../Hooks/useAuth";
-// import DarkMode from "./DarkMode";
+import DarkMood from "./DarkMood";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -102,9 +102,9 @@ const Navbar = () => {
 
         {/* Login Info */}
         <div className="flex gap-4 items-center">
-          {/* <div className="bg-white rounded-4xl p-1 rounded-">
-            <DarkMode></DarkMode>
-          </div> */}
+          <div className="bg-white rounded-4xl p-1 rounded-">
+            <DarkMood></DarkMood>
+          </div>
           {/* User Info */}
           <div>
             {user && (
