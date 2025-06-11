@@ -43,7 +43,7 @@ const HomePage = () => {
       <Banner></Banner>
 
       {/* Stats Section */}
-      <Stats allTutors={allTutors}></Stats>
+      <Stats allTutors={allTutors} totalReviews={totalReviews}></Stats>
 
       {/* Language Category Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
