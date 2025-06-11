@@ -56,7 +56,10 @@ const FindTutors = () => {
             <option value="French"></option>
             <option value="Spanish"></option>
           </datalist>
-          <button type="submit" className="btn ml-4">
+          <button
+            type="submit"
+            className="btn md:ml-4 mt-2 md:mt-0 bg-primary text-white"
+          >
             Find Tutors
           </button>
         </form>

@@ -27,14 +27,16 @@ const TutorCard = ({ singleTutor }) => {
             <MdPreview />
             <span className="font-semibold">Reviews:</span> {review}
           </p>
-          <p className="flex items-center gap-1">
+
+          <p className="flex items-center gap-1 ">
             <MdDescription />
-            <span className="font-semibold">Description:</span> {description}
+            <span className="font-semibold">Description:</span>{" "}
           </p>
+          <p>{description}</p>
         </div>
       </div>
       <Link to={`/tutor/${_id}`}>
-        <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer">
+        <button className="bg-primary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer">
           Show Details
         </button>
       </Link>

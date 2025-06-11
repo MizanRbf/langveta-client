@@ -22,7 +22,7 @@ body {
   name: "light";
   default: true;
   --color-primary: rgb(168,122,22);
-  --color-secondary: #260000;
+  --color-secondary: rgb(54,37,1);
 }
 
 .button{
@@ -45,6 +45,6 @@ h5{
   @apply font-semibold;
 }
 
-.active{
+/* .active{
  @apply text-secondary bg-white transition-colors duration-600 ease-in-out font-semibold rounded-4xl;
-}
+} */

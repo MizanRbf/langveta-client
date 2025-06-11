@@ -1,16 +1,34 @@
-import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router";
 
 import { Tooltip } from "react-tooltip";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../Hooks/useAuth";
 import DarkMood from "./DarkMood";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  // Scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   // sign out
   const handleSignOut = () => {
@@ -25,28 +43,28 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[rgba(255,200,33,0.27)] text-black py-4 fixed top-0 right-0 left-0 z-9">
+    <div
+      className={` text-black fixed top-0 right-0 left-0 z-9 transition-all duration-300 ease-in-out ${
+        isHome
+          ? isScrolled
+            ? "bg-white py-3 shadow-xl"
+            : "bg-[rgba(0,0,0,0.52)] py-5"
+          : "bg-white py-4 shadow-xl"
+      }`}
+    >
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          {/* Responsive Menubar */}
-          <span onClick={() => setOpen(!open)}>
-            {open ? (
-              <RxCross2 className="text-primary cursor-pointer  lg:hidden text-2xl" />
-            ) : (
-              <GiHamburgerMenu className="text-primary cursor-pointer lg:hidden text-2xl" />
-            )}
-          </span>
           {/* Company Logo */}
           <div>
             <img
-              className="w-30 bg-white rounded-sm py-2"
+              className="w-20 md:w-30 bg-white rounded-sm py-1 md:py-2"
               src="/assets/logo2.png"
               alt=""
             />
           </div>
           <ul
-            className={`top-18 right-0 left-0 absolute py-6 *:pl-10 shadow bg-secondary  *:hover:bg-white *:hover:text-black  *:hover:duration-300  text-lg font-bold text-white space-y-2 z-9 transform transition-all ease-in-out duration-500 ${
+            className={`top-18 right-0 left-0 absolute py-6 *:pl-10 shadow bg-[rgba(143,105,24,0.78)]  *:hover:bg-white *:hover:text-black  *:hover:duration-300  text-lg font-bold text-white space-y-2 z-9 transform transition-all ease-in-out duration-300 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"
@@ -77,25 +95,123 @@ const Navbar = () => {
                 <Link to="/myBookedTutors">My Booked Tutors</Link>
               </button>
             </li>
+
+            {/* Login Button */}
+
+            <div>
+              {user ? (
+                <button onClick={handleSignOut} className="cursor-pointer">
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/auth/login"
+                  className="bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
           </ul>
         </div>
 
         {/* Menubar for Large Device */}
 
         {/* NavLinks */}
-        <div className="space-x-4 text-white hidden lg:block *:px-3">
-          <NavLink to="/">Home</NavLink>
+        <div
+          className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
+            isScrolled ? "text-black" : "text-white"
+          }`}
+        >
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `px-3 transition-all duration-300 ${
+                isHome
+                  ? isActive
+                    ? "text-white bg-primary rounded-xs"
+                    : isScrolled
+                    ? "text-black"
+                    : "text-white"
+                  : "text-black"
+              }`
+            }
+          >
+            Home
+          </NavLink>
 
-          <NavLink to="/findTutors">Find tutors</NavLink>
+          <NavLink
+            to="/findTutors"
+            className={({ isActive }) =>
+              `px-3 transition-all duration-300 ${
+                isActive
+                  ? "text-white bg-primary rounded-xs"
+                  : isHome
+                  ? isScrolled
+                    ? "text-black"
+                    : "text-white"
+                  : "text-black"
+              }`
+            }
+          >
+            Find tutors
+          </NavLink>
 
           {/* For Applicant links. Check roles as well */}
-          {user && <NavLink to="/addTutorials">Add Tutorials</NavLink>}
+          {user && (
+            <NavLink
+              to="/addTutorials"
+              className={({ isActive }) =>
+                `px-3 transition-all duration-300 ${
+                  isActive
+                    ? "text-white bg-primary rounded-xs"
+                    : isHome
+                    ? isScrolled
+                      ? "text-black"
+                      : "text-white"
+                    : "text-black"
+                }`
+              }
+            >
+              Add Tutorials
+            </NavLink>
+          )}
 
           {/* For Recruiter. Check role as well */}
           {user && (
             <>
-              <NavLink to="/myTutorials">My Tutorials</NavLink>
-              <NavLink to="/myBookedTutors">My booked tutors</NavLink>
+              <NavLink
+                to="/myTutorials"
+                className={({ isActive }) =>
+                  `px-3 transition-all duration-300 ${
+                    isActive
+                      ? "text-white bg-primary rounded-xs"
+                      : isHome
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-white"
+                      : "text-black"
+                  }`
+                }
+              >
+                My Tutorials
+              </NavLink>
+              <NavLink
+                to="/myBookedTutors"
+                className={({ isActive }) =>
+                  `px-3 transition-all duration-300 ${
+                    isActive
+                      ? "text-white bg-primary rounded-xs"
+                      : isHome
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-white"
+                      : "text-black"
+                  }`
+                }
+              >
+                My booked tutors
+              </NavLink>
             </>
           )}
         </div>
@@ -123,8 +239,35 @@ const Navbar = () => {
               </a>
             )}
           </div>
+
+          {/* Responsive Icon */}
+          <div className="bg-white py-1 px-3 rounded-sm lg:hidden">
+            <span onClick={() => setOpen(!open)}>
+              {open ? (
+                <RxCross2
+                  className={`cursor-pointer   text-2xl ${
+                    isHome
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-black"
+                      : "text-black"
+                  }`}
+                />
+              ) : (
+                <MdMenu
+                  className={`cursor-pointer text-2xl ${
+                    isHome
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-black"
+                      : "text-black"
+                  }`}
+                />
+              )}
+            </span>
+          </div>
           {/* Log Button */}
-          <div>
+          <div className="hidden lg:block">
             {user ? (
               <button
                 onClick={handleSignOut}
