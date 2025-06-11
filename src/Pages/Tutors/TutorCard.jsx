@@ -1,4 +1,13 @@
 import React from "react";
+import { FaInfoCircle } from "react-icons/fa";
+import {
+  FaDollarSign,
+  FaLanguage,
+  FaSackDollar,
+  FaStar,
+} from "react-icons/fa6";
+import { IoLanguageSharp } from "react-icons/io5";
+import { MdPreview } from "react-icons/md";
 import { Link } from "react-router";
 
 const TutorCard = ({ singleTutor }) => {
@@ -10,16 +19,20 @@ const TutorCard = ({ singleTutor }) => {
         <img className="w-20 rounded-xl" src={image} alt="" />
         <div>
           <h3>{name}</h3>
-          <p>
+          <p className="flex items-center gap-1">
+            <IoLanguageSharp />
             <span className="font-semibold">Language:</span> {language}
           </p>
-          <p>
-            <span className="font-semibold">Price:</span> {price}
+          <p className="flex items-center gap-1">
+            <FaSackDollar />
+            <span className="font-semibold">Price:</span> ${price}
           </p>
-          <p>
+          <p className="flex items-center gap-1">
+            <MdPreview />
             <span className="font-semibold">Review:</span> {review}
           </p>
-          <p>
+          <p className="flex items-center gap-1">
+            <FaInfoCircle />
             <span className="font-semibold">Details:</span> {description}
           </p>
         </div>

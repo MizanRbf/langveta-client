@@ -2,12 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import useAuth from "../../Hooks/useAuth";
 
 const UpdateMyTutorials = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const myTutorial = useLoaderData();
+  const { email, image, language, name, price, review, description } =
+    myTutorial;
   const { _id } = myTutorial;
 
   // Handle Update MyTutorial
@@ -62,15 +62,16 @@ const UpdateMyTutorials = () => {
           onSubmit={handleUpdateMyTutorial}
           className="bg-slate-200 p-4 rounded-lg"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 *:text-black">
             <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
               <label className="label text-black">User Name</label>
               <input
                 type="text"
-                defaultValue={myTutorial.name}
+                defaultValue={name}
                 name="name"
                 className="input w-full"
                 placeholder="Enter Your Name"
+                readOnly
               />
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
@@ -79,7 +80,7 @@ const UpdateMyTutorials = () => {
                 type="email"
                 name="email"
                 className="input w-full"
-                defaultValue={user?.email}
+                defaultValue={email}
                 readOnly
               />
             </fieldset>
@@ -87,7 +88,7 @@ const UpdateMyTutorials = () => {
               <label className="label text-black">Image</label>
               <input
                 type="text"
-                defaultValue={myTutorial.image}
+                defaultValue={image}
                 name="image"
                 className="input w-full"
                 placeholder="Enter Tutorial Image"
@@ -97,7 +98,7 @@ const UpdateMyTutorials = () => {
               <label className="label text-black">Language</label>
               <input
                 type="text"
-                defaultValue={myTutorial.language}
+                defaultValue={language}
                 name="language"
                 className="input w-full"
                 placeholder="Enter Language"
@@ -107,7 +108,7 @@ const UpdateMyTutorials = () => {
               <label className="label text-black">Price</label>
               <input
                 type="text"
-                defaultValue={myTutorial.price}
+                defaultValue={price}
                 name="price"
                 className="input w-full"
                 placeholder="Enter Price"
@@ -117,18 +118,19 @@ const UpdateMyTutorials = () => {
               <label className="label text-black">Review</label>
               <input
                 type="text"
-                defaultValue={myTutorial.review}
+                defaultValue={review}
                 name="review"
                 className="input w-full"
                 placeholder="Review"
+                readOnly
               />
             </fieldset>
           </div>
           {/* Description */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4 text-black">
             <label className="label text-black">Description</label>
             <textarea
-              defaultValue={myTutorial.description}
+              defaultValue={description}
               name="description"
               className="input w-full"
               placeholder="Text Details"
