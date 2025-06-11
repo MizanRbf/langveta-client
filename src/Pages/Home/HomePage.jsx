@@ -11,7 +11,7 @@ const HomePage = () => {
   const topRatedTutors = useLoaderData();
   const [allTutors, setAllTutors] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
-  console.log(totalReviews);
+  const [languageCount, setLanguageCount] = useState(0);
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -30,6 +30,13 @@ const HomePage = () => {
           return sum + reviewCount;
         }, 0);
         setTotalReviews(reviews);
+
+        // Language Count
+        const uniqueLanguages = [
+          ...new Set(data.map((tutor) => tutor.language)),
+        ];
+        setLanguageCount(uniqueLanguages.length);
+        // UsersCount
       } catch (error) {
         console.log(error);
       }
@@ -43,7 +50,11 @@ const HomePage = () => {
       <Banner></Banner>
 
       {/* Stats Section */}
-      <Stats allTutors={allTutors} totalReviews={totalReviews}></Stats>
+      <Stats
+        allTutors={allTutors}
+        totalReviews={totalReviews}
+        languageCount={languageCount}
+      ></Stats>
 
       {/* Language Category Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
