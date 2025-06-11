@@ -12,7 +12,27 @@ const HomePage = () => {
   const [allTutors, setAllTutors] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [languageCount, setLanguageCount] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
 
+  console.log(totalUsers);
+
+  // useEffect Bookings
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const res = await axios("http://localhost:3000/tutorBookings");
+        const data = await res.data;
+        // UsersCount
+        const uniqueUsers = [...new Set(data.map((booking) => booking.email))];
+        setTotalUsers(uniqueUsers.length);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBookings();
+  }, []);
+
+  // useEffect Tutorials
   useEffect(() => {
     const fetchTutors = async () => {
       try {
@@ -36,7 +56,6 @@ const HomePage = () => {
           ...new Set(data.map((tutor) => tutor.language)),
         ];
         setLanguageCount(uniqueLanguages.length);
-        // UsersCount
       } catch (error) {
         console.log(error);
       }
@@ -54,6 +73,7 @@ const HomePage = () => {
         allTutors={allTutors}
         totalReviews={totalReviews}
         languageCount={languageCount}
+        totalUsers={totalUsers}
       ></Stats>
 
       {/* Language Category Section */}
