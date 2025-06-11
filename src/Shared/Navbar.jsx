@@ -63,56 +63,62 @@ const Navbar = () => {
               alt=""
             />
           </div>
-          <ul
-            className={`top-18 right-0 left-0 absolute py-6 *:pl-10 shadow bg-[rgba(143,105,24,0.78)]  *:hover:bg-white *:hover:text-black  *:hover:duration-300  text-lg font-bold text-white space-y-2 z-9 transform transition-all ease-in-out duration-300 ${
+          <nav
+            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(143,105,24,0.78)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"
             }`}
           >
-            <li>
-              <button onClick={() => setOpen(false)}>
-                <Link to="/">Home</Link>
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setOpen(false)}>
-                <Link to="/findTutors">Find Tutors</Link>
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setOpen(false)}>
-                <Link to="/addTutorials">Add Tutorials</Link>
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setOpen(false)}>
-                <Link to="/myTutorials">My Tutorials</Link>
-              </button>
-            </li>
-            <li>
-              <button className="text-left" onClick={() => setOpen(false)}>
-                <Link to="/myBookedTutors">My Booked Tutors</Link>
-              </button>
-            </li>
-
+            <ul className="*:pl-10 *:hover:bg-white *:hover:text-black  *:hover:duration-300 space-y-2">
+              <li>
+                <button onClick={() => setOpen(false)}>
+                  <Link to="/">Home</Link>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setOpen(false)}>
+                  <Link to="/findTutors">Find Tutors</Link>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setOpen(false)}>
+                  <Link to="/addTutorials">Add Tutorials</Link>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setOpen(false)}>
+                  <Link to="/myTutorials">My Tutorials</Link>
+                </button>
+              </li>
+              <li>
+                <button className="text-left" onClick={() => setOpen(false)}>
+                  <Link to="/myBookedTutors">My Booked Tutors</Link>
+                </button>
+              </li>
+            </ul>
             {/* Login Button */}
 
-            <div>
+            <div className="px-10">
               {user ? (
-                <button onClick={handleSignOut} className="cursor-pointer">
+                <button
+                  onClick={handleSignOut}
+                  className="cursor-pointer py-2 mt-2 bg-white rounded-sm text-primary shadow-2xl w-full hover:bg-[rgb(248,237,208)]"
+                >
                   Logout
                 </button>
               ) : (
-                <Link
-                  to="/auth/login"
-                  className="bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
-                >
-                  Login
+                <Link to="/auth/login">
+                  <button
+                    className="cursor-pointer py-2 mt-2 bg-white rounded-sm
+                    text-primary shadow-2xl w-full"
+                  >
+                    Login
+                  </button>
                 </Link>
               )}
             </div>
-          </ul>
+          </nav>
         </div>
 
         {/* Menubar for Large Device */}
