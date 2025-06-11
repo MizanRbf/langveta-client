@@ -4,7 +4,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router";
 const CategoryCard = ({ tutorCategory }) => {
   const [teachersCount, setTeachersCount] = useState([]);
-
   useEffect(() => {
     const fetchTutors = async () => {
       try {

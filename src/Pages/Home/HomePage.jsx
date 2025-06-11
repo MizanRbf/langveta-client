@@ -1,20 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../../Shared/Banner";
 import Stats from "./Stats";
 import TutorCategories from "./TutorCategories";
 import TopRatedTutors from "./TopRatedTutors";
 import { useLoaderData } from "react-router";
 import GlobalLearners from "./GlobalLearners";
+import axios from "axios";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
+  const [allTutors, setAllTutors] = useState([]);
+  const [totalReviews, setTotalReviews] = useState(0);
+  console.log(totalReviews);
+
+  useEffect(() => {
+    const fetchTutors = async () => {
+      try {
+        const res = await axios("http://localhost:3000/tutorials", {
+          withCredentials: true,
+        });
+
+        // All Tutors
+        const data = await res.data;
+        setAllTutors(data);
+
+        // Reviews Count
+        const reviews = await res.data.reduce((sum, tutor) => {
+          const reviewCount = Number(tutor.review) || 0;
+          return sum + reviewCount;
+        }, 0);
+        setTotalReviews(reviews);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchTutors();
+  }, []);
+
   return (
     <div className="">
       {/* Banner Section */}
       <Banner></Banner>
 
       {/* Stats Section */}
-      <Stats></Stats>
+      <Stats allTutors={allTutors}></Stats>
 
       {/* Language Category Section */}
       <div className="max-w-[1400px] mx-auto px-4 my-10">
