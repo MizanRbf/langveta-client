@@ -18,55 +18,55 @@ const tutorCategories = [
   {
     title: "Arabic",
     teachers: 3650,
-    icon: FaBookQuran,
+    icon: "https://flagcdn.com/w80/sa.png",
     link: "/arabic-tutors",
   },
   {
     title: "English",
     teachers: 33599,
-    icon: FaFlagUsa,
+    icon: "https://flagcdn.com/w80/us.png",
     link: "/english-tutors",
   },
   {
     title: "Spanish",
     teachers: 10052,
-    icon: FaGlobeEurope,
+    icon: "https://flagcdn.com/w80/es.png",
     link: "/spanish-tutors",
   },
   {
     title: "French",
     teachers: 3712,
-    icon: FaFlag,
+    icon: "https://flagcdn.com/w80/fr.png",
     link: "/french-tutors",
   },
   {
     title: "German",
     teachers: 1515,
-    icon: FaFlag,
+    icon: "https://flagcdn.com/w80/de.png",
     link: "/german-tutors",
   },
   {
     title: "Italian",
     teachers: 2542,
-    icon: FaPizzaSlice,
+    icon: "https://flagcdn.com/w80/it.png",
     link: "/italian-tutors",
   },
   {
     title: "Chinese",
     teachers: 5238,
-    icon: FaPagelines,
+    icon: "https://flagcdn.com/w80/cn.png",
     link: "/chinese-tutors",
   },
   {
     title: "Japanese",
     teachers: 2903,
-    icon: FaLandmark,
+    icon: "https://flagcdn.com/w80/jp.png",
     link: "/japanese-tutors",
   },
   {
     title: "Bangla",
     teachers: 1635,
-    icon: GiPalmTree,
+    icon: "https://flagcdn.com/w80/bd.png",
     link: "/bangla-tutors",
   },
 ];
@@ -75,7 +75,9 @@ const TutorCategories = () => {
   const [tutors, setTutors] = useState([]);
   console.log(tutors);
   useEffect(() => {
-    axios("http://localhost:3000/tutorials").then((res) => setTutors(res.data));
+    axios("http://localhost:3000/tutorials")
+      .then((res) => setTutors(res.data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (

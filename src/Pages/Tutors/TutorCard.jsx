@@ -7,7 +7,7 @@ import {
   FaStar,
 } from "react-icons/fa6";
 import { IoLanguageSharp } from "react-icons/io5";
-import { MdPreview } from "react-icons/md";
+import { MdDescription, MdPreview } from "react-icons/md";
 import { Link } from "react-router";
 
 const TutorCard = ({ singleTutor }) => {
@@ -24,16 +24,12 @@ const TutorCard = ({ singleTutor }) => {
             <span className="font-semibold">Language:</span> {language}
           </p>
           <p className="flex items-center gap-1">
-            <FaSackDollar />
-            <span className="font-semibold">Price:</span> ${price}
-          </p>
-          <p className="flex items-center gap-1">
             <MdPreview />
-            <span className="font-semibold">Review:</span> {review}
+            <span className="font-semibold">Reviews:</span> {review}
           </p>
           <p className="flex items-center gap-1">
-            <FaInfoCircle />
-            <span className="font-semibold">Details:</span> {description}
+            <MdDescription />
+            <span className="font-semibold">Description:</span> {description}
           </p>
         </div>
       </div>

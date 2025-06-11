@@ -1,11 +1,12 @@
 import { useLoaderData, useParams } from "react-router";
 import TutorCard from "./TutorCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const FindTutors = () => {
   const { category: language } = useParams();
   const allTutors = useLoaderData();
-  const [filteredTutors, setFilteredTutors] = useState(allTutors);
+  const { filteredTutors, setFilteredTutors } = useAuth();
 
   // Filter by Language
   useEffect(() => {
@@ -17,7 +18,7 @@ const FindTutors = () => {
     } else {
       setFilteredTutors(allTutors);
     }
-  }, [allTutors, language]);
+  }, [allTutors, language, setFilteredTutors]);
 
   // Handle Search Button
   const handleSearchButton = (e) => {

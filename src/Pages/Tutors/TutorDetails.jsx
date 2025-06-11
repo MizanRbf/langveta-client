@@ -3,7 +3,9 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import { IoReturnDownBack } from "react-icons/io5";
+import { IoLanguageSharp, IoReturnDownBack } from "react-icons/io5";
+import { FaSackDollar } from "react-icons/fa6";
+import { MdDescription, MdPreview } from "react-icons/md";
 
 const TutorDetails = () => {
   const { user } = useAuth();
@@ -37,23 +39,30 @@ const TutorDetails = () => {
   return (
     <div className="pt-25 px-4">
       <div className="max-w-[1400px] mx-auto px-4 border border-slate-200 rounded-sm">
-        <div className="flex items-center gap-4 p-3">
-          <img className="w-60 rounded-xl" src={image} alt="" />
+        <div className="flex gap-4 p-3 items-center">
+          <img className="w-20 rounded-xl" src={image} alt="" />
           <div>
-            <h3>{name}</h3>
-            <p>
-              <span className="font-semibold">Language:</span> {language}
-            </p>
-            <p>
-              <span className="font-semibold">Price:</span> {price}
-            </p>
-            <p>
-              <span className="font-semibold">Review:</span> {review}
-            </p>
-            <p>
-              <span className="font-semibold">Details:</span> {description}
-            </p>
+            <div>
+              <h3>{name}</h3>
+              <p className="flex items-center gap-1">
+                <IoLanguageSharp />
+                <span className="font-semibold">Language:</span> {language}
+              </p>
+              <p className="flex items-center gap-1">
+                <MdPreview />
+                <span className="font-semibold">Review:</span> {review}
+              </p>
+              <p className="flex items-center gap-1">
+                <MdDescription />
+                <span className="font-semibold">Description:</span>{" "}
+                {description}
+              </p>
+            </div>
           </div>
+          <p className="flex items-center gap-1">
+            <FaSackDollar />
+            <span className="font-semibold">Price:</span> ${price}
+          </p>
         </div>
       </div>
       <Link to="/myBookedTutors">

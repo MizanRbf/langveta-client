@@ -18,6 +18,7 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
+  const [filteredTutors, setFilteredTutors] = useState([]);
   // Create User
   const createUser = (email, password) => {
     setLoading(true);
@@ -82,6 +83,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     setLoading,
+    filteredTutors,
+    setFilteredTutors,
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
