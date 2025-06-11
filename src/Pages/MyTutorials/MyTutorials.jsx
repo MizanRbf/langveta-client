@@ -34,7 +34,8 @@ const MyTutorials = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:3000/tutorials/${id}`).then((res) => {
-          if (res.data.deletedCount) {
+          console.log(res.data);
+          if (res.data.result1.deletedCount) {
             const remainingMyTutorials = myTutorials.filter(
               (myTutorial) => myTutorial._id !== id
             );

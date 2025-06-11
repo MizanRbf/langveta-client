@@ -18,7 +18,6 @@ const TutorDetails = () => {
       image,
       language,
       price,
-      review,
       tutorEmail: tutor.email,
       email: user.email,
     };

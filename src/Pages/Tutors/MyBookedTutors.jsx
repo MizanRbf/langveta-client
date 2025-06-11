@@ -81,13 +81,13 @@ const MyBookedTutors = () => {
                   <th>Name</th>
                   <th>Language</th>
                   <th>Price</th>
-                  <th>Reviews</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {bookedTutors.map((singleTutor, index) => (
+                {bookedTutors?.map((singleTutor, index) => (
                   <BookedCard
+                    key={index}
                     index={index}
                     handleReview={handleReview}
                     singleTutor={singleTutor}

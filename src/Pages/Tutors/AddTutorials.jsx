@@ -66,6 +66,8 @@ const AddTutorials = () => {
                 name="name"
                 className="input w-full"
                 placeholder="Enter Your Name"
+                defaultValue={user.displayName}
+                readOnly
               />
             </fieldset>
             <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
@@ -84,8 +86,7 @@ const AddTutorials = () => {
                 type="text"
                 name="image"
                 className="input w-full"
-                // placeholder="Enter Tutorial Image"
-                value="https://i.ibb.co/LdL4MB6Z/download.jpg"
+                placeholder="Enter Tutorial Image"
               />
             </fieldset>
 
@@ -95,7 +96,7 @@ const AddTutorials = () => {
               <input
                 type="text"
                 className="input w-full"
-                name="search"
+                name="language"
                 placeholder="Enter Language"
                 list="browsers"
               />
@@ -128,7 +129,6 @@ const AddTutorials = () => {
                 className="input w-full"
                 placeholder="Review"
                 defaultValue={0}
-                readOnly
               />
             </fieldset>
           </div>
