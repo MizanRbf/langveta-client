@@ -19,7 +19,7 @@ const CategoryCard = ({ tutorCategory }) => {
     const fetchTutors = async () => {
       try {
         const res = await axios(
-          `http://localhost:3000/find-tutors/${tutorCategory?.title}`
+          `https://langveta-server.vercel.app/find-tutors/${tutorCategory?.title}`
         );
         const data = await res.data;
         setTeachersCount(data);

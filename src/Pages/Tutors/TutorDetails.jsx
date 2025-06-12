@@ -24,7 +24,7 @@ const TutorDetails = () => {
       email: user.email,
     };
     axios
-      .post("http://localhost:3000/tutorBookings", bookedTutors)
+      .post("https://langveta-server.vercel.app/tutorBookings", bookedTutors)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

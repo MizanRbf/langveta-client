@@ -24,7 +24,7 @@ const MyTutorials = () => {
   // const navigate = useNavigate();
   useEffect(() => {
     if (user?.email) {
-      axios(`http://localhost:3000/myTutorials/${user.email}`, {
+      axios(`https://langveta-server.vercel.app/myTutorials/${user.email}`, {
         withCredentials: true,
       })
         .then((res) => setMyTutorials(res.data))
@@ -44,14 +44,16 @@ const MyTutorials = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/tutorials/${id}`).then((res) => {
-          if (res.data.result1.deletedCount) {
-            const remainingMyTutorials = myTutorials.filter(
-              (myTutorial) => myTutorial._id !== id
-            );
-            setMyTutorials(remainingMyTutorials);
-          }
-        });
+        axios
+          .delete(`https://langveta-server.vercel.app/tutorials/${id}`)
+          .then((res) => {
+            if (res.data.result1.deletedCount) {
+              const remainingMyTutorials = myTutorials.filter(
+                (myTutorial) => myTutorial._id !== id
+              );
+              setMyTutorials(remainingMyTutorials);
+            }
+          });
 
         Swal.fire({
           title: "Deleted!",

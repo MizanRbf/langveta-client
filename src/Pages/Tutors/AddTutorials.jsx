@@ -40,7 +40,7 @@ const AddTutorials = () => {
 
     // Create Tutorial Collection in DB
     axios
-      .post("http://localhost:3000/tutorials", newTutorial, {
+      .post("https://langveta-server.vercel.app/tutorials", newTutorial, {
         withCredentials: true,
       })
       .then((res) => {
