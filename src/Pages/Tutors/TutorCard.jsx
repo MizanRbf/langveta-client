@@ -22,8 +22,7 @@ const Section = ({ children }) => (
 );
 
 const TutorCard = ({ singleTutor }) => {
-  const { _id, name, image, language, price, review, description } =
-    singleTutor;
+  const { _id, name, image, language, review, description } = singleTutor;
   return (
     <Section>
       <div className="bg-slate-200 rounded-sm shadow-xl text-black border border-slate-300">

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
@@ -64,10 +64,10 @@ const AddTutorials = () => {
   return (
     <div className="pt-25 pb-20">
       <div className=" text-black px-4 max-w-[1400px] mx-auto">
-        {/* <Helmet>
-          <title>Langveta || Add Tutorials</title>
-        </Helmet> */}
-        {/* Content */}
+        <Helmet>
+          <title>Add Tutorials || Langveta</title>
+        </Helmet>
+        {/* Content
         <Section1>
           <div className="text-center mb-10">
             <h1 className="mb-4 text-primary text-center">Add Tutorials</h1>

@@ -6,6 +6,7 @@ import BookedCard from "./BookedCard";
 import { IoReturnDownBack } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, x: 50 }}
@@ -59,9 +60,9 @@ const MyBookedTutors = () => {
   return (
     <div className="pt-30">
       <div className="max-w-[1400px] mx-auto mb-6 px-4">
-        {/* <Helmet>
-              <title>Skilnado || MyTasks</title>
-            </Helmet> */}
+        <Helmet>
+          <title>MyBookedTutors || Langveta</title>
+        </Helmet>
 
         {/* Title */}
         <div>

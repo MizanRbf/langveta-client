@@ -6,6 +6,7 @@ import TopRatedTutors from "./TopRatedTutors";
 import { useLoaderData } from "react-router";
 import GlobalLearners from "./GlobalLearners";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
@@ -65,6 +66,9 @@ const HomePage = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Home || Langveta</title>
+      </Helmet>
       {/* Banner Section */}
       <Banner></Banner>
 

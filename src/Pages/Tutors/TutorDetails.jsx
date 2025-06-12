@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { IoLanguageSharp, IoReturnDownBack } from "react-icons/io5";
 import { FaSackDollar } from "react-icons/fa6";
 import { MdDescription, MdPreview } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const TutorDetails = () => {
   const { user } = useAuth();
@@ -38,6 +39,9 @@ const TutorDetails = () => {
 
   return (
     <div className="pt-25 px-4">
+      <Helmet>
+        <title>TutorDetails || Langveta</title>
+      </Helmet>
       <div className="max-w-[1400px] mx-auto px-4 border border-slate-200 rounded-sm">
         <div className="flex gap-4 p-3 items-center">
           <img className="w-20 rounded-xl" src={image} alt="" />

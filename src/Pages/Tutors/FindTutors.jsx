@@ -3,6 +3,7 @@ import TutorCard from "./TutorCard";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, x: 50 }}
@@ -42,6 +43,9 @@ const FindTutors = () => {
 
   return (
     <div className="pt-25">
+      <Helmet>
+        <title>FindTutors || Langveta</title>
+      </Helmet>
       <div className="px-4 max-w-[1400px] mx-auto">
         <Section>
           <h1 className="">FindTutors</h1>
