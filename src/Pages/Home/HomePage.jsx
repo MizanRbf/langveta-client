@@ -18,10 +18,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await axios(
-          "https://langveta-server.vercel.app/tutorBookings",
-          { withCredentials: true }
-        );
+        const res = await axios("http://localhost:3000/tutorBookings", {
+          withCredentials: true,
+        });
         const data = await res.data;
         // UsersCount
         const uniqueUsers = [...new Set(data.map((booking) => booking.email))];
@@ -37,10 +36,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const res = await axios(
-          "https://langveta-server.vercel.app/tutorials",
-          { withCredentials: true }
-        );
+        const res = await axios("http://localhost:3000/tutorials", {
+          withCredentials: true,
+        });
 
         // All Tutors
         const data = await res.data;

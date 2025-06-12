@@ -23,7 +23,7 @@ const FindTutors = () => {
   useEffect(() => {
     if (language) {
       const filtered = allTutors.filter(
-        (tutors) => tutors.language === language
+        (tutors) => tutors.language.toLowerCase() === language.toLowerCase()
       );
       setFilteredTutors(filtered);
     } else {
@@ -34,12 +34,20 @@ const FindTutors = () => {
   // Handle Search Button
   const handleSearchButton = (e) => {
     e.preventDefault();
-    const searchLanguage = e.target.search.value;
+    const searchLanguage = e.target.search.value.toLowerCase();
     const afterFiltered = allTutors.filter(
-      (singleTutor) => singleTutor.language == searchLanguage
+      (singleTutor) => singleTutor.language.toLowerCase() === searchLanguage
     );
     setFilteredTutors(afterFiltered);
   };
+
+  // const navigate = useNavigate();
+
+  // const handleSearchButton = (e) => {
+  //   e.preventDefault();
+  //   const searchLanguage = e.target.search.value;
+  //   navigate(`/find-tutors/${searchLanguage}`);
+  // };
 
   return (
     <div className="pt-25">
@@ -53,20 +61,7 @@ const FindTutors = () => {
               className="input text-black"
               name="search"
               placeholder="Enter Language"
-              list="browsers"
-              defaultValue={language}
             />
-            <datalist id="browsers">
-              <option value="Arabic"></option>
-              <option value="English"></option>
-              <option value="Bangla"></option>
-              <option value="Japanese"></option>
-              <option value="Chinese"></option>
-              <option value="Italian"></option>
-              <option value="German"></option>
-              <option value="French"></option>
-              <option value="Spanish"></option>
-            </datalist>
             <button
               type="submit"
               className="btn md:ml-4 mt-2 md:mt-0 bg-primary text-white"

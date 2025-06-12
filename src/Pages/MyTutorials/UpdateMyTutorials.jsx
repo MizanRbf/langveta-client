@@ -38,10 +38,7 @@ const UpdateMyTutorials = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .put(
-            `https://langveta-server.vercel.app/tutorials/${_id}`,
-            updatedMyTutorials
-          )
+          .put(`http://localhost:3000/tutorials/${_id}`, updatedMyTutorials)
 
           .then((res) => {
             if (res.data.modifiedCount) {

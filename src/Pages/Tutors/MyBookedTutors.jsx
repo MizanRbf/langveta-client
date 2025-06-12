@@ -25,7 +25,7 @@ const MyBookedTutors = () => {
   // Handle Review
   const handleReview = (id) => {
     axios
-      .patch(`https://langveta-server.vercel.app/review/${id}`)
+      .patch(`http://localhost:3000/review/${id}`)
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({
@@ -44,7 +44,7 @@ const MyBookedTutors = () => {
     const fetchTutors = async () => {
       try {
         const { data } = await axios.get(
-          `https://langveta-server.vercel.app/tutorBookings/${user.email}`,
+          `http://localhost:3000/tutorBookings/${user.email}`,
           {
             withCredentials: true,
           }

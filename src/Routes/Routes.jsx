@@ -25,31 +25,29 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () =>
-          fetch("https://langveta-server.vercel.app/topRatedTutors"),
+        loader: () => fetch("http://localhost:3000/topRatedTutors"),
         hydrateFallbackElement: <Loader></Loader>,
         Component: HomePage,
       },
       {
         path: "/findTutors",
-        loader: () => fetch("https://langveta-server.vercel.app/tutorials"),
+        loader: () => fetch("http://localhost:3000/tutorials"),
         hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
       },
       {
         path: "/find-tutors/:category",
         loader: ({ params }) =>
-          fetch(
-            `https://langveta-server.vercel.app/find-tutors/${params.category}`,
-            { credentials: "include" }
-          ),
+          fetch(`http://localhost:3000/find-tutors/${params.category}`, {
+            credentials: "include",
+          }),
         hydrateFallbackElement: <Loader></Loader>,
         element: <TutorsByCategory></TutorsByCategory>,
       },
       {
         path: "/tutor/:id",
         loader: ({ params }) =>
-          fetch(`https://langveta-server.vercel.app/tutor/${params.id}`, {
+          fetch(`http://localhost:3000/tutor/${params.id}`, {
             credentials: "include",
           }),
         hydrateFallbackElement: <Loader></Loader>,
@@ -86,7 +84,7 @@ export const router = createBrowserRouter([
       {
         path: "/updateMyTutorials/:id",
         loader: ({ params }) =>
-          fetch(`https://langveta-server.vercel.app/tutorials/${params.id}`),
+          fetch(`http://localhost:3000/tutorials/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <UpdateMyTutorials></UpdateMyTutorials>,
       },

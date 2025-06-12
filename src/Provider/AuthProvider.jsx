@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const userInfo = { email: currentUser.email };
         axios
-          .post("https://langveta-server.vercel.app/jwt", userInfo, {
+          .post("http://localhost:3000/jwt", userInfo, {
             withCredentials: true,
           })
           .then()
