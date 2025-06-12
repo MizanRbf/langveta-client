@@ -62,22 +62,22 @@ const AddTutorials = () => {
   };
 
   return (
-    <div className="pt-25">
-      <div className="mb-10 text-black px-4 max-w-[1400px] mx-auto">
+    <div className="pt-25 pb-20">
+      <div className=" text-black px-4 max-w-[1400px] mx-auto">
         {/* <Helmet>
           <title>Langveta || Add Tutorials</title>
         </Helmet> */}
         {/* Content */}
         <Section1>
           <div className="text-center mb-10">
-            <h1 className="mb-4 text-center text-primary ">Add Tutorials</h1>
+            <h1 className="mb-4 text-primary text-center">Add Tutorials</h1>
           </div>
         </Section1>
         {/* Form */}
         <Section2>
           <form
             onSubmit={handleAddTutorials}
-            className="bg-slate-200 p-4 rounded-lg"
+            className="bg-slate-100 border border-slate-300 p-4 rounded-lg"
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
