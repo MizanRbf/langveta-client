@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router";
 import TutorCard from "./TutorCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { motion } from "motion/react";
 const Section = ({ children }) => (
@@ -18,6 +18,7 @@ const FindTutors = () => {
   const { category: language } = useParams();
   const allTutors = useLoaderData();
   const { filteredTutors, setFilteredTutors } = useAuth();
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Filter by Language
   useEffect(() => {
@@ -31,23 +32,13 @@ const FindTutors = () => {
     }
   }, [allTutors, language, setFilteredTutors]);
 
-  // Handle Search Button
-  const handleSearchButton = (e) => {
-    e.preventDefault();
-    const searchLanguage = e.target.search.value.toLowerCase();
-    const afterFiltered = allTutors.filter(
-      (singleTutor) => singleTutor.language.toLowerCase() === searchLanguage
+  // Find by Search
+  useEffect(() => {
+    const filtered = allTutors.filter((tutor) =>
+      tutor.language.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredTutors(afterFiltered);
-  };
-
-  // const navigate = useNavigate();
-
-  // const handleSearchButton = (e) => {
-  //   e.preventDefault();
-  //   const searchLanguage = e.target.search.value;
-  //   navigate(`/find-tutors/${searchLanguage}`);
-  // };
+    setFilteredTutors(filtered);
+  }, [allTutors, setFilteredTutors, searchTerm]);
 
   return (
     <div className="pt-25">
@@ -55,19 +46,14 @@ const FindTutors = () => {
         <Section>
           <h1 className="">FindTutors</h1>
           {/* Search Button */}
-          <form className="my-10" onSubmit={handleSearchButton}>
+          <form className="my-10" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               className="input text-black"
               name="search"
               placeholder="Enter Language"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button
-              type="submit"
-              className="btn md:ml-4 mt-2 md:mt-0 bg-primary text-white"
-            >
-              Find Tutors
-            </button>
           </form>
         </Section>
         {/* Tutor Card */}
