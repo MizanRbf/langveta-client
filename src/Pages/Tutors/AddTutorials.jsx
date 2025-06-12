@@ -63,21 +63,27 @@ const AddTutorials = () => {
 
   return (
     <div className="pt-25 pb-20">
-      <div className=" text-black px-4 max-w-[1400px] mx-auto">
+      <div className="  px-4 max-w-[1400px] mx-auto">
         <Helmet>
           <title>Add Tutorials || Langveta</title>
         </Helmet>
-        {/* Content
+
         <Section1>
           <div className="text-center mb-10">
-            <h1 className="mb-4 text-primary text-center">Add Tutorials</h1>
+            <div className="text-center mb-6">
+              <h1 className="text-primary">Add Tutorials</h1>
+
+              <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+                Add all field below with right information.
+              </p>
+            </div>
           </div>
         </Section1>
         {/* Form */}
         <Section2>
           <form
             onSubmit={handleAddTutorials}
-            className="bg-slate-100 border border-slate-300 p-4 rounded-lg"
+            className="border border-primary p-4 rounded-lg text-black"
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <fieldset className="fieldset border-base-300 rounded-box w-full p-4">

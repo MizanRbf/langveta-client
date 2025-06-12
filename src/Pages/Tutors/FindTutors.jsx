@@ -48,7 +48,13 @@ const FindTutors = () => {
       </Helmet>
       <div className="px-4 max-w-[1400px] mx-auto">
         <Section>
-          <h1 className="">FindTutors</h1>
+          <div className="">
+            <h1 className="text-primary">Find Tutors</h1>
+
+            <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+              Sort by adding your desired language below.
+            </p>
+          </div>
           {/* Search Button */}
           <form className="my-10" onSubmit={(e) => e.preventDefault()}>
             <input

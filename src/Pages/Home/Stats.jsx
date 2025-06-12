@@ -16,8 +16,8 @@ const Section = ({ children }) => (
 const Stats = ({ allTutors, totalReviews, languageCount, totalUsers }) => {
   return (
     <Section>
-      <div className="p-6 dark:bg-gray-100 dark:text-gray-800">
-        <div className="max-w-[1400px] mx-auto px-4 grid justify-center grid-cols-2 text-center lg:grid-cols-4">
+      <div className="p-6 mt-10">
+        <div className="border border-primary rounded-lg max-w-[1400px] mx-auto p-4 grid justify-center grid-cols-2 text-center lg:grid-cols-4">
           <div className="flex flex-col justify-start m-2 lg:m-6">
             <p className="text-4xl font-bold leading-none lg:text-6xl">
               <CountUp end={allTutors.length} duration={20} />+

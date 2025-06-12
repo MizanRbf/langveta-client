@@ -17,7 +17,7 @@ const TopRatedTutors = ({ topRatedTutors }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {topRatedTutors.map((tutor) => (
         <Section key={tutor._id}>
-          <div className="rounded-lg bg-slate-100 ">
+          <div className="rounded-lg">
             <div className="relative">
               <img
                 className="w-full h-[250px] rounded-tr-lg rounded-tl-lg"
@@ -26,8 +26,8 @@ const TopRatedTutors = ({ topRatedTutors }) => {
               />
             </div>
 
-            <div className="bg-slate-200 rounded-bl-xl rounded-br-xl border border-slate-300">
-              <div className="px-6 space-y-1 py-3  text-black ">
+            <div className=" rounded-bl-xl rounded-br-xl border-2 border-primary">
+              <div className="px-6 space-y-1 py-3">
                 <h2>{tutor.name}</h2>
                 <p>
                   <span className="font-bold">Language: </span>
@@ -48,7 +48,7 @@ const TopRatedTutors = ({ topRatedTutors }) => {
                 </p>
               </div>
               <Link to={`/tutor/${tutor._id}`}>
-                <button className="bg-secondary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer rounded-bl-xl rounded-br-xl py-2">
+                <button className="bg-secondary text-white px-3 w-full rounded-b-lg font-bold cursor-pointer py-2">
                   Show Details
                 </button>
               </Link>

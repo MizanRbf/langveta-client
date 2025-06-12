@@ -4,23 +4,27 @@ const BookedCard = ({ singleTutor, index, handleReview }) => {
   const { name, image, language, price, tutorId } = singleTutor;
 
   return (
-    <tr key={singleTutor._id} className="border-2 border-white">
+    <tr key={singleTutor._id} className="border-2  border-slate-200">
       <th>{index + 1}</th>
       <td>
-        <img className="rounded-xl w-20 h-20" src={image} alt="" />
+        <img
+          className="rounded-xl w-20 h-20 border-2 p-1 border-primary"
+          src={image}
+          alt=""
+        />
       </td>
-      <td>{name}</td>
+      <td className="font-bold">{name}</td>
       <td>{language}</td>
       <td>$ {price}</td>
       <td>
         <div>
-          <button onClick={() => handleReview(tutorId)} className="btn">
+          <button
+            onClick={() => handleReview(tutorId)}
+            className="btn bg-primary text-white"
+          >
             Review
           </button>
         </div>
-      </td>
-      <td>
-        <div className="flex items-center gap-3"></div>
       </td>
     </tr>
   );

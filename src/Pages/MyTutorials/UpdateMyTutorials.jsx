@@ -66,15 +66,19 @@ const UpdateMyTutorials = () => {
       <div className="px-4 max-w-[1400px] mx-auto mb-20">
         {/* Content */}
         <Section>
-          <div className="">
-            <h1 className="mb-10 text-center text-primary">Update Your Data</h1>
+          <div className="text-center mb-6">
+            <h1 className="text-primary">Update Your Data</h1>
+
+            <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+              Sorry for cannot be updated all fields.
+            </p>
           </div>
         </Section>
 
         {/* Form */}
         <form
           onSubmit={handleUpdateMyTutorial}
-          className="bg-slate-200 p-4 rounded-lg"
+          className="border-2 border-primary p-4 rounded-lg"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 *:text-black">
             <fieldset className="fieldset border-base-300 rounded-box w-full p-4">

@@ -67,7 +67,13 @@ const MyBookedTutors = () => {
         {/* Title */}
         <div>
           <Section>
-            <h1 className="mb-10 text-primary text-center">My Booked Tutors</h1>
+            <div className="text-center mb-6">
+              <h1 className="text-primary">My Booked Tutors</h1>
+
+              <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+                All items reserved here you have booked recently.
+              </p>
+            </div>
           </Section>
 
           {/* Empty Message */}
@@ -83,14 +89,12 @@ const MyBookedTutors = () => {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="table bg-secondary text-white">
+            <table className="table">
               {/* head */}
               <thead
-                className={`text-white text-lg ${
-                  bookedTutors.length < 1 && "hidden"
-                }`}
+                className={`text-lg ${bookedTutors.length < 1 && "hidden"}`}
               >
-                <tr>
+                <tr className="text-primary">
                   <th>No.</th>
                   <th>Image</th>
                   <th>Name</th>

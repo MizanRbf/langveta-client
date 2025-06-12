@@ -72,7 +72,13 @@ const MyTutorials = () => {
         {/* Title */}
         <div>
           <Section>
-            <h1 className="mb-10 text-center text-primary">My Tutorials</h1>
+            <div className="text-center mb-6">
+              <h1 className="text-primary">My Tutorials</h1>
+
+              <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+                All tutorials reserved here you have added recently.
+              </p>
+            </div>
           </Section>
 
           {/* Empty Message */}
@@ -89,15 +95,13 @@ const MyTutorials = () => {
             </h4>
           </div>
           <div className="overflow-x-auto">
-            <table className="table bg-secondary text-white">
+            <table className="table">
               {/* head */}
 
               <thead
-                className={`text-white text-lg ${
-                  myTutorials.length < 1 && "hidden"
-                }`}
+                className={`text-lg ${myTutorials.length < 1 && "hidden"}`}
               >
-                <tr>
+                <tr className="text-primary">
                   <th>No.</th>
                   <th>Image</th>
                   <th>Language</th>
@@ -110,17 +114,20 @@ const MyTutorials = () => {
 
               <tbody>
                 {myTutorials.map((myTutorials, index) => (
-                  <tr key={myTutorials._id} className="border-2 border-white">
+                  <tr
+                    key={myTutorials._id}
+                    className="border-2 border-slate-200"
+                  >
                     <th>{index + 1}</th>
                     <td>
                       <img
-                        className="rounded-xl w-20 h-20"
+                        className="rounded-xl w-20 h-20 border-2 p-1 border-primary"
                         src={myTutorials.image}
                         alt=""
                       />
                     </td>
                     <td>{myTutorials.language}</td>
-                    <td>{myTutorials.price}</td>
+                    <td>${myTutorials.price}</td>
                     <td>{myTutorials.description}</td>
                     <td>{myTutorials.review}</td>
                     <td>
