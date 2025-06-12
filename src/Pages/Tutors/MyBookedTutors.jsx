@@ -5,6 +5,17 @@ import useAuth from "../../Hooks/useAuth";
 import BookedCard from "./BookedCard";
 import { IoReturnDownBack } from "react-icons/io5";
 import Swal from "sweetalert2";
+import { motion } from "motion/react";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const MyBookedTutors = () => {
   const { user } = useAuth();
@@ -46,15 +57,17 @@ const MyBookedTutors = () => {
     fetchTutors();
   }, [user]);
   return (
-    <div className="pt-40">
+    <div className="pt-30">
       <div className="max-w-[1400px] mx-auto mb-6 px-4">
         {/* <Helmet>
               <title>Skilnado || MyTasks</title>
             </Helmet> */}
 
         {/* Title */}
-        <div className="my-10">
-          <h1 className="mb-4">My Booked Tutors</h1>
+        <div>
+          <Section>
+            <h1 className="mb-10 text-primary text-center">My Booked Tutors</h1>
+          </Section>
 
           {/* Empty Message */}
           <div
@@ -67,6 +80,7 @@ const MyBookedTutors = () => {
             </h1>
             <h4 className="text-center mt-8 text-black">Go to find tutors.</h4>
           </div>
+
           <div className="overflow-x-auto">
             <table className="table bg-secondary text-white">
               {/* head */}

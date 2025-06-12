@@ -64,7 +64,7 @@ const Navbar = () => {
             />
           </div>
           <nav
-            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(143,105,24,0.78)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
+            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.61)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"
@@ -231,7 +231,7 @@ const Navbar = () => {
           <div>
             {user && (
               <a className="my-anchor-element">
-                <div className="relative group cursor-pointer ring-white ring-1 ring-offset-1 rounded-full">
+                <div className="relative group ring-white ring-1 ring-offset-1 rounded-full">
                   <img
                     className=" rounded-full min-w-[30px] md:min-w-[35px] h-[30px] md:h-[35px]"
                     src={user?.photoURL || "/default-avatar.png"}
@@ -247,7 +247,11 @@ const Navbar = () => {
           </div>
 
           {/* Responsive Icon */}
-          <div className="bg-white py-1 px-3 rounded-sm lg:hidden">
+          <div
+            className={`py-1 px-3 rounded-sm lg:hidden ${
+              isScrolled ? "bg-slate-200 shadow-2xl" : "bg-white"
+            }`}
+          >
             <span onClick={() => setOpen(!open)}>
               {open ? (
                 <RxCross2

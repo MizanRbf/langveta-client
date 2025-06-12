@@ -5,6 +5,15 @@ import SocialLogin from "./SocialLogin";
 import { AuthContext } from "../../Provider/AuthContext";
 import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 0 }}
+    whileInView={{ opacity: 1, y: 150 }}
+    transition={{ duration: 0.3, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
 
 const Login = () => {
   const location = useLocation();
@@ -30,14 +39,8 @@ const Login = () => {
   };
 
   return (
-    <div className="pt-20">
-      <motion.div
-        animate={{
-          y: 100,
-          transition: { duration: 1 },
-        }}
-        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl "
-      >
+    <Section>
+      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl ">
         <div className="card-body">
           {/* Go Home */}
           <div className="flex justify-end">
@@ -100,8 +103,8 @@ const Login = () => {
             </Link>
           </p>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </Section>
   );
 };
 

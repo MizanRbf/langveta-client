@@ -2,6 +2,17 @@
 import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext";
+import { motion } from "motion/react";
+import { RxCross2 } from "react-icons/rx";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 0 }}
+    whileInView={{ opacity: 1, y: 150 }}
+    transition={{ duration: 0.3, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
 
 const Register = () => {
   const { createUser, updateUser } = use(AuthContext);
@@ -33,9 +44,23 @@ const Register = () => {
   };
 
   return (
-    <div className="pt-30">
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down">
+    <Section>
+      <div
+        animate={{ y: [0, 150] }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down"
+      >
         <div className="card-body">
+          {/* go home */}
+          <div className="flex justify-end">
+            <Link to="/">
+              <button className="hover:bg-gray-100 px-5 py-2 rounded-sm cursor-pointer">
+                <RxCross2 size={22} />
+              </button>
+            </Link>
+          </div>
           <div className="w-60 mx-auto">
             <img src="/assets/logo2.png" alt="" />
           </div>
@@ -105,7 +130,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Section>
   );
 };
 

@@ -5,6 +5,17 @@ import { IoReturnDownBack } from "react-icons/io5";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { motion } from "motion/react";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const MyTutorials = () => {
   const { user } = useAuth();
@@ -52,21 +63,18 @@ const MyTutorials = () => {
       }
     });
   };
-
-  // // Handle See Details
-  // const handleSeeDetails = (taskId) => {
-  //   navigate(`/bidsDetails/${taskId}`);
-  // };
   return (
-    <div className="pt-40">
+    <div className="pt-30">
       <div className="max-w-[1400px] mx-auto mb-6 px-4">
         {/* <Helmet>
           <title>Skilnado || MyTasks</title>
         </Helmet> */}
 
         {/* Title */}
-        <div className="my-10">
-          <h1 className="mb-4">My Tutorials</h1>
+        <div>
+          <Section>
+            <h1 className="mb-10 text-center text-primary">My Tutorials</h1>
+          </Section>
 
           {/* Empty Message */}
           <div
@@ -84,6 +92,7 @@ const MyTutorials = () => {
           <div className="overflow-x-auto">
             <table className="table bg-secondary text-white">
               {/* head */}
+
               <thead
                 className={`text-white text-lg ${
                   myTutorials.length < 1 && "hidden"
@@ -99,6 +108,7 @@ const MyTutorials = () => {
                   <th>Actions</th>
                 </tr>
               </thead>
+
               <tbody>
                 {myTutorials.map((myTutorials, index) => (
                   <tr key={myTutorials._id} className="border-2 border-white">
@@ -137,6 +147,7 @@ const MyTutorials = () => {
                 ))}
               </tbody>
             </table>
+
             <Link className="font text-xl" to="/addTutorials">
               <button className="border rounded-sm px-3 bg-primary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
                 <IoReturnDownBack className="text-4xl font-bold" />

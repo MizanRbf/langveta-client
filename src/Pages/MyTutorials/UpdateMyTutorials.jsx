@@ -2,6 +2,17 @@ import axios from "axios";
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { motion } from "motion/react";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const UpdateMyTutorials = () => {
   const navigate = useNavigate();
@@ -51,11 +62,11 @@ const UpdateMyTutorials = () => {
     <div className="pt-30">
       <div className="px-4 max-w-[1400px] mx-auto mb-20">
         {/* Content */}
-        <div className="">
-          <h1 className="mb-4 py-1 rounded-tr-4xl rounded-tl-4xl rounded-bl-sm rounded-br-sm">
-            Update Your Data
-          </h1>
-        </div>
+        <Section>
+          <div className="">
+            <h1 className="mb-10 text-center text-primary">Update Your Data</h1>
+          </div>
+        </Section>
 
         {/* Form */}
         <form

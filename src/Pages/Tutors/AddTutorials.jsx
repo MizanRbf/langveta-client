@@ -4,6 +4,27 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { motion } from "motion/react";
+const Section1 = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
+const Section2 = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const AddTutorials = () => {
   const { user } = useAuth();
@@ -47,111 +68,112 @@ const AddTutorials = () => {
           <title>Langveta || Add Tutorials</title>
         </Helmet> */}
         {/* Content */}
-        <div className="text-center mb-10">
-          <h1 className="mb-4 text-center rounded-tr-4xl rounded-tl-4xl rounded-bl-sm rounded-br-sm">
-            Add Tutorials
-          </h1>
-        </div>
-
-        {/* Form */}
-        <form
-          onSubmit={handleAddTutorials}
-          className="bg-slate-200 p-4 rounded-lg"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">User Name</label>
-              <input
-                type="text"
-                name="name"
-                className="input w-full"
-                placeholder="Enter Your Name"
-                defaultValue={user.displayName}
-                readOnly
-              />
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">User Email</label>
-              <input
-                type="email"
-                name="email"
-                className="input w-full"
-                defaultValue={user?.email}
-                readOnly
-              />
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Image</label>
-              <input
-                type="text"
-                name="image"
-                className="input w-full"
-                placeholder="Enter Tutorial Image"
-              />
-            </fieldset>
-
-            {/* Language */}
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Language</label>
-              <input
-                type="text"
-                className="input w-full"
-                name="language"
-                placeholder="Enter Language"
-                list="browsers"
-              />
-              <datalist id="browsers">
-                <option value="Arabic"></option>
-                <option value="English"></option>
-                <option value="Bangla"></option>
-                <option value="Japanese"></option>
-                <option value="Chinese"></option>
-                <option value="Italian"></option>
-                <option value="German"></option>
-                <option value="French"></option>
-                <option value="Spanish"></option>
-              </datalist>
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Price</label>
-              <input
-                type="text"
-                name="price"
-                className="input w-full"
-                placeholder="Enter Price"
-              />
-            </fieldset>
-            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-              <label className="label text-black">Review</label>
-              <input
-                type="text"
-                name="review"
-                className="input w-full"
-                placeholder="Review"
-                defaultValue={0}
-              />
-            </fieldset>
+        <Section1>
+          <div className="text-center mb-10">
+            <h1 className="mb-4 text-center text-primary ">Add Tutorials</h1>
           </div>
-          {/* Description */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="label text-black">Description</label>
-            <textarea
-              type="text"
-              name="description"
-              className="input w-full"
-              placeholder="Text Details"
-            />
-          </fieldset>
+        </Section1>
+        {/* Form */}
+        <Section2>
+          <form
+            onSubmit={handleAddTutorials}
+            className="bg-slate-200 p-4 rounded-lg"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">User Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="input w-full"
+                  placeholder="Enter Your Name"
+                  defaultValue={user.displayName}
+                  readOnly
+                />
+              </fieldset>
+              <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">User Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input w-full"
+                  defaultValue={user?.email}
+                  readOnly
+                />
+              </fieldset>
+              <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">Image</label>
+                <input
+                  type="text"
+                  name="image"
+                  className="input w-full"
+                  placeholder="Enter Tutorial Image"
+                />
+              </fieldset>
 
-          {/* Button */}
-          <fieldset className="fieldset  rounded-box w-full p-4 ">
-            <input
-              type="submit"
-              className="input w-full font text-white bg-primary text-xl cursor-pointer"
-              value="Submit"
-            />
-          </fieldset>
-        </form>
+              {/* Language */}
+              <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">Language</label>
+                <input
+                  type="text"
+                  className="input w-full"
+                  name="language"
+                  placeholder="Enter Language"
+                  list="browsers"
+                />
+                <datalist id="browsers">
+                  <option value="Arabic"></option>
+                  <option value="English"></option>
+                  <option value="Bangla"></option>
+                  <option value="Japanese"></option>
+                  <option value="Chinese"></option>
+                  <option value="Italian"></option>
+                  <option value="German"></option>
+                  <option value="French"></option>
+                  <option value="Spanish"></option>
+                </datalist>
+              </fieldset>
+              <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">Price</label>
+                <input
+                  type="text"
+                  name="price"
+                  className="input w-full"
+                  placeholder="Enter Price"
+                />
+              </fieldset>
+              <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+                <label className="label text-black">Review</label>
+                <input
+                  type="text"
+                  name="review"
+                  className="input w-full"
+                  placeholder="Review"
+                  defaultValue={0}
+                />
+              </fieldset>
+            </div>
+            {/* Description */}
+            <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+              <label className="label text-black">Description</label>
+              <textarea
+                type="text"
+                name="description"
+                className="input w-full"
+                placeholder="Text Details"
+              />
+            </fieldset>
+
+            {/* Button */}
+            <fieldset className="fieldset  rounded-box w-full p-4 ">
+              <input
+                type="submit"
+                className="input w-full font text-white bg-primary text-xl cursor-pointer"
+                value="Submit"
+              />
+            </fieldset>
+          </form>
+        </Section2>
       </div>
     </div>
   );
