@@ -62,11 +62,11 @@ const AuthProvider = ({ children }) => {
           .post("http://localhost:3000/jwt", userInfo, {
             withCredentials: true,
           })
-          .then((res) => console.log(res.data))
+          .then()
           .catch((error) => console.log(error));
       }
 
-      console.log("user in the auth state change", currentUser);
+      // console.log("user in the auth state change", currentUser);
     });
     return () => {
       unSubsCribe();

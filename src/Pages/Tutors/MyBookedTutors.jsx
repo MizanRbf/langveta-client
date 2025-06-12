@@ -51,7 +51,7 @@ const MyBookedTutors = () => {
         );
         setBookedTutors(data);
       } catch (error) {
-        console.log("failed to fetch:", error);
+        "failed to fetch:", error;
       }
     };
     fetchTutors();

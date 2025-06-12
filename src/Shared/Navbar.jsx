@@ -34,7 +34,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     logOutUser()
       .then(() => {
-        console.log("signOut successfully");
+        // console.log("signOut successfully");
         navigate("/auth/login");
       })
       .catch((error) => {
@@ -58,7 +58,7 @@ const Navbar = () => {
           {/* Company Logo */}
           <div>
             <img
-              className="w-20 md:w-30 bg-white rounded-sm py-1 md:py-2"
+              className="w-35 bg-white rounded-sm border-2 px-2 border-primary py-1 md:py-2"
               src="/assets/logo2.png"
               alt=""
             />

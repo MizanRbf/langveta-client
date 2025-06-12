@@ -73,9 +73,10 @@ const tutorCategories = [
 
 const TutorCategories = () => {
   const [tutors, setTutors] = useState([]);
-  console.log(tutors);
   useEffect(() => {
-    axios("http://localhost:3000/tutorials")
+    axios("http://localhost:3000/tutorials", {
+      withCredentials: true,
+    })
       .then((res) => setTutors(res.data))
       .catch((error) => console.log(error));
   }, []);

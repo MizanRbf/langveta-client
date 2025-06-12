@@ -1,5 +1,5 @@
 // import Lottie from "lottie-react";
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext";
 import { motion } from "motion/react";
@@ -16,6 +16,7 @@ const Section = ({ children }) => (
 
 const Register = () => {
   const { createUser, updateUser } = use(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   // Handle Register
   const handleRegister = (e) => {
@@ -25,22 +26,23 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
     const profile = {
       displayName: name,
       photoURL: photo,
     };
-
+    setErrorMessage("");
     // Create User
     createUser(email, password)
       .then(() => {
         // Update User
         updateUser(profile)
-          .then()
-          .catch((error) => console.log(error));
+          .then(() => {
+            navigate("/auth/login");
+          })
+          .catch((error) => setErrorMessage(error.message));
       })
-      .catch((error) => console.log(error.message));
-    navigate("/auth/login");
+      .catch((error) => setErrorMessage(error.message));
   };
 
   return (
@@ -115,6 +117,9 @@ const Register = () => {
               <input type="checkbox" defaultChecked className="checkbox" />
               Accept terms & conditions
             </label>
+            {/* Error Message */}
+            <p className="text-red-500">{errorMessage}</p>
+
             <button type="submit" className="btn  mt-4 button">
               Register
             </button>

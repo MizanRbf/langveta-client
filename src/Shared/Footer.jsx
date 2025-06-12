@@ -11,7 +11,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className=" bg-secondary text-white p-10 border border-x-0 border-t-primary border-b-0">
+    <footer className=" bg-[#422c00] text-white p-10 border border-x-0 border-t-primary border-b-0">
       <div className="flex flex-col lg:flex-row *:mb-8 justify-between mb-10 max-w-[1800px] mx-auto md:px-4">
         {/* Title & Description */}
         <nav className="items-start *:space-y-2">

@@ -14,8 +14,6 @@ const HomePage = () => {
   const [languageCount, setLanguageCount] = useState(0);
   const [totalUsers, setTotalUsers] = useState(0);
 
-  console.log(totalUsers);
-
   // useEffect Bookings
   useEffect(() => {
     const fetchBookings = async () => {

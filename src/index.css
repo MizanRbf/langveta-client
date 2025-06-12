@@ -21,8 +21,8 @@ body {
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: rgb(168,122,22);
-  --color-secondary: rgb(54,37,1);
+  --color-primary: rgb(137, 91, 0);
+  --color-secondary: rgb(137, 91, 0);
 }
 
 .button{

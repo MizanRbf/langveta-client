@@ -1,10 +1,11 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from "../../Provider/AuthContext";
 import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
+
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 0 }}
@@ -18,6 +19,7 @@ const Section = ({ children }) => (
 const Login = () => {
   const location = useLocation();
   const { loginUser, setUser } = use(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const from = location.state || "/";
 
@@ -27,15 +29,15 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
+    setErrorMessage("");
     // login User
     loginUser(email, password)
       .then((result) => {
         setUser(result.user);
         navigate(from);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setErrorMessage(error.message));
   };
 
   return (
@@ -77,6 +79,9 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
+
+            {/* Error Message */}
+            <p className="text-red-500">{errorMessage}</p>
             <button type="submit" className="btn  mt-4 button">
               Login
             </button>
@@ -91,7 +96,10 @@ const Login = () => {
 
           {/* Google Button */}
           {/* Google */}
-          <SocialLogin from={from}></SocialLogin>
+          <SocialLogin
+            setErrorMessage={setErrorMessage}
+            from={from}
+          ></SocialLogin>
 
           <p className="text-center">
             Don't have an account{" "}

@@ -41,7 +41,6 @@ const UpdateMyTutorials = () => {
           .put(`http://localhost:3000/tutorials/${_id}`, updatedMyTutorials)
 
           .then((res) => {
-            console.log(res.data);
             if (res.data.modifiedCount) {
               Swal.fire({
                 title: "Updated Successfully!",

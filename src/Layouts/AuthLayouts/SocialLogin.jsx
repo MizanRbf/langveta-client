@@ -3,18 +3,17 @@ import React, { use } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext";
 
-const SocialLogin = ({ from }) => {
+const SocialLogin = ({ from, setErrorMessage }) => {
   const { googleLogin } = use(AuthContext);
   const navigate = useNavigate();
-
   // Google Login
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        // console.log(result);
         navigate(from || "/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setErrorMessage(error.message));
   };
 
   return (

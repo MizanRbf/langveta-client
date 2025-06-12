@@ -16,8 +16,8 @@ const TopRatedTutors = ({ topRatedTutors }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {topRatedTutors.map((tutor) => (
-        <Section>
-          <div key={tutor._id} className="rounded-lg bg-slate-100 ">
+        <Section key={tutor._id}>
+          <div className="rounded-lg bg-slate-100 ">
             <div className="relative">
               <img
                 className="w-full h-[250px] rounded-tr-lg rounded-tl-lg"
