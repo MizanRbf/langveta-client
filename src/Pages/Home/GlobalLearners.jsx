@@ -23,11 +23,11 @@ const GlobalLearners = () => {
   return (
     <div className="">
       {/* Countries */}
-      <Marquee speed={30} pauseOnHover={true} className="text-black">
+      <Marquee speed={30} pauseOnHover={true} className="">
         {countries.map((country, index) => (
           <div
             key={index}
-            className="mr-4 bg-slate-200 rounded-lg py-4 px-20 border border-slate-300 text-center flex flex-col items-center justify-center"
+            className="mr-4 rounded-lg py-4 px-20 border border-slate-300 text-center flex  flex-col items-center justify-center"
           >
             <img className="h-12" src={country.flagImage} alt="" />
             <div className="font-bold text-xl mt-2">{country.name}</div>

@@ -26,7 +26,7 @@ const TopRatedTutors = ({ topRatedTutors }) => {
               />
             </div>
 
-            <div className=" rounded-bl-xl rounded-br-xl border-2 border-primary">
+            <div className=" rounded-b-xl border-2 border-t-0 border-primary">
               <div className="px-6 space-y-1 py-3">
                 <h2>{tutor.name}</h2>
                 <p>
