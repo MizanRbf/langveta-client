@@ -39,51 +39,60 @@ const TutorDetails = () => {
 
   return (
     <div className="pt-25 px-4">
-      <Helmet>
-        <title>TutorDetails || Langveta</title>
-      </Helmet>
-      <div className="max-w-[1400px] mx-auto px-4 border border-slate-200 rounded-sm">
-        <div className="flex gap-4 p-3 items-center">
-          <img className="w-20 rounded-xl" src={image} alt="" />
-          <div>
-            <div>
-              <h3>{name}</h3>
-              <p className="flex items-center gap-1">
-                <IoLanguageSharp />
-                <span className="font-semibold">Language:</span> {language}
-              </p>
-              <p className="flex items-center gap-1">
-                <MdPreview />
-                <span className="font-semibold">Review:</span> {review}
-              </p>
-              <p className="flex items-center gap-1">
-                <MdDescription />
-                <span className="font-semibold">Description:</span>{" "}
-                {description}
-              </p>
-            </div>
-          </div>
-          <p className="flex items-center gap-1">
-            <FaSackDollar />
-            <span className="font-semibold">Price:</span> ${price}
+      <div className="max-w-[1400px] mx-auto px-4">
+        <Helmet>
+          <title>TutorDetails || Langveta</title>
+        </Helmet>
+        <div className="text-center mb-6">
+          <h1 className="text-primary">Tutor Details</h1>
+
+          <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+            Welcome! You can see tutor's details here before booking done.
           </p>
         </div>
-      </div>
-      <Link to="/myBookedTutors">
-        <button
-          onClick={handleBookings}
-          className="bg-secondary text-white py-6 text-2xl w-full rounded-b-sm font-bold cursor-pointer"
-        >
-          Book Now
-        </button>
-      </Link>
+        <div className=" border border-slate-200 rounded-sm">
+          <div className="flex flex-col md:flex-row gap-4 p-3 items-center">
+            <img className="w-60 rounded-xl" src={image} alt="" />
+            <div>
+              <div>
+                <h3>{name}</h3>
+                <p className="flex items-center gap-1">
+                  <IoLanguageSharp />
+                  <span className="font-semibold">Language:</span> {language}
+                </p>
+                <p className="flex items-center gap-1">
+                  <MdPreview />
+                  <span className="font-semibold">Review:</span> {review}
+                </p>
+                <p className="flex items-center gap-1">
+                  <MdDescription />
+                  <span className="font-semibold">Description:</span>{" "}
+                  {description}
+                </p>
+              </div>
+            </div>
+            <p className="flex items-center gap-1">
+              <FaSackDollar />
+              <span className="font-semibold">Price:</span> ${price}
+            </p>
+          </div>
 
-      <Link className="font text-xl" to={-1}>
-        <button className="border rounded-sm px-3 bg-secondary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
-          <IoReturnDownBack className="text-4xl font-bold" />
-          <span className="font-bold"> Go Back</span>
-        </button>
-      </Link>
+          <Link to="/myBookedTutors">
+            <button
+              onClick={handleBookings}
+              className="bg-secondary text-white py-4 text-2xl w-full rounded-b-sm font-bold cursor-pointer"
+            >
+              Book Now
+            </button>
+          </Link>
+        </div>
+        <Link className="font text-xl" to={-1}>
+          <button className="border rounded-sm px-3 bg-secondary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
+            <IoReturnDownBack className="text-4xl font-bold" />
+            <span className="font-bold"> Go Back</span>
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

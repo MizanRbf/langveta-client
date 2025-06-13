@@ -66,7 +66,7 @@ const Navbar = () => {
 
           {/* Menubar for Small Device */}
           <nav
-            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
+            className={`top-18 lg:hidden right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"

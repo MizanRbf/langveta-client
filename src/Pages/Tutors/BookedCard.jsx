@@ -8,7 +8,7 @@ const BookedCard = ({ singleTutor, index, handleReview }) => {
       <th>{index + 1}</th>
       <td>
         <img
-          className="rounded-xl w-20 h-20 border-2 p-1 border-primary"
+          className="rounded-xl md:max-w-20 md:h-20 min-w-30 h-30 border-2 p-1 border-primary"
           src={image}
           alt=""
         />

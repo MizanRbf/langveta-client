@@ -1,12 +1,13 @@
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useParams } from "react-router";
 import TutorCard from "./TutorCard";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { motion } from "motion/react";
 import { Helmet } from "react-helmet-async";
+import { IoReturnDownBack } from "react-icons/io5";
 const Section = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, x: 50 }}
+    initial={{ opacity: 0, x: -50 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.3 }}
@@ -75,6 +76,12 @@ const FindTutors = () => {
             ></TutorCard>
           ))}
         </div>
+        <Link className="font text-xl" to={-1}>
+          <button className="border rounded-sm px-3 bg-secondary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
+            <IoReturnDownBack className="text-4xl font-bold" />
+            <span className="font-bold"> Go Back</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

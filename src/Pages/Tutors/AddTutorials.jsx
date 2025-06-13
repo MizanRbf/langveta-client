@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import { motion } from "motion/react";
+import { IoReturnDownBack } from "react-icons/io5";
 const Section1 = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, x: 50 }}
@@ -180,6 +181,12 @@ const AddTutorials = () => {
             </fieldset>
           </form>
         </Section2>
+        <Link className="font text-xl" to={-1}>
+          <button className="border rounded-sm px-3 bg-secondary text-white flex gap-2 items-center mt-6 mb-4 cursor-pointer">
+            <IoReturnDownBack className="text-4xl font-bold" />
+            <span className="font-bold"> Go Back</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

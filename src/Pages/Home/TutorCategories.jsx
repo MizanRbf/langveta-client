@@ -1,18 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaGlobeEurope } from "react-icons/fa";
-import {
-  FaBookOpen,
-  FaBookQuran,
-  FaChurch,
-  FaFlag,
-  FaFlagUsa,
-  FaGlobe,
-  FaLandmark,
-  FaPagelines,
-  FaPizzaSlice,
-} from "react-icons/fa6";
 import CategoryCard from "./CategoryCard";
-import { GiPalmTree } from "react-icons/gi";
 import axios from "axios";
 const tutorCategories = [
   {
@@ -70,9 +57,9 @@ const tutorCategories = [
     link: "/bangla-tutors",
   },
 ];
-
 const TutorCategories = () => {
   const [tutors, setTutors] = useState([]);
+
   useEffect(() => {
     axios("http://localhost:3000/tutorials", {
       withCredentials: true,

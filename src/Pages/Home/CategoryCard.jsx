@@ -13,6 +13,7 @@ const Section = ({ children }) => (
     {children}
   </motion.div>
 );
+
 const CategoryCard = ({ tutorCategory }) => {
   const [teachersCount, setTeachersCount] = useState([]);
   useEffect(() => {
