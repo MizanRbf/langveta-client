@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={` text-black fixed top-0 right-0 left-0 z-9 transition-all duration-300 ease-in-out ${
+      className={` text-black fixed top-0 right-0 left-0 z-20 transition-all duration-300 ease-in-out ${
         isHome
           ? isScrolled
             ? "bg-white py-3 shadow-xl"
@@ -63,8 +63,10 @@ const Navbar = () => {
               alt=""
             />
           </div>
+
+          {/* Menubar for Small Device */}
           <nav
-            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.61)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
+            className={`top-18 right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"
