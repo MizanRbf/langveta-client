@@ -59,6 +59,21 @@ const AddTutorials = () => {
           form.reset();
           navigate("/myTutorials");
         }
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          Swal.fire({
+            icon: "error",
+            title: "401",
+            text: "unauthorized access!",
+          });
+        } else if (error.status === 403) {
+          Swal.fire({
+            icon: "error",
+            title: "403",
+            text: "forbidden access!",
+          });
+        }
       });
   };
 
