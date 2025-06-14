@@ -4,9 +4,9 @@ Langveta is a feature-rich, fully responsive web application developed using man
 
 ---
 
-##🔑 Key Features of Langvetas
+## Key Features of Langvetas
 
-🔐 Authentication System
+- Authentication System
 - User registration, login, and logout functionalities powered by Firebase Authentication.
 - Supports third-party login via social accounts (e.g., Google).
 - Global auth state handled through custom AuthContext and useAuth hook.
