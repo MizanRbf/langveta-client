@@ -34,7 +34,7 @@ const Banner = () => {
 
   return (
     <div className="md:h-screen relative bg-[url(/assets/Banner.jpg)] bg-no-repeat bg-cover bg-center flex items-center flex-col md:flex-row justify-center md:justify-between  gap-10 pt-30 md:pt-0 pb-20 md:pb-0">
-      <div className="absolute top-0 right-0 left-0 h-screen bg-black opacity-40 z-0"></div>
+      <div className="absolute top-0 right-0 left-0 h-screen bg-black opacity-40 z-1"></div>
       <div className="z-9">
         <Section1>
           <div className="md:ml-20 text-white mx-4">

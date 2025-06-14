@@ -44,12 +44,12 @@ const Navbar = () => {
 
   return (
     <div
-      className={` text-black fixed top-0 right-0 left-0 z-20 transition-all duration-300 ease-in-out ${
+      className={` text-black fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out ${
         isHome
           ? isScrolled
             ? "bg-white py-3 shadow-xl"
             : "bg-[rgba(0,0,0,0.52)] py-5"
-          : "bg-white py-4 shadow-xl"
+          : "bg-white shadow-xl py-4"
       }`}
     >
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">
@@ -66,13 +66,13 @@ const Navbar = () => {
 
           {/* Menubar for Small Device */}
           <nav
-            className={`top-18 lg:hidden right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white z-9 transform transition-all ease-in-out duration-300 ${
+            className={`top-18 lg:hidden right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white transform transition-all ease-in-out duration-300 z-50 ${
               open
                 ? "opacity-100 translate-y-2 visible"
                 : "opacity-0 -translate-y-5 invisible"
             }`}
           >
-            <ul className="*:pl-10 *:hover:bg-white *:hover:text-black  *:hover:duration-300 space-y-2">
+            <ul className="px-10 *:hover:bg-white *:hover:text-black  *:hover:duration-300 space-y-2">
               <li>
                 <button onClick={() => setOpen(false)}>
                   <Link to="/">Home</Link>
@@ -124,8 +124,6 @@ const Navbar = () => {
         </div>
 
         {/* Menubar for Large Device */}
-
-        {/* NavLinks */}
         <div
           className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
             isScrolled ? "text-black" : "text-white"

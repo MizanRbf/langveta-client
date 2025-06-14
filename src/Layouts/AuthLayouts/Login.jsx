@@ -9,7 +9,8 @@ import { RxCross2 } from "react-icons/rx";
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 0 }}
-    whileInView={{ opacity: 1, y: 150 }}
+    md:whileInView={{ opacity: 1, y: 150 }}
+    whileInView={{ opacity: 1, y: 100 }}
     transition={{ duration: 0.3, ease: "easeOut" }}
   >
     {children}
@@ -42,7 +43,7 @@ const Login = () => {
 
   return (
     <Section>
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl ">
+      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
         <div className="card-body">
           {/* Go Home */}
           <div className="flex justify-end">
