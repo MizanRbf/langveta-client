@@ -1,12 +1,63 @@
-# React + Vite
+# 🌐 Langveta - A Modern Language Tutoring Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Langveta is a feature-rich, fully responsive web application developed using many features. It serves as an intuitive platform for learners to connect with expert language tutors, explore categorized tutorials, and manage their learning experience seamlessly.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##🔑 Key Features of Langvetas
 
-## Expanding the ESLint configuration
+🔐 Authentication System
+- User registration, login, and logout functionalities powered by Firebase Authentication.
+- Supports third-party login via social accounts (e.g., Google).
+- Global auth state handled through custom AuthContext and useAuth hook.
+🔒 Protected & Private Routes
+- Secure route protection using React Router v7.
+- Routes only accessible to authenticated users.
+- Unauthorized access is redirected to login.
+📚 Tutor Management System
+- Add Tutorials: Users can post their own tutorials.
+- My Tutorials: View and update your posted tutorials.
+- Booked Tutors: Track your booked sessions.
+🔍 Task & Tutor Browsing
+- Browse tutorials added by others.
+- View tutor profiles and details.
+- Category-based filtering for easier discovery.
+🌟 Testimonials & Reviews
+- Testimonials displayed in a responsive slider.
+🌘 Dark Mode Toggle
+- Elegant dark/light theme toggle for better UX.
+⚙️ State & API Management
+- Uses Context API for authentication and user state.
+- Custom useAxiosSecure hook for secure API communication.
+📱 Responsive UI Design
+- Fully mobile-friendly and responsive layout using Tailwind CSS and DaisyUI.
+- Adaptive navigation (hamburger menu on mobile).
+🚀 Performance & Build
+- Fast development and optimized builds with Vite.
+- Minimal bundle size for better load performance.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ NPM Packages
+
+This project uses the following major NPM packages:
+- Frontend: React 19, React DOM
+- Routing: React Router v7
+- UI Framework: TailwindCSS 4, DaisyUI
+- Authentication: Firebase v11
+- Tooltips: React Tooltip
+- Icons: React Icons
+- Alerts: SweetAlert2
+- Dynamic title: Helmet
+- Animation support: Motion
+- Promise-based HTTP client: Axios
+- Horizontal scrolling: react-fast-marquee
+
+---
+
+## ✨ Live URL
+
+- https://Langveta.web.app
+---
+
+Copyright © 2025 - All rights reserved by Langveta.
