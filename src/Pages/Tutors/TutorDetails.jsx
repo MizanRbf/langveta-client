@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 const TutorDetails = () => {
   const { user } = useAuth();
   const tutor = useLoaderData();
+
   const { _id, name, image, language, price, review, description } = tutor;
 
   // Handle Bookings
@@ -43,6 +44,7 @@ const TutorDetails = () => {
         <Helmet>
           <title>TutorDetails || Langveta</title>
         </Helmet>
+
         <div className="text-center mb-6">
           <h1 className="text-primary">Tutor Details</h1>
 

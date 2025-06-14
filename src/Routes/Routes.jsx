@@ -17,6 +17,8 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import AuthLayout from "../Layouts/AuthLayouts/AuthLayout";
 import Login from "../Layouts/AuthLayouts/Login";
 import Register from "../Layouts/AuthLayouts/Register";
+import Swal from "sweetalert2";
+import Error2 from "../Pages/Error/Error2";
 
 export const router = createBrowserRouter([
   {
@@ -46,16 +48,32 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tutor/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/tutor/${params.id}`, {
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:3000/tutor/${params.id}`, {
             credentials: "include",
-          }),
+          });
+
+          if (!res.ok) {
+            throw new Response(
+              Swal.fire({
+                icon: "error",
+                title: "401",
+                text: "unauthorized access!",
+              }),
+              { status: 404 }
+            );
+          }
+
+          const data = await res.json();
+          return data;
+        },
         hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>
             <TutorDetails></TutorDetails>
           </PrivateRoute>
         ),
+        errorElement: <Error2></Error2>,
       },
       {
         path: "/addTutorials",

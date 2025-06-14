@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router";
 
-const ErrorPage = () => {
+const Error2 = () => {
   return (
     <div className="mt-30 md:mt-0 min-h-[calc(100vh-314px)] flex flex-col justify-center items-center">
       <Helmet>
@@ -22,7 +22,7 @@ const ErrorPage = () => {
           />
         </div>
         <h1 className="text-red-500 text-2xl md:text-5xl font-bold">
-          404 - Page Not Found
+          401 - unauthorized access
         </h1>
         <p className="text-sm md:text-base lg:text-lg">
           Oops! The page you're looking for doesn't exist.
@@ -38,4 +38,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default Error2;
