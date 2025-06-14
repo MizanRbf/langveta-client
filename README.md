@@ -4,37 +4,37 @@ Langveta is a feature-rich, fully responsive web application developed using man
 
 ---
 
-## Key Features of Langvetas
+##🔑 Key Features
 
 - Authentication System
-- User registration, login, and logout functionalities powered by Firebase Authentication.
-- Supports third-party login via social accounts (e.g., Google).
-- Global auth state handled through custom AuthContext and useAuth hook.
-🔒 Protected & Private Routes
-- Secure route protection using React Router v7.
-- Routes only accessible to authenticated users.
-- Unauthorized access is redirected to login.
-📚 Tutor Management System
-- Add Tutorials: Users can post their own tutorials.
-- My Tutorials: View and update your posted tutorials.
-- Booked Tutors: Track your booked sessions.
-🔍 Task & Tutor Browsing
-- Browse tutorials added by others.
-- View tutor profiles and details.
-- Category-based filtering for easier discovery.
-🌟 Testimonials & Reviews
-- Testimonials displayed in a responsive slider.
-🌘 Dark Mode Toggle
-- Elegant dark/light theme toggle for better UX.
-⚙️ State & API Management
-- Uses Context API for authentication and user state.
-- Custom useAxiosSecure hook for secure API communication.
-📱 Responsive UI Design
-- Fully mobile-friendly and responsive layout using Tailwind CSS and DaisyUI.
-- Adaptive navigation (hamburger menu on mobile).
-🚀 Performance & Build
-- Fast development and optimized builds with Vite.
-- Minimal bundle size for better load performance.
+User registration, login, and logout functionalities powered by Firebase Authentication.
+Supports third-party login via social accounts (e.g., Google).
+Global auth state handled through custom AuthContext and useAuth hook.
+- Protected & Private Routes
+Secure route protection using React Router v7.
+Routes only accessible to authenticated users.
+Unauthorized access is redirected to login.
+- Tutor Management System
+Add Tutorials: Users can post their own tutorials.
+My Tutorials: View and update your posted tutorials.
+Booked Tutors: Track your booked sessions.
+- Task & Tutor Browsing
+Browse tutorials added by others.
+View tutor profiles and details.
+Category-based filtering for easier discovery.
+- Testimonials & Reviews
+Testimonials displayed in a responsive slider.
+- Dark Mode Toggle
+Elegant dark/light theme toggle for better UX.
+- State & API Management
+Uses Context API for authentication and user state.
+Custom useAxiosSecure hook for secure API communication.
+- Responsive UI Design
+Fully mobile-friendly and responsive layout using Tailwind CSS and DaisyUI.
+Adaptive navigation (hamburger menu on mobile).
+- Performance & Build
+Fast development and optimized builds with Vite.
+Minimal bundle size for better load performance.
 
 ---
 
