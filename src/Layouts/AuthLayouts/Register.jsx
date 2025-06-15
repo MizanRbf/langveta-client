@@ -63,7 +63,7 @@ const Register = () => {
               </button>
             </Link>
           </div>
-          <div className="w-60 mx-auto">
+          <div className="">
             <img src="/assets/logo2.png" alt="" />
           </div>
           <div className="bg-primary text-white py-4 rounded-sm">
