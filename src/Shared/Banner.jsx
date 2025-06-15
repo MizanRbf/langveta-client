@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { useNavigate } from "react-router";
 const Section1 = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, x: -50 }}
+    initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.3 }}
@@ -58,7 +58,8 @@ const Banner = () => {
         <Section2>
           <form
             onSubmit={handleBLanguageSearch}
-            className="border border-primary p-2 rounded-lg text-black md:min-w-[300px] min-w-[200px] lg:min-w-[400px]  bg-[rgba(0,0,0,0.62)] *:text-white"
+            className="border border-primary p-2 rounded-lg text-black
+            md:min-w-[300px]  lg:min-w-[400px] min-w-[200px]  bg-[rgba(0,0,0,0.62)] *:text-white"
           >
             <fieldset className="fieldset  rounded-box w-full p-4 ">
               <div className="w-full  bg-primary px-6 py-3 rounded-sm">

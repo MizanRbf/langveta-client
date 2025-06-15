@@ -3,7 +3,7 @@ import TutorCard from "./TutorCard";
 import { motion } from "motion/react";
 const Section = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, x: -50 }}
+    initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: false, amount: 0.3 }}
