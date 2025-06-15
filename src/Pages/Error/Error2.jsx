@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router";
+import { Link, useRouteError } from "react-router";
+import Swal from "sweetalert2";
 
 const Error2 = () => {
+  const error = useRouteError();
+
+  useEffect(() => {
+    if (error?.status === 401) {
+      Swal.fire({
+        icon: "error",
+        title: "401 - Unauthorized",
+        text: "You are not logged in or your session expired.",
+      });
+    } else if (error?.status === 403) {
+      Swal.fire({
+        icon: "error",
+        title: "403 - Forbidden",
+        text: "You are not allowed to access this resource.",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong",
+        text: "An unexpected error occurred.",
+      });
+    }
+  }, [error]);
   return (
     <div className="mt-30 md:mt-0 min-h-[calc(100vh-314px)] flex flex-col justify-center items-center">
       <Helmet>

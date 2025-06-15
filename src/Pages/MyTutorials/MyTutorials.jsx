@@ -33,14 +33,20 @@ const MyTutorials = () => {
           if (error.status === 401) {
             Swal.fire({
               icon: "error",
-              title: "401",
-              text: "unauthorized access!",
+              title: "401 - Unauthorized",
+              text: "You are not logged in or your session expired.",
             });
           } else if (error.status === 403) {
             Swal.fire({
               icon: "error",
-              title: "403",
-              text: "forbidden access!",
+              title: "403 - Forbidden",
+              text: "You are not allowed to access this resource.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Something went wrong",
+              text: "An unexpected error occurred.",
             });
           }
         });

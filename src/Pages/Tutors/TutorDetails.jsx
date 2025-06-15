@@ -7,10 +7,19 @@ import { IoLanguageSharp, IoReturnDownBack } from "react-icons/io5";
 import { FaSackDollar } from "react-icons/fa6";
 import { MdDescription, MdPreview } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
+import Error2 from "../Error/Error2";
 
 const TutorDetails = () => {
   const { user } = useAuth();
   const tutor = useLoaderData();
+  if (!tutor) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Unauthorized or Forbidden!",
+    });
+    return Error2;
+  }
 
   const { _id, name, image, language, price, review, description } = tutor;
 

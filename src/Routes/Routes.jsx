@@ -53,17 +53,11 @@ export const router = createBrowserRouter([
             credentials: "include",
           });
 
-          if (!res.ok) {
-            throw new Response(
-              Swal.fire({
-                icon: "error",
-                title: "401",
-                text: "unauthorized access!",
-              }),
-              { status: 404 }
-            );
+          if (res.status === 401) {
+            throw new Response("unauthorized access", { status: 401 });
+          } else if (res.status === 403) {
+            throw new Response("forbidden access", { status: 403 });
           }
-
           const data = await res.json();
           return data;
         },

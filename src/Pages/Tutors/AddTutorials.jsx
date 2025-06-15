@@ -47,11 +47,9 @@ const AddTutorials = () => {
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Tutorials Added Successfully!",
-            showConfirmButton: false,
-            timer: 1500,
+            icon: "error",
+            title: "401 - Unauthorized",
+            text: "You are not logged in or your session expired.",
           });
           newTutorial._id = res.data.insertedId;
           const newTutorials = [...tutorials, newTutorial];
@@ -64,14 +62,20 @@ const AddTutorials = () => {
         if (error.status === 401) {
           Swal.fire({
             icon: "error",
-            title: "401",
-            text: "unauthorized access!",
+            title: "401 - Unauthorized",
+            text: "You are not logged in or your session expired.",
           });
         } else if (error.status === 403) {
           Swal.fire({
             icon: "error",
-            title: "403",
-            text: "forbidden access!",
+            title: "403 - Forbidden",
+            text: "You are not allowed to access this resource.",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Something went wrong",
+            text: "An unexpected error occurred.",
           });
         }
       });
