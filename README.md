@@ -57,7 +57,7 @@ This project uses the following major NPM packages:
 
 ## ✨ Live URL
 
-- https://Langveta.web.app
+- https://langveta-client.web.app/
 ---
 
 Copyright © 2025 - All rights reserved by Langveta.
