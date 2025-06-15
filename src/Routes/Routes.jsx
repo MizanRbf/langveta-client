@@ -48,17 +48,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tutor/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/tutor/${params.id}`, {
-            credentials: "include",
-          }),
-        hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>
             <TutorDetails></TutorDetails>
           </PrivateRoute>
         ),
-        // errorElement: <Error2></Error2>,
       },
       {
         path: "/addTutorials",

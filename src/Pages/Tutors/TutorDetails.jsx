@@ -1,6 +1,6 @@
 import axios from "axios";
-import React from "react";
-import { Link, useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { IoLanguageSharp, IoReturnDownBack } from "react-icons/io5";
@@ -10,9 +10,49 @@ import { Helmet } from "react-helmet-async";
 import Error2 from "../Error/Error2";
 
 const TutorDetails = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
-  const tutor = useLoaderData();
-  const { _id, name, image, language, price, review, description } = tutor;
+  const { id } = useParams();
+  const [tutor, setTutor] = useState({});
+
+  const { name, image, language, price, review, description } = tutor || {};
+
+  useEffect(() => {
+    const fetchTutor = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:3000/tutor/${id}?email=${user.email}`,
+          {
+            withCredentials: true,
+          }
+        );
+        setTutor(res.data);
+      } catch (error) {
+        if (error.response.status === 401) {
+          Swal.fire({
+            icon: "error",
+            title: "401 - Unauthorized",
+            text: "You are not logged in or your session expired.",
+          });
+        } else if (error.response.status === 403) {
+          Swal.fire({
+            icon: "error",
+            title: "403 - Forbidden",
+            text: "You are not allowed to access this resource.",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Something went wrong",
+            text: "An unexpected error occurred.",
+          });
+        }
+        navigate("/");
+      }
+    };
+
+    fetchTutor();
+  }, [id, navigate]);
 
   // Handle Bookings
   const handleBookings = () => {
