@@ -12,15 +12,6 @@ import Error2 from "../Error/Error2";
 const TutorDetails = () => {
   const { user } = useAuth();
   const tutor = useLoaderData();
-  if (!tutor) {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Unauthorized or Forbidden!",
-    });
-    return Error2;
-  }
-
   const { _id, name, image, language, price, review, description } = tutor;
 
   // Handle Bookings

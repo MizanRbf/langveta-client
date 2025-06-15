@@ -47,9 +47,11 @@ const AddTutorials = () => {
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            icon: "error",
-            title: "401 - Unauthorized",
-            text: "You are not logged in or your session expired.",
+            position: "top-end",
+            icon: "success",
+            title: "Tutorials Added Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
           });
           newTutorial._id = res.data.insertedId;
           const newTutorials = [...tutorials, newTutorial];

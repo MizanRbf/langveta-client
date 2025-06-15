@@ -48,26 +48,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tutor/:id",
-        loader: async ({ params }) => {
-          const res = await fetch(`http://localhost:3000/tutor/${params.id}`, {
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/tutor/${params.id}`, {
             credentials: "include",
-          });
-
-          if (res.status === 401) {
-            throw new Response("unauthorized access", { status: 401 });
-          } else if (res.status === 403) {
-            throw new Response("forbidden access", { status: 403 });
-          }
-          const data = await res.json();
-          return data;
-        },
+          }),
         hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>
             <TutorDetails></TutorDetails>
           </PrivateRoute>
         ),
-        errorElement: <Error2></Error2>,
+        // errorElement: <Error2></Error2>,
       },
       {
         path: "/addTutorials",

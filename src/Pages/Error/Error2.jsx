@@ -46,7 +46,7 @@ const Error2 = () => {
           />
         </div>
         <h1 className="text-red-500 text-2xl md:text-5xl font-bold">
-          401 - unauthorized access
+          {error?.status} - {error?.statusText}
         </h1>
         <p className="text-sm md:text-base lg:text-lg">
           Oops! The page you're looking for doesn't exist.
