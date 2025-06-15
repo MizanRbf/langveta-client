@@ -52,9 +52,9 @@ const Register = () => {
         transition={{ duration: 0.2, ease: "easeOut" }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down"
+        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
       >
-        <div className="card-body">
+        <div className="card-body text-black">
           {/* go home */}
           <div className="flex justify-end">
             <Link to="/">

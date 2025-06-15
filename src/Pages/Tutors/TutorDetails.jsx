@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { IoLanguageSharp, IoReturnDownBack } from "react-icons/io5";
 import { FaSackDollar } from "react-icons/fa6";
 import { MdDescription, MdPreview } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
-import Error2 from "../Error/Error2";
 
 const TutorDetails = () => {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ const TutorDetails = () => {
     const fetchTutor = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/tutor/${id}?email=${user.email}`,
+          `https://langveta-server.vercel.app/tutor/${id}?email=${user.email}`,
           {
             withCredentials: true,
           }
@@ -52,7 +51,7 @@ const TutorDetails = () => {
     };
 
     fetchTutor();
-  }, [id, navigate]);
+  }, [id, navigate, user]);
 
   // Handle Bookings
   const handleBookings = () => {
@@ -66,7 +65,7 @@ const TutorDetails = () => {
       email: user.email,
     };
     axios
-      .post("http://localhost:3000/tutorBookings", bookedTutors)
+      .post("https://langveta-server.vercel.app/tutorBookings", bookedTutors)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

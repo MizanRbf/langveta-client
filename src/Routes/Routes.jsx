@@ -17,8 +17,6 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import AuthLayout from "../Layouts/AuthLayouts/AuthLayout";
 import Login from "../Layouts/AuthLayouts/Login";
 import Register from "../Layouts/AuthLayouts/Register";
-import Swal from "sweetalert2";
-import Error2 from "../Pages/Error/Error2";
 
 export const router = createBrowserRouter([
   {
@@ -27,22 +25,26 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/topRatedTutors"),
+        loader: () =>
+          fetch("https://langveta-server.vercel.app/topRatedTutors"),
         hydrateFallbackElement: <Loader></Loader>,
         Component: HomePage,
       },
       {
         path: "/findTutors",
-        loader: () => fetch("http://localhost:3000/tutorials"),
+        loader: () => fetch("https://langveta-server.vercel.app/tutorials"),
         hydrateFallbackElement: <Loader></Loader>,
         element: <FindTutors></FindTutors>,
       },
       {
         path: "/find-tutors/:category",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/find-tutors/${params.category}`, {
-            credentials: "include",
-          }),
+          fetch(
+            `https://langveta-server.vercel.app/find-tutors/${params.category}`,
+            {
+              credentials: "include",
+            }
+          ),
         hydrateFallbackElement: <Loader></Loader>,
         element: <TutorsByCategory></TutorsByCategory>,
       },
@@ -81,7 +83,7 @@ export const router = createBrowserRouter([
       {
         path: "/updateMyTutorials/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/tutorials/${params.id}`),
+          fetch(`https://langveta-server.vercel.app/tutorials/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <UpdateMyTutorials></UpdateMyTutorials>,
       },

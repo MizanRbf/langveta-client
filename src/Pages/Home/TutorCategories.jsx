@@ -61,7 +61,7 @@ const TutorCategories = () => {
   const [tutors, setTutors] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3000/tutorials", {
+    axios("https://langveta-server.vercel.app/tutorials", {
       withCredentials: true,
     })
       .then((res) => setTutors(res.data))

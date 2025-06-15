@@ -2,7 +2,7 @@
 // import React from "react";
 
 // const axiosInstance = axios.create({
-//   baseURL: "http://localhost:3000",
+//   baseURL: "https://langveta-server.vercel.app",
 // });
 // const useAxiosSecure = () => {
 //   return axiosInstance;

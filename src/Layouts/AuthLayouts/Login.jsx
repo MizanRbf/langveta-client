@@ -43,10 +43,10 @@ const Login = () => {
 
   return (
     <Section>
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
+      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl text-black">
         <div className="card-body">
           {/* Go Home */}
-          <div className="flex justify-end">
+          <div className="flex justify-end text-black">
             <Link to="/">
               <button className="hover:bg-gray-100 px-5 py-2 rounded-sm cursor-pointer">
                 <RxCross2 size={22} />
