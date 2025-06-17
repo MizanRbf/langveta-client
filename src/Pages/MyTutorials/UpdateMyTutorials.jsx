@@ -29,6 +29,7 @@ const UpdateMyTutorials = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedMyTutorials = Object.fromEntries(formData.entries());
+    updatedMyTutorials.review = parseInt(updatedMyTutorials.review) || 0;
 
     // Update My Tutorials
     Swal.fire({
@@ -52,9 +53,8 @@ const UpdateMyTutorials = () => {
                 icon: "success",
                 draggable: true,
               });
-
-              navigate("/myTutorials");
             }
+            navigate("/myTutorials");
           });
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
