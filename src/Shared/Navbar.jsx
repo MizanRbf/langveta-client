@@ -231,7 +231,7 @@ const Navbar = () => {
           <div>
             {user && (
               <a className="my-anchor-element">
-                <div className="relative group ring-white ring-1 ring-offset-1 rounded-full">
+                <div className="relative group ring-primary ring-1 ring-offset-1 rounded-full">
                   <img
                     className=" rounded-full min-w-[30px] md:min-w-[35px] h-[30px] md:h-[35px]"
                     src={user?.photoURL || "/default-avatar.png"}

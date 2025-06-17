@@ -105,11 +105,13 @@ const TutorDetails = () => {
                   <MdPreview />
                   <span className="font-semibold">Review:</span> {review}
                 </p>
-                <p className="flex items-center gap-1">
-                  <MdDescription />
-                  <span className="font-semibold">Description:</span>{" "}
-                  {description}
-                </p>
+                <div className="flex items-start gap-2">
+                  <div className="flex items-center gap-1">
+                    <MdDescription />
+                    <span className="font-semibold">Description:</span>{" "}
+                  </div>
+                  <p>{description}</p>
+                </div>
               </div>
             </div>
             <p className="flex items-center gap-1">
