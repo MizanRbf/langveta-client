@@ -30,7 +30,6 @@ const UpdateMyTutorials = () => {
     const formData = new FormData(form);
     const updatedMyTutorials = Object.fromEntries(formData.entries());
     updatedMyTutorials.review = parseInt(updatedMyTutorials.review) || 0;
-
     // Update My Tutorials
     Swal.fire({
       title: "Do you want to save the changes?",

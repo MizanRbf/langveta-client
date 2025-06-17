@@ -27,7 +27,9 @@ const TutorCard = ({ singleTutor }) => {
     <Section>
       <div className="bg-slate-200 rounded-sm shadow-xl text-black border border-slate-300">
         <div className="flex gap-4 p-3 items-center">
-          <img className="w-20 rounded-xl" src={image} alt="" />
+          <div className="w-40 h-30">
+            <img className="w-full h-full rounded-xl" src={image} alt="" />
+          </div>
           <div>
             <h3>{name}</h3>
             <p className="flex items-center gap-1">
