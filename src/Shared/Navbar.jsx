@@ -8,6 +8,7 @@ import useAuth from "../Hooks/useAuth";
 import DarkMood from "./DarkMood";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdMenu } from "react-icons/md";
+import HashLink from "./HashLink";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -16,6 +17,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  // useEffect hashActive
 
   // Scroll handler
   useEffect(() => {
@@ -130,6 +133,26 @@ const Navbar = () => {
           >
             Home
           </NavLink>
+
+          {isHome && (
+            <>
+              <HashLink
+                href="#language"
+                label="Language"
+                isScrolled={isScrolled}
+              />
+              <HashLink
+                href="#topRatedTutors"
+                label="Top Rated Tutors"
+                isScrolled={isScrolled}
+              />
+              <HashLink
+                href="#global"
+                label="Global Learners"
+                isScrolled={isScrolled}
+              />
+            </>
+          )}
 
           <NavLink
             to="/findTutors"

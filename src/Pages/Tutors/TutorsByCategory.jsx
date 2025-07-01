@@ -16,7 +16,7 @@ const TutorsByCategory = () => {
 
   return (
     <div className="pt-25">
-      <div className="max-w-[1400px] mx-auto px-4">
+      <div className="max-w-[1500px] mx-auto px-4">
         <Section>
           <div className="text-center mb-6 ">
             <h1 className="text-primary">Tutors by Category</h1>

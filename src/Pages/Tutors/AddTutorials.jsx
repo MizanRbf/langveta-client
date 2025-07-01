@@ -85,7 +85,7 @@ const AddTutorials = () => {
 
   return (
     <div className="pt-25 pb-20">
-      <div className="  px-4 max-w-[1400px] mx-auto">
+      <div className="  px-4 max-w-[1500px] mx-auto">
         <Helmet>
           <title>Add Tutorials || Langveta</title>
         </Helmet>

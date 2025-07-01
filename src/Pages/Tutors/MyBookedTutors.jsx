@@ -30,7 +30,7 @@ const MyBookedTutors = () => {
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({
-            title: "Review Updated Successfully!",
+            title: "Review Sent!",
             icon: "success",
             draggable: true,
           });
@@ -77,7 +77,7 @@ const MyBookedTutors = () => {
   }, [user]);
   return (
     <div className="pt-30">
-      <div className="max-w-[1400px] mx-auto mb-6 px-4">
+      <div className="max-w-[1500px] mx-auto mb-6 px-4">
         <Helmet>
           <title>MyBookedTutors || Langveta</title>
         </Helmet>

@@ -47,7 +47,7 @@ const FindTutors = () => {
       <Helmet>
         <title>FindTutors || Langveta</title>
       </Helmet>
-      <div className="px-4 max-w-[1400px] mx-auto">
+      <div className="px-4 max-w-[1500px] mx-auto">
         <Section>
           <div className="">
             <h1 className="text-primary">Find Tutors</h1>
@@ -68,7 +68,7 @@ const FindTutors = () => {
           </form>
         </Section>
         {/* Tutor Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {filteredTutors.map((singleTutor) => (
             <TutorCard
               key={singleTutor._id}

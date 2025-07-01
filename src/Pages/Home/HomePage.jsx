@@ -17,7 +17,10 @@ const HomePage = () => {
       <Banner></Banner>
 
       {/* Language Category Section */}
-      <div className="max-w-[1400px] mx-auto px-4 my-20">
+      <div
+        id="language"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
         <div className="text-center mb-6">
           <h1 className="text-primary">Language Category</h1>
 
@@ -29,7 +32,10 @@ const HomePage = () => {
         <TutorCategories></TutorCategories>
       </div>
       {/* Top Rated Tutors Section */}
-      <div className="max-w-[1400px] mx-auto px-4 my-20">
+      <div
+        id="topRatedTutors"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
         <div className="text-center mb-6">
           <h1 className="text-primary">Top Rated Tutors</h1>
 
@@ -45,7 +51,10 @@ const HomePage = () => {
       </div>
 
       {/* Global Learners Section */}
-      <div className="max-w-[1400px] mx-auto px-4 my-20">
+      <div
+        id="global"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
         <div className="text-center mb-6">
           <h1 className="text-primary">Global Learners Around the World</h1>
 

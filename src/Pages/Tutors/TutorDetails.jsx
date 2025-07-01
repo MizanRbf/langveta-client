@@ -79,7 +79,7 @@ const TutorDetails = () => {
 
   return (
     <div className="pt-25 px-4">
-      <div className="max-w-[1400px] mx-auto px-4">
+      <div className="max-w-[1500px] mx-auto px-4">
         <Helmet>
           <title>TutorDetails || Langveta</title>
         </Helmet>

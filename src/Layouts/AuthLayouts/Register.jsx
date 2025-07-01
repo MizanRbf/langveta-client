@@ -1,4 +1,3 @@
-// import Lottie from "lottie-react";
 import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext";

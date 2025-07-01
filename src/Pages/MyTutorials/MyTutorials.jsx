@@ -86,7 +86,7 @@ const MyTutorials = () => {
   };
   return (
     <div className="pt-30">
-      <div className="max-w-[1400px] mx-auto mb-6 px-4">
+      <div className="max-w-[1500px] mx-auto mb-6 px-4">
         <Helmet>
           <title>MyTutorials || Langveta</title>
         </Helmet>

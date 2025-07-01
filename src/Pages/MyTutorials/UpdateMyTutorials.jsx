@@ -66,7 +66,7 @@ const UpdateMyTutorials = () => {
       <Helmet>
         <title>UpdateTutorials || Langveta</title>
       </Helmet>
-      <div className="px-4 max-w-[1400px] mx-auto mb-20">
+      <div className="px-4 max-w-[1500px] mx-auto mb-20">
         {/* Content */}
         <Section>
           <div className="text-center mb-6">
