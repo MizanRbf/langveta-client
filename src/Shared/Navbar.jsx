@@ -80,22 +80,7 @@ const Navbar = () => {
               </li>
               <li>
                 <button onClick={() => setOpen(false)}>
-                  <Link to="/findTutors">Find Tutors</Link>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => setOpen(false)}>
-                  <Link to="/addTutorials">Add Tutorials</Link>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => setOpen(false)}>
-                  <Link to="/myTutorials">My Tutorials</Link>
-                </button>
-              </li>
-              <li>
-                <button className="text-left" onClick={() => setOpen(false)}>
-                  <Link to="/myBookedTutors">My Booked Tutors</Link>
+                  <Link to="/dashboard">Dashboard</Link>
                 </button>
               </li>
             </ul>
@@ -162,11 +147,9 @@ const Navbar = () => {
           >
             Find tutors
           </NavLink>
-
-          {/* For Applicant links. Check roles as well */}
           {user && (
             <NavLink
-              to="/addTutorials"
+              to="/dashboard"
               className={({ isActive }) =>
                 `px-3 transition-all duration-300 ${
                   isActive
@@ -179,46 +162,8 @@ const Navbar = () => {
                 }`
               }
             >
-              Add Tutorials
+              Dashboard
             </NavLink>
-          )}
-
-          {/* For Recruiter. Check role as well */}
-          {user && (
-            <>
-              <NavLink
-                to="/myTutorials"
-                className={({ isActive }) =>
-                  `px-3 transition-all duration-300 ${
-                    isActive
-                      ? "text-white bg-primary rounded-xs"
-                      : isHome
-                      ? isScrolled
-                        ? "text-black"
-                        : "text-white"
-                      : "text-black"
-                  }`
-                }
-              >
-                My Tutorials
-              </NavLink>
-              <NavLink
-                to="/myBookedTutors"
-                className={({ isActive }) =>
-                  `px-3 transition-all duration-300 ${
-                    isActive
-                      ? "text-white bg-primary rounded-xs"
-                      : isHome
-                      ? isScrolled
-                        ? "text-black"
-                        : "text-white"
-                      : "text-black"
-                  }`
-                }
-              >
-                My booked tutors
-              </NavLink>
-            </>
           )}
         </div>
 

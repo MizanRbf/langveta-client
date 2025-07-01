@@ -17,6 +17,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import AuthLayout from "../Layouts/AuthLayouts/AuthLayout";
 import Login from "../Layouts/AuthLayouts/Login";
 import Register from "../Layouts/AuthLayouts/Register";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
         element: <UpdateMyTutorials></UpdateMyTutorials>,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
   },
   {
     path: "/auth",
