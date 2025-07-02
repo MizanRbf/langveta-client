@@ -10,6 +10,7 @@ import DarkMood from "../DarkMood";
 import { MdMenu } from "react-icons/md";
 
 import LargeDevice from "./LargeDevice";
+import SmallDevice from "./SmallDevice";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -67,53 +68,19 @@ const Navbar = () => {
               alt=""
             />
           </div>
-
-          {/* Menubar for Small Device */}
-          <nav
-            className={`top-18 lg:hidden right-0 left-0 absolute py-6 shadow bg-[rgba(0,0,0,0.81)]  text-lg font-bold text-white transform transition-all ease-in-out duration-300 z-50 ${
-              open
-                ? "opacity-100 translate-y-2 visible"
-                : "opacity-0 -translate-y-5 invisible"
-            }`}
-          >
-            <ul className="px-10 *:hover:bg-white *:hover:text-black  *:hover:duration-300 space-y-2">
-              <li>
-                <button onClick={() => setOpen(false)}>
-                  <Link to="/">Home</Link>
-                </button>
-              </li>
-              <li>
-                <button onClick={() => setOpen(false)}>
-                  <Link to="/dashboard">Dashboard</Link>
-                </button>
-              </li>
-            </ul>
-            {/* Login Button */}
-
-            <div className="px-10">
-              {user ? (
-                <button
-                  onClick={handleSignOut}
-                  className="cursor-pointer py-2 mt-2 bg-white rounded-sm text-primary shadow-2xl w-full hover:bg-[rgb(248,237,208)]"
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link to="/auth/login">
-                  <button
-                    className="cursor-pointer py-2 mt-2 bg-white rounded-sm
-                    text-primary shadow-2xl w-full"
-                  >
-                    Login
-                  </button>
-                </Link>
-              )}
-            </div>
-          </nav>
         </div>
 
         {/* Menubar for Large Device */}
         <LargeDevice isHome={isHome} isScrolled={isScrolled}></LargeDevice>
+
+        {/* Menubar for Small Device */}
+        <SmallDevice
+          open={open}
+          setOpen={setOpen}
+          handleSignOut={handleSignOut}
+          isHome={isHome}
+          isScrolled={isScrolled}
+        ></SmallDevice>
 
         {/* Login Info */}
         <div className="flex gap-4 items-center">

@@ -37,11 +37,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
             label="Top Rated Tutors"
             isScrolled={isScrolled}
           />
-          <HashLink
-            href="#global"
-            label="Global Learners"
-            isScrolled={isScrolled}
-          />
+          <HashLink href="#contact" label="Contact" isScrolled={isScrolled} />
         </>
       )}
 
@@ -61,6 +57,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
       >
         Find tutors
       </NavLink>
+
       {user && (
         <NavLink
           to="/dashboard"

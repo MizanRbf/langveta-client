@@ -44,7 +44,10 @@ const NewsLetter = () => {
 
   return (
     <Section>
-      <div className="border rounded-lg border-slate-200 shadow-lg p-6 gap-6 flex items-center bg-[#75582263] flex-col md:flex-row">
+      <div
+        id="contact"
+        className="border rounded-lg border-slate-200 shadow-lg p-6 gap-6 flex items-center bg-[#75582263] flex-col md:flex-row scroll-mt-50"
+      >
         <div className="w-full flex justify-center">
           <img className="w-60" src="/assets/email.png" alt="" />
         </div>

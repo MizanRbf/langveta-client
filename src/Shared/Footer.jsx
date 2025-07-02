@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import {
   FaFacebook,
   FaLinkedin,
@@ -103,20 +103,20 @@ const Footer = () => {
             <li>
               <a
                 className="hover:text-primary"
-                href="https://www.facebook.com/"
+                href="https://github.com/MizanRbf"
               >
-                <FaFacebook />
+                <FaGithub />
               </a>
             </li>
             <li>
-              <a className="hover:text-primary" href="https://x.com/">
+              <a className="hover:text-primary" href="https://x.com/MizanRbf">
                 <FaXTwitter />
               </a>
             </li>
             <li>
               <a
                 className="hover:text-primary"
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/mizanrbf/"
               >
                 <FaLinkedin />
               </a>
@@ -124,14 +124,14 @@ const Footer = () => {
           </ul>
 
           {/* form */}
-          <div className="">
+          <div className="text-black">
             <form ref={form} onSubmit={handleSubmit} className="w-full">
               <div className="join">
                 <input
                   type="text"
-                  name="user_message"
+                  name="user's_opinion"
                   placeholder="Email us"
-                  className="input input-bordered join-item text-black"
+                  className="input input-bordered join-item"
                 />
                 <button type="submit" className="btn btn-primary join-item">
                   Send Email

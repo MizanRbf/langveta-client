@@ -23,25 +23,38 @@ const LeftSection = ({ handleUpdateProfile }) => {
 
         {/* NavLink */}
         <div className="mx-4 mb-10">
-          <ul className="space-y-4">
-            <li className="flex gap-1 items-center">
-              <IoHome />
-              <Link to="/">Home</Link>
-            </li>
-
-            <li className="flex gap-1 items-center">
-              <SiTask />
-              <Link to="/addTutorials">Add Tutorials</Link>
-            </li>
-            <li className="flex gap-1 items-center">
-              <MdAssignmentAdd />
-              <Link to="/myTutorials">My Tutorials</Link>
-            </li>
-            <li className="flex gap-1 items-center">
-              <SiGoogletasks />
-              <Link to="/myBookedTutors">My Booked Tutors</Link>
-            </li>
-          </ul>
+          <div className="space-y-4 *:hover:bg-white *:hover:text-primary transform transition-all ease-in-out *:hover:duration-400">
+            <Link to="/">
+              <button className="flex gap-1 items-center cursor-pointer w-full hover:bg-white hover:text-primary mb-2">
+                <IoHome />
+                Home
+              </button>
+            </Link>
+            <Link to="/findTutors">
+              <button className="flex gap-1 items-center cursor-pointer w-full hover:bg-white hover:text-primary mb-2">
+                <SiTask />
+                Find Tutors
+              </button>
+            </Link>
+            <Link to="/addTutorials">
+              <button className="flex gap-1 items-center cursor-pointer w-full hover:bg-white hover:text-primary mb-2">
+                <SiTask />
+                Add Tutorials
+              </button>
+            </Link>
+            <Link to="/myTutorials">
+              <button className="flex gap-1 items-center cursor-pointer w-full hover:bg-white hover:text-primary mb-2">
+                <MdAssignmentAdd />
+                My Tutorials
+              </button>
+            </Link>
+            <Link to="/myBookedTutors">
+              <button className="flex gap-1 items-center cursor-pointer w-full hover:bg-white hover:text-primary mb-2">
+                <SiGoogletasks />
+                My Booked Tutors
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 
