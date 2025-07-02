@@ -164,16 +164,17 @@ const AddTutorials = () => {
               <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
                 <label className="label text-black">Price</label>
                 <input
-                  type="text"
+                  type="number"
                   name="price"
                   className="input w-full"
                   placeholder="Enter Price"
+                  defaultValue={0}
                 />
               </fieldset>
               <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
                 <label className="label text-black">Review</label>
                 <input
-                  type="text"
+                  type="number"
                   name="review"
                   className="input w-full"
                   placeholder="Review"

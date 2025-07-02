@@ -4,6 +4,7 @@ import TopRatedTutors from "./TopRatedTutors";
 import { useLoaderData } from "react-router";
 import GlobalLearners from "./GlobalLearners";
 import { Helmet } from "react-helmet-async";
+import NewsLetter from "./NewsLetter/NewsLetter";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
@@ -64,6 +65,22 @@ const HomePage = () => {
           </p>
         </div>
         <GlobalLearners></GlobalLearners>
+      </div>
+
+      {/* NewsLetter */}
+      <div
+        id="global"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
+        <div className="text-center mb-6">
+          <h1 className="text-primary">Stay in the Loop</h1>
+
+          <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+            Subscribe to our newsletter for the latest language learning tips,
+            new tutors, and platform updates.
+          </p>
+        </div>
+        <NewsLetter></NewsLetter>
       </div>
     </div>
   );

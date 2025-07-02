@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import { Tooltip } from "react-tooltip";
-import { GiHamburgerMenu } from "react-icons/gi";
+
 import { RxCross2 } from "react-icons/rx";
-import useAuth from "../Hooks/useAuth";
-import DarkMood from "./DarkMood";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
+import useAuth from "../../Hooks/useAuth";
+import DarkMood from "../DarkMood";
+
 import { MdMenu } from "react-icons/md";
-import HashLink from "./HashLink";
+
+import LargeDevice from "./LargeDevice";
 
 const Navbar = () => {
   const { user, logOutUser } = useAuth();
@@ -112,84 +113,7 @@ const Navbar = () => {
         </div>
 
         {/* Menubar for Large Device */}
-        <div
-          className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
-            isScrolled ? "text-black" : "text-white"
-          }`}
-        >
-          <NavLink
-            onClick={() => window.scrollTo(0, 0)}
-            to="/"
-            className={({ isActive }) =>
-              `px-3 transition-all duration-300 ${
-                isHome
-                  ? isActive
-                    ? "text-white bg-primary rounded-xs"
-                    : isScrolled
-                    ? "text-black"
-                    : "text-white"
-                  : "text-black"
-              }`
-            }
-          >
-            Home
-          </NavLink>
-
-          {isHome && (
-            <>
-              <HashLink
-                href="#language"
-                label="Language"
-                isScrolled={isScrolled}
-              />
-              <HashLink
-                href="#topRatedTutors"
-                label="Top Rated Tutors"
-                isScrolled={isScrolled}
-              />
-              <HashLink
-                href="#global"
-                label="Global Learners"
-                isScrolled={isScrolled}
-              />
-            </>
-          )}
-
-          <NavLink
-            to="/findTutors"
-            className={({ isActive }) =>
-              `px-3 transition-all duration-300 ${
-                isActive
-                  ? "text-white bg-primary rounded-xs"
-                  : isHome
-                  ? isScrolled
-                    ? "text-black"
-                    : "text-white"
-                  : "text-black"
-              }`
-            }
-          >
-            Find tutors
-          </NavLink>
-          {user && (
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `px-3 transition-all duration-300 ${
-                  isActive
-                    ? "text-white bg-primary rounded-xs"
-                    : isHome
-                    ? isScrolled
-                      ? "text-black"
-                      : "text-white"
-                    : "text-black"
-                }`
-              }
-            >
-              Dashboard
-            </NavLink>
-          )}
-        </div>
+        <LargeDevice isHome={isHome} isScrolled={isScrolled}></LargeDevice>
 
         {/* Login Info */}
         <div className="flex gap-4 items-center">

@@ -1,15 +1,10 @@
 import { Helmet } from "react-helmet-async";
-
-import { Link } from "react-router";
-import { IoHome } from "react-icons/io5";
-import { SiGoogletasks, SiTask } from "react-icons/si";
-import { MdAssignmentAdd } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
-import Stats from "./Stats";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Rechart from "./Rechart";
+import RightSection from "./RightSection";
+import LeftSection from "./LeftSection";
 
 const Dashboard = () => {
   const [allTutors, setAllTutors] = useState([]);
@@ -169,113 +164,19 @@ const Dashboard = () => {
             User Dashboard
           </h1>
         </div>
+
         {/* Left Section*/}
-        <div className="w-full  max-w-sm shrink-0 text-white bg-secondary md:rounded-l-lg mx-auto lg:mx-0">
-          <div className="">
-            {/* Profile Image */}
-            <div className="text-center mt-4 py-4 mb-4 rounded-sm">
-              <div className="avatar mb-6">
-                <div className="ring-primary ring-offset-base-100 w-30 rounded-full ring-2 ring-offset-2">
-                  <img src={user?.photoURL} />
-                </div>
-              </div>
-              <h4>{user?.displayName}</h4>
-              <p>{user?.email}</p>
-            </div>
-            <hr className="w-full mb-8" />
+        <LeftSection handleUpdateProfile={handleUpdateProfile}></LeftSection>
 
-            {/* NavLink */}
-
-            <div className="mx-4 mb-10">
-              <ul className="space-y-4">
-                <li className="flex gap-1 items-center">
-                  <IoHome />
-                  <Link to="/">Home</Link>
-                </li>
-
-                <li className="flex gap-1 items-center">
-                  <SiTask />
-                  <Link to="/addTutorials">Add Tutorials</Link>
-                </li>
-                <li className="flex gap-1 items-center">
-                  <MdAssignmentAdd />
-                  <Link to="/myTutorials">My Tutorials</Link>
-                </li>
-                <li className="flex gap-1 items-center">
-                  <SiGoogletasks />
-                  <Link to="/myBookedTutors">My Booked Tutors</Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Profile Name and Photo Update form */}
-
-            <form
-              onSubmit={handleUpdateProfile}
-              className="fieldset mx-4 border p-4 border-primary mb-4"
-            >
-              <h4>Update Your Profile</h4>
-              {/* Name */}
-              <label className="label">Update Name</label>
-              <input
-                type="text"
-                name="name"
-                className="input w-full"
-                placeholder="Enter new name"
-                required
-              />
-              {/* Photo */}
-              <label className="label">Update Photo</label>
-              <input
-                type="text"
-                name="photo"
-                className="input w-full"
-                placeholder="Enter new photo url"
-                required
-              />
-              <button
-                type="submit"
-                className="btn btn-primary bg- mt-4 text-white border-white"
-              >
-                Save Changes
-              </button>
-            </form>
-          </div>
-        </div>
         {/* Right Section */}
-        <div className="mx-auto w-full">
-          <div className="md:block justify-center hidden pt-4">
-            <h1 className="text-center border inline-block px-4 bg-secondary text-white rounded-sm mb-8">
-              User Dashboard
-            </h1>
-          </div>
-
-          <div className="">
-            {/* Stats Section */}
-            <Stats
-              allTutors={allTutors}
-              totalReviews={totalReviews}
-              languageCount={languageCount}
-              totalUsers={totalUsers}
-              myTutorials={myTutorials}
-              bookedTutors={bookedTutors}
-            ></Stats>
-            <Rechart bookedTutors={bookedTutors} />
-
-            {/* Empty data notification */}
-            <div
-              className={`bg-slate-100 rounded-lg m-4 mb-20 py-30 ${
-                bookedTutors.length > 0 ? "hidden" : "block"
-              }`}
-            >
-              <h1 className="text-center text-black">Chart is not shown!</h1>
-              <h4 className="text-center mt-8 text-black">
-                You have not added any task yet.Go to Add Task for posting your
-                task.
-              </h4>
-            </div>
-          </div>
-        </div>
+        <RightSection
+          allTutors={allTutors}
+          totalReviews={totalReviews}
+          languageCount={languageCount}
+          totalUsers={totalUsers}
+          myTutorials={myTutorials}
+          bookedTutors={bookedTutors}
+        ></RightSection>
       </div>
     </div>
   );
