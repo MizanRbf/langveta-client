@@ -118,6 +118,7 @@ const Navbar = () => {
           }`}
         >
           <NavLink
+            onClick={() => window.scrollTo(0, 0)}
             to="/"
             className={({ isActive }) =>
               `px-3 transition-all duration-300 ${

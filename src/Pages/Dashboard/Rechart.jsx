@@ -7,28 +7,22 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Line,
 } from "recharts";
 
-const Chart = ({ bookedTutors }) => {
+const Rechart = ({ bookedTutors }) => {
   const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
   const getPath = (x, y, width, height) => {
-    return `M${x},${y + height}C${x + width / 3},${y + height} ${
-      x + width / 2
-    },${y + height / 3}
-    ${x + width / 2}, ${y}
-    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${
-      x + width
-    }, ${y + height}
-    Z`;
+    return `M${x},${y + height}
+            C${x + width / 3},${y + height} ${x + width / 2},${
+      y + height / 3
+    } ${x + width / 2},${y}
+            C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${
+      y + height
+    } ${x + width},${y + height}
+            Z`;
   };
-
-  const TriangleBar = (props) => {
-    const { fill, x, y, width, height } = props;
-
-    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
-
   return (
     <div
       className={`border border-slate-200 rounded-lg mx-4 flex justify-center mb-20 mt-30 shadow-lg lg:mt-10 bg-white ${
@@ -51,21 +45,21 @@ const Chart = ({ bookedTutors }) => {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-
-          <Bar
-            dataKey="price"
-            fill="#8884d8"
-            shape={<TriangleBar />}
-            label={{ position: "top" }}
-          >
+          <Bar dataKey="review" fill="#8884d8" label={{ position: "top" }}>
             {bookedTutors.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}
           </Bar>
+          <Line
+            type="monotone"
+            dataKey="price"
+            stroke="#82ca9d"
+            yAxisId="left"
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default Chart;
+export default Rechart;

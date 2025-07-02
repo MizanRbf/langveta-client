@@ -9,7 +9,7 @@ import Stats from "./Stats";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Chart from "./Chart";
+import Rechart from "./Rechart";
 
 const Dashboard = () => {
   const [allTutors, setAllTutors] = useState([]);
@@ -170,7 +170,7 @@ const Dashboard = () => {
           </h1>
         </div>
         {/* Left Section*/}
-        <div className="w-full max-w-sm shrink-0 text-white bg-secondary lg:rounded-l-lg mx-auto lg:mx-0">
+        <div className="w-full  max-w-sm shrink-0 text-white bg-secondary md:rounded-l-lg mx-auto lg:mx-0">
           <div className="">
             {/* Profile Image */}
             <div className="text-center mt-4 py-4 mb-4 rounded-sm">
@@ -260,7 +260,7 @@ const Dashboard = () => {
               myTutorials={myTutorials}
               bookedTutors={bookedTutors}
             ></Stats>
-            <Chart bookedTutors={bookedTutors}></Chart>
+            <Rechart bookedTutors={bookedTutors} />
 
             {/* Empty data notification */}
             <div
