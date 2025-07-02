@@ -68,7 +68,7 @@ const FindTutors = () => {
           </form>
         </Section>
         {/* Tutor Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {filteredTutors.map((singleTutor) => (
             <TutorCard
               key={singleTutor._id}

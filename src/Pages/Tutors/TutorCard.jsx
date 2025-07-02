@@ -22,10 +22,10 @@ const Section = ({ children }) => (
 );
 
 const TutorCard = ({ singleTutor }) => {
-  const { _id, name, image, language, review, description } = singleTutor;
+  const { _id, name, image, language, review } = singleTutor;
   return (
     <Section>
-      <div className="bg-slate-200 rounded-sm shadow-xl text-black border border-slate-300">
+      <div className="bg-gray-100 rounded-sm shadow-xl text-black border border-gray-200">
         <div className="flex gap-4 p-3 items-center">
           <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-32 lg:h-32  flex-shrink-0">
             <img
@@ -44,12 +44,6 @@ const TutorCard = ({ singleTutor }) => {
               <MdPreview />
               <span className="font-semibold">Reviews:</span> {review}
             </p>
-
-            <p className="flex items-center gap-1 ">
-              <MdDescription />
-              <span className="font-semibold">Description:</span>{" "}
-            </p>
-            <p>{description}</p>
           </div>
         </div>
         <Link to={`/tutor/${_id}`}>
