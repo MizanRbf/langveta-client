@@ -9,14 +9,14 @@ const Form = ({ handleSubmit, form }) => {
             type="text"
             name="first_name"
             placeholder="First-name"
-            className="bw-full py-3 rounded-sm pl-2 bg-white"
+            className="w-full py-3 rounded-sm pl-2 bg-white"
           />
 
           <input
             type="text"
             name="last_name"
             placeholder="Last-name"
-            className=" w-full py-3 rounded-sm pl-2 bg-white"
+            className="w-full py-3 rounded-sm pl-2 bg-white"
           />
         </div>
         <input
