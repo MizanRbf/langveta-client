@@ -80,13 +80,12 @@ This project uses the following major NPM packages:
    ```bash
    https://github.com/MizanRbf/langveta-client.git
 
-2. Open the Project in Browser
-
-   You can launch the app by simply opening the index.html file:
-   - Navigate to the project folder.
-   - Double-click on index.html, or
-   - Right-click and choose “Open with” → your preferred browser
-That's it! The app will run locally — no installation or setup needed.
+2. Navigate into the project folder.
+3. Install dependencies for both the backend and frontend by running the package manager command in each respective folder.
+4. Set up your environment variables by creating a .env file in both backend and frontend directories if needed, and update the necessary configuration values.
+5. Start the backend server to run the API.
+6. Start the frontend development server to run the React application.
+7. Open your web browser and go to "http://localhost:3000" to view the app.
 
 ---
 
