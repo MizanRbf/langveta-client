@@ -78,7 +78,7 @@ This project uses the following major NPM packages:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MizanRbf/DevBoard.git
+   https://github.com/MizanRbf/langveta-client.git
 
 2. Open the Project in Browser
 
