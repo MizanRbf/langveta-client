@@ -69,9 +69,14 @@ This project uses the following major NPM packages:
 
 ---
 
-## ✨ Live URL
+## 🔗 Live Link
+[👉 Visit Live Site](https://langveta-client.web.app/)
 
-- https://langveta-client.web.app/
+---
+
+## 🚀 How to Run Locally
+https://github.com/MizanRbf/Phero_Tube.git
+
 ---
 
 Copyright © 2025 - All rights reserved by Langveta.
