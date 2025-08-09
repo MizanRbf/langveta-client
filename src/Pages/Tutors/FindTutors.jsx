@@ -43,6 +43,8 @@ const FindTutors = () => {
     setFilteredTutors(filtered);
   }, [allTutors, setFilteredTutors, searchTerm]);
 
+  const sortedTutors = [...filteredTutors];
+
   return (
     <div className="pt-25">
       <Helmet>
@@ -75,22 +77,20 @@ const FindTutors = () => {
               value={sortOption}
               aria-label="Sort or filter applications"
             >
-              <option value="">Sort/Filter By</option>
-              <option value="applied_dateLatest">Applied Date (Latest)</option>
-              <option value="applied_dateOldest">Applied Date (Oldest)</option>
-              <option value="deadlineSoonest">
-                Scholarship Deadline (Soonest)
+              <option value="" disabled>
+                Sort/Filter By
               </option>
-              <option value="deadlineLatest">
-                Scholarship Deadline (Latest)
-              </option>
+              <option value="applied_dateLatest">Price (High to Low)</option>
+              <option value="applied_dateOldest">Price (Low to High)</option>
+              <option value="deadlineSoonest">Review (High to Low)</option>
+              <option value="deadlineLatest">Review (Low to High)</option>
             </select>
           </div>
         </Section>
 
         {/* Tutor Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {filteredTutors.map((singleTutor) => (
+          {sortedTutors.map((singleTutor) => (
             <TutorCard
               key={singleTutor._id}
               singleTutor={singleTutor}
