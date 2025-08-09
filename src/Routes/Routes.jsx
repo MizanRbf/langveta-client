@@ -12,12 +12,12 @@ import FindTutors from "../Pages/Tutors/FindTutors";
 import TutorsByCategory from "../Pages/Tutors/TutorsByCategory";
 import TutorDetails from "../Pages/Tutors/TutorDetails";
 import TopRatedTutors from "../Pages/Home/TopRatedTutors";
-import RootLayout from "../Layouts/RootLayout.jsx/RootLayout";
 import PrivateRoute from "../Provider/PrivateRoute";
 import AuthLayout from "../Layouts/AuthLayouts/AuthLayout";
 import Login from "../Layouts/AuthLayouts/Login";
 import Register from "../Layouts/AuthLayouts/Register";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import RootLayout from "../Layouts/RootLayout/RootLayout";
 
 export const router = createBrowserRouter([
   {

@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import RightSection from "./RightSection";
 import LeftSection from "./LeftSection";
+import MenuIcon from "./MenuIcon";
 
 const Dashboard = () => {
   const [allTutors, setAllTutors] = useState([]);
@@ -14,6 +15,7 @@ const Dashboard = () => {
   const { user, updateUser, setUser } = useAuth();
   const [myTutorials, setMyTutorials] = useState([]);
   const [bookedTutors, setBookedTutors] = useState([]);
+  const [open, setOpen] = useState(false);
 
   // useEffect MyBookedTutors
   useEffect(() => {
@@ -154,19 +156,23 @@ const Dashboard = () => {
 
   return (
     <div className="px-10 pt-10 lg:pt-0">
-      <div className="max-w-[1500px] mx-auto md:mt-10 mb-20 border border-gray-200 rounded-lg shadow-xl flex flex-col md:flex-row gap-6 bg-slate-100">
+      <MenuIcon setOpen={setOpen} open={open}></MenuIcon>
+      <div className="max-w-[1500px] mx-auto mt-12 mb-20 border border-gray-200 rounded-lg shadow-lg flex flex-col lg:flex-row gap-6 bg-slate-50 relative">
         <Helmet>
           <title>Langveta || Dashboard</title>
         </Helmet>
 
-        <div className="flex justify-center md:hidden pt-8">
+        <div className="flex justify-center lg:hidden pt-8">
           <h1 className="text-center border inline-block px-4 bg-secondary text-white rounded-sm">
             User Dashboard
           </h1>
         </div>
 
         {/* Left Section*/}
-        <LeftSection handleUpdateProfile={handleUpdateProfile}></LeftSection>
+        <LeftSection
+          handleUpdateProfile={handleUpdateProfile}
+          open={open}
+        ></LeftSection>
 
         {/* Right Section */}
         <RightSection

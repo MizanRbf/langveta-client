@@ -69,10 +69,7 @@ const MyTutorials = () => {
           .delete(`https://langveta-server.vercel.app/tutorials/${id}`)
           .then((res) => {
             if (res.data.result1.deletedCount) {
-              const remainingMyTutorials = myTutorials.filter(
-                (myTutorial) => myTutorial._id !== id
-              );
-              setMyTutorials(remainingMyTutorials);
+              c;
             }
           });
 

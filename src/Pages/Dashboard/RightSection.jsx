@@ -12,7 +12,7 @@ const RightSection = ({
 }) => {
   return (
     <div className="mx-auto w-full">
-      <div className="md:block justify-center hidden pt-4">
+      <div className="lg:block justify-center hidden pt-4">
         <h1 className="text-center border inline-block px-4 bg-secondary text-white rounded-sm mb-8">
           User Dashboard
         </h1>

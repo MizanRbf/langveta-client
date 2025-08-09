@@ -5,10 +5,16 @@ import { SiGoogletasks, SiTask } from "react-icons/si";
 import { Link } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 
-const LeftSection = ({ handleUpdateProfile }) => {
+const LeftSection = ({ handleUpdateProfile, open }) => {
   const { user } = useAuth();
   return (
-    <div className="w-full  max-w-sm shrink-0 text-white bg-primary md:rounded-l-lg mx-auto lg:mx-0 flex flex-col justify-between">
+    <div
+      className={`w-full  max-w-sm shrink-0 text-white bg-primary md:rounded-l-lg mx-auto lg:mx-0 flex flex-col justify-between lg:relative z-10 absolute top-0 bottom-0 transform transition-all duration-300 ${
+        open
+          ? "opacity-100 translate-x-2 visible"
+          : "opacity-0 -translate-x-5 invisible"
+      }`}
+    >
       {/* Profile Image */}
       <div className="text-center mt-4 py-4 mb-4 rounded-sm">
         <div className="avatar mb-6">

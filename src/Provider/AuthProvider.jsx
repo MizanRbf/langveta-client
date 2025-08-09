@@ -11,7 +11,6 @@ import { auth } from "../Firebase/Firebase.config";
 import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import axios from "axios";
-// import axios from "axios";
 
 const provider = new GoogleAuthProvider();
 

@@ -3,7 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import { Link } from "react-router";
 import HashLink from "../HashLink";
 
-const SmallDevice = ({ open, setOpen, handleSignOut, isHome, isScrolled }) => {
+const SmallDevice = ({ open, setOpen, handleSignOut, isHome }) => {
   const { user } = useAuth();
   return (
     <div>

@@ -20,6 +20,7 @@ const FindTutors = () => {
   const { category: language } = useParams();
   const allTutors = useLoaderData();
   const { filteredTutors, setFilteredTutors } = useAuth();
+  const [sortOption, setSortOption] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
   // Filter by Language
@@ -57,16 +58,36 @@ const FindTutors = () => {
             </p>
           </div>
           {/* Search Button */}
-          <form className="my-10" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="text"
-              className="input text-black"
-              name="search"
-              placeholder="Enter Language"
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </form>
+          <div className="flex items-center justify-between">
+            <form className="my-10" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="text"
+                className="input text-black"
+                name="search"
+                placeholder="Enter Language"
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </form>
+            {/* Sorting */}
+            <select
+              onChange={(e) => setSortOption(e.target.value)}
+              className="select select-bordered w-full max-w-xs md:max-w-sm"
+              value={sortOption}
+              aria-label="Sort or filter applications"
+            >
+              <option value="">Sort/Filter By</option>
+              <option value="applied_dateLatest">Applied Date (Latest)</option>
+              <option value="applied_dateOldest">Applied Date (Oldest)</option>
+              <option value="deadlineSoonest">
+                Scholarship Deadline (Soonest)
+              </option>
+              <option value="deadlineLatest">
+                Scholarship Deadline (Latest)
+              </option>
+            </select>
+          </div>
         </Section>
+
         {/* Tutor Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {filteredTutors.map((singleTutor) => (
