@@ -45,6 +45,16 @@ const FindTutors = () => {
 
   const sortedTutors = [...filteredTutors];
 
+  // Sorting Conditions
+  if (sortOption === "Price (Low to High)") {
+    sortedTutors.sort((a, b) => a.price - b.price);
+  } else if (sortOption === "Price (High to Low)") {
+    sortedTutors.sort((a, b) => b.price - a.price);
+  } else if (sortOption === "Review (Low to High)") {
+    sortedTutors.sort((a, b) => a.review - b.review);
+  } else if (sortOption === "Review (High to Low)") {
+    sortedTutors.sort((a, b) => b.review - a.review);
+  }
   return (
     <div className="pt-25">
       <Helmet>
@@ -80,10 +90,10 @@ const FindTutors = () => {
               <option value="" disabled>
                 Sort/Filter By
               </option>
-              <option value="applied_dateLatest">Price (High to Low)</option>
-              <option value="applied_dateOldest">Price (Low to High)</option>
-              <option value="deadlineSoonest">Review (High to Low)</option>
-              <option value="deadlineLatest">Review (Low to High)</option>
+              <option value="Price (High to Low)">Price (High to Low)</option>
+              <option value="Price (Low to High)">Price (Low to High)</option>
+              <option value="Review (High to Low)">Review (High to Low)</option>
+              <option value="Review (Low to High)">Review (Low to High)</option>
             </select>
           </div>
         </Section>
