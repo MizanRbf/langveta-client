@@ -17,6 +17,25 @@ const Dashboard = () => {
   const [bookedTutors, setBookedTutors] = useState([]);
   const [open, setOpen] = useState(false);
 
+  // Handle Resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // lg breakpoint
+        setOpen(true);
+      } else {
+        setOpen(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   // useEffect MyBookedTutors
   useEffect(() => {
     if (!user?.email) return;
