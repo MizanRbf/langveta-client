@@ -25,8 +25,8 @@ const TutorCard = ({ singleTutor }) => {
   const { _id, name, image, language, review } = singleTutor;
   return (
     <Section>
-      <div className="bg-gray-100 rounded-sm shadow-xl text-black border border-gray-200">
-        <div className="flex gap-4 p-3 items-center">
+      <div className="bg-gray-100 rounded-xl shadow-xl text-black border border-gray-200">
+        <div className="flex gap-4 p-8 items-center">
           <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-32 lg:h-32  flex-shrink-0">
             <img
               className="w-full h-full object-cover rounded-sm"
@@ -47,7 +47,7 @@ const TutorCard = ({ singleTutor }) => {
           </div>
         </div>
         <Link to={`/tutor/${_id}`}>
-          <button className="bg-primary text-white px-3 w-full rounded-b-sm font-bold cursor-pointer">
+          <button className="bg-primary text-white px-3 py-2 w-full rounded-b-xl font-bold cursor-pointer">
             Show Details
           </button>
         </Link>
