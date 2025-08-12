@@ -176,7 +176,7 @@ const Dashboard = () => {
   return (
     <div className="p-10">
       <MenuIcon setOpen={setOpen} open={open}></MenuIcon>
-      <div className="border border-gray-200 rounded-lg shadow-lg flex flex-col lg:flex-row gap-6 bg-slate-50 relative">
+      <div className="border border-gray-200 rounded-lg shadow-lg flex flex-col lg:flex-row gap-6 bg-slate-50 relative overflow-x-hidden">
         <Helmet>
           <title>Langveta || Dashboard</title>
         </Helmet>

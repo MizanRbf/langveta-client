@@ -83,7 +83,7 @@ const FindTutors = () => {
             {/* Sorting */}
             <select
               onChange={(e) => setSortOption(e.target.value)}
-              className="select select-bordered w-full max-w-xs md:max-w-sm"
+              className="select select-bordered w-full max-w-xs md:max-w-sm *:text-black text-black"
               value={sortOption}
               aria-label="Sort or filter applications"
             >

@@ -6,7 +6,7 @@ const MenuIcon = ({ setOpen, open }) => {
   return (
     <div
       className={`py-1 px-3 rounded-sm lg:hidden 
-        fixed right-10 bg-primary`}
+        fixed right-10 bg-primary z-20`}
     >
       <span onClick={() => setOpen(!open)}>
         {open ? (
