@@ -29,7 +29,7 @@ const TutorCard = ({ singleTutor }) => {
         <div className="flex gap-4 p-8 items-center">
           <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-32 lg:h-32  flex-shrink-0">
             <img
-              className="w-full h-full object-cover rounded-sm"
+              className="w-full h-full object-cover rounded-lg"
               src={image}
               alt=""
             />

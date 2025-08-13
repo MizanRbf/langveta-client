@@ -53,7 +53,7 @@ const Navbar = () => {
         isHome
           ? isScrolled
             ? "bg-white py-3 shadow-xl"
-            : "bg-[rgba(0,0,0,0.52)] py-5"
+            : "bg-[#633b01] py-5"
           : "bg-white shadow-xl py-4"
       }`}
     >

@@ -70,8 +70,8 @@ const FindTutors = () => {
             </p>
           </div>
           {/* Search Button */}
-          <div className="flex items-center justify-between">
-            <form className="my-10" onSubmit={(e) => e.preventDefault()}>
+          <div className="flex items-center justify-between gap-3">
+            <form className="my-10 w-full" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="text"
                 className="input text-black"
