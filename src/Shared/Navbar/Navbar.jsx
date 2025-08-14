@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={` text-black fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out bg-gradient-to-b from-[#926401] to-[#3d2900] py-5 ${
+      className={` text-black fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out bg-gradient-to-b from-[#926401] to-[#3d2900] py-3 ${
         isHome ? (isScrolled ? "py-3" : "py-4") : "shadow-xl"
       }`}
     >
