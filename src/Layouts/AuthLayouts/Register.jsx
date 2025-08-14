@@ -51,7 +51,7 @@ const Register = () => {
         transition={{ duration: 0.2, ease: "easeOut" }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
+        className="card bg-base-100 w-full max-w-sm md:max-w-lg mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
       >
         <div className="card-body text-black">
           {/* go home */}
@@ -76,7 +76,7 @@ const Register = () => {
             <input
               type="text"
               name="name"
-              className="input"
+              className="input w-full"
               placeholder="Enter Your Name"
               required
             />
@@ -86,7 +86,7 @@ const Register = () => {
             <input
               type="text"
               name="photo"
-              className="input"
+              className="input w-full"
               placeholder="Enter Your Photo URL"
               required
             />
@@ -96,7 +96,7 @@ const Register = () => {
             <input
               type="email"
               name="email"
-              className="input"
+              className="input w-full"
               placeholder="Enter Your Email"
               required
             />
@@ -106,7 +106,7 @@ const Register = () => {
             <input
               type="password"
               name="password"
-              className="input"
+              className="input w-full"
               placeholder="Enter Your Password"
               required
             />

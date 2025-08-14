@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <Section>
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl text-black">
+      <div className="card bg-base-100 w-full max-w-sm md:max-w-lg mx-auto shrink-0 shadow-2xl text-black">
         <div className="card-body">
           {/* Go Home */}
           <div className="flex justify-end text-black">
@@ -66,14 +66,14 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              className="input"
+              className="input w-full"
               placeholder="Email"
             />
             {/* Password */}
             <label className="label">Password</label>
             <input
               type="password"
-              className="input"
+              className="input w-full"
               name="password"
               placeholder="Password"
             />
