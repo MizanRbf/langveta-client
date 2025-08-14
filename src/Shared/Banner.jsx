@@ -55,7 +55,7 @@ const Banner = () => {
 
         {/* Form */}
 
-        <div className="z-10 my-20">
+        <div className="z-10 my-10">
           <Section2>
             <form
               onSubmit={handleBLanguageSearch}
