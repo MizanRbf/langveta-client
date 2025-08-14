@@ -7,23 +7,13 @@ const LargeDevice = ({ isHome, isScrolled }) => {
   const { user } = useAuth();
   return (
     <div
-      className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
-        isScrolled ? "text-black" : "text-white"
-      }`}
+      className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold text-white`}
     >
       <NavLink
         onClick={() => window.scrollTo(0, 0)}
         to="/"
         className={({ isActive }) =>
-          `px-3 transition-all duration-300 ${
-            isHome
-              ? isActive
-                ? "text-white bg-primary rounded-xs"
-                : isScrolled
-                ? "text-black"
-                : "text-white"
-              : "text-black"
-          }`
+          `px-3 transition-all duration-300 ${isActive && "underline"}`
         }
       >
         Home
@@ -31,28 +21,31 @@ const LargeDevice = ({ isHome, isScrolled }) => {
 
       {isHome && (
         <>
-          <HashLink href="#language" label="Language" isScrolled={isScrolled} />
+          <HashLink
+            href="#language"
+            label="Language"
+            isScrolled={isScrolled}
+            isHome={isHome}
+          />
           <HashLink
             href="#topRatedTutors"
             label="Top Rated Tutors"
             isScrolled={isScrolled}
+            isHome={isHome}
           />
-          <HashLink href="#contact" label="Contact" isScrolled={isScrolled} />
+          <HashLink
+            href="#contact"
+            label="Contact"
+            isScrolled={isScrolled}
+            isHome={isHome}
+          />
         </>
       )}
 
       <NavLink
         to="/findTutors"
         className={({ isActive }) =>
-          `px-3 transition-all duration-300 ${
-            isActive
-              ? "text-white bg-primary rounded-xs"
-              : isHome
-              ? isScrolled
-                ? "text-black"
-                : "text-white"
-              : "text-black"
-          }`
+          `px-3 transition-all duration-300 ${isActive && "underline"}`
         }
       >
         Find tutors
@@ -62,15 +55,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
-            `px-3 transition-all duration-300 ${
-              isActive
-                ? "text-white bg-primary rounded-xs"
-                : isHome
-                ? isScrolled
-                  ? "text-black"
-                  : "text-white"
-                : "text-black"
-            }`
+            `px-3 transition-all duration-300 ${isActive && "underline"}`
           }
         >
           Dashboard
