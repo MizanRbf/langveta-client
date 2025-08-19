@@ -5,8 +5,8 @@ import { useLoaderData } from "react-router";
 import GlobalLearners from "./GlobalLearners";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "./NewsLetter/NewsLetter";
-import CallToAction from "./CallToAction";
 import FeaturesSection from "./Features";
+import ExperienceALesson from "./ExperienceALesson";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
@@ -22,7 +22,7 @@ const HomePage = () => {
       {/* Language Category Section */}
       <div
         id="language"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
           <h1 className="text-primary">Language Category</h1>
@@ -37,7 +37,7 @@ const HomePage = () => {
       {/* Top Rated Tutors Section */}
       <div
         id="topRatedTutors"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
           <h1 className="text-primary">Top Rated Tutors</h1>
@@ -56,7 +56,7 @@ const HomePage = () => {
       {/* Features */}
       <div
         id="pricingPlans"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
           <h1 className="text-primary">Features</h1>
@@ -68,25 +68,25 @@ const HomePage = () => {
         <FeaturesSection></FeaturesSection>
       </div>
 
-      {/* Call to Action */}
+      {/* Experience a Lesson */}
       <div
         id="topRatedTutors"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
-          <h1 className="text-primary">Call to Action</h1>
+          <h1 className="text-primary">Experience a Lesson</h1>
 
           <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
-            Your path to mastering languages begins here.
+            Try a one-on-one session with our expert tutors at no cost.
           </p>
         </div>
-        <CallToAction></CallToAction>
+        <ExperienceALesson></ExperienceALesson>
       </div>
 
       {/* Global Learners Section */}
       <div
         id="global"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
           <h1 className="text-primary">Global Learners Around the World</h1>
@@ -102,7 +102,7 @@ const HomePage = () => {
       {/* NewsLetter */}
       <div
         id="global"
-        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+        className="max-w-[1500px] mx-auto px-4 my-30 scroll-mt-30"
       >
         <div className="text-center mb-6">
           <h1 className="text-primary">Stay in the Loop</h1>
