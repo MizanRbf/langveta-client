@@ -5,6 +5,8 @@ import { useLoaderData } from "react-router";
 import GlobalLearners from "./GlobalLearners";
 import { Helmet } from "react-helmet-async";
 import NewsLetter from "./NewsLetter/NewsLetter";
+import CallToAction from "./CallToAction";
+import FeaturesSection from "./Features";
 
 const HomePage = () => {
   const topRatedTutors = useLoaderData();
@@ -49,6 +51,36 @@ const HomePage = () => {
           key={topRatedTutors._id}
           topRatedTutors={topRatedTutors}
         ></TopRatedTutors>
+      </div>
+
+      {/* Features */}
+      <div
+        id="pricingPlans"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
+        <div className="text-center mb-6">
+          <h1 className="text-primary">Features</h1>
+
+          <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+            Practical features built to keep you progressing.
+          </p>
+        </div>
+        <FeaturesSection></FeaturesSection>
+      </div>
+
+      {/* Call to Action */}
+      <div
+        id="topRatedTutors"
+        className="max-w-[1500px] mx-auto px-4 my-20 scroll-mt-30"
+      >
+        <div className="text-center mb-6">
+          <h1 className="text-primary">Call to Action</h1>
+
+          <p className="bg-secondary inline-block text-white px-4 rounded-sm mt-2">
+            Your path to mastering languages begins here.
+          </p>
+        </div>
+        <CallToAction></CallToAction>
       </div>
 
       {/* Global Learners Section */}

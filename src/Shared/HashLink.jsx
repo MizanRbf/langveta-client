@@ -1,6 +1,6 @@
 import { useLocation } from "react-router";
 import React, { useEffect, useState } from "react";
-const HashLink = ({ href, label, isScrolled, isHome }) => {
+const HashLink = ({ href, label }) => {
   const location = useLocation();
   const [isActive, setIsActive] = useState(false);
 
